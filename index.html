@@ -13,7 +13,19 @@
 <body>
 
   <header>
-    <h1>Libros Ecuador</h1>
+    <div class="header-inner">
+      <div class="header-text">
+        <h1>Observatorio del Libro UCE</h1>
+        <p class="subtitle">Universidad Central del Ecuador · Libros, precios y territorio</p>
+        <div class="header-meta">
+          Proyecto académico para analizar la red de librerías y el acceso al libro en Ecuador.
+        </div>
+      </div>
+      <div class="header-badges">
+        <span class="pill pill-accent">Trabajo de titulación UCE</span>
+        <span class="pill">Cobertura nacional en construcción</span>
+      </div>
+    </div>
   </header>
 
   <div class="tabs">
@@ -65,8 +77,18 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     const defaultImg = "https://placehold.co/400x600/cccccc/666666?text=Sin+Portada";
-    const CACHE_KEY = "librosEcuador_v37";
-    let precios = [], grupo = {}, ubicaciones = [];
+    const CACHE_KEY = "librosEcuador_v38";
+    let precios = [], grupo = {}, ubicaciones = [], provincias = [], provinciaActiva = "TODAS", datosSRI = [], mapa, capaGoogle, capaSRI;
+
+    function normalizarProvincia(nombre) {
+      return (nombre || "").toString().trim().toUpperCase();
+    }
+
+    function etiquetaProvincia(codigo) {
+      const c = (codigo || "").toString().trim().toUpperCase();
+      if (!c) return "";
+      return c.charAt(0) + c.slice(1).toLowerCase();
+    }
 
     async function cargarDatos() {
       const cached = localStorage.getItem(CACHE_KEY);
@@ -84,7 +106,7 @@
 
       try { const r = await fetch('libros_imagenes.json'); if (r.ok) destacados = await r.json(); } catch (e) { }
       try { const r = await fetch('librerias_procesadas.json'); if (!r.ok) throw 1; preciosRaw = await r.json(); }
-      catch (e) { document.getElementById('dashboard').innerHTML = `<div style="color:red;text-align:center;padding:5rem;font-size:2rem;">Error: No se encuentra librerias_procesadas.json<br><button onclick="location.reload()" style="margin-top:2rem;padding:1rem 2rem;background:#3b82f6;color:white;border:none;border-radius:12px;cursor:pointer">Reintentar</button></div>`; return; }
+      catch (e) { document.getElementById('dashboard').innerHTML = `<div style="color:red;text-align:center;padding:5rem;font-size:2rem;">No se pudieron cargar los datos de librerías.<br><small style="font-size:1.2rem;color:#4b5563">Asegúrate de abrir el proyecto con un servidor web (por ejemplo <code>python -m http.server</code>) y que el archivo <strong>librerias_procesadas.json</strong> esté en la misma carpeta que <strong>index.html</strong>.</small><br><button onclick="location.reload()" style="margin-top:2rem;padding:1rem 2rem;background:#003366;color:white;border:none;border-radius:12px;cursor:pointer">Reintentar</button></div>`; return; }
       try { const r = await fetch('librerias_ecuador_pichincha_pastaza_intermedia.json'); if (r.ok) ubicaciones = await r.json(); } catch (e) { }
 
       localStorage.setItem(CACHE_KEY, JSON.stringify({ destacados, preciosRaw, ubicaciones }));
@@ -114,6 +136,11 @@
         }
       });
 
+      const setProvincias = new Set();
+      precios.forEach(l => { if (l.provincia) setProvincias.add(normalizarProvincia(l.provincia)); });
+      ubicaciones.forEach(l => { if (l.provincia) setProvincias.add(normalizarProvincia(l.provincia)); });
+      provincias = Array.from(setProvincias).sort();
+
       renderDashboard();
       renderCatalogo();
       window.addEventListener('scroll', () => document.getElementById('backTop').classList.toggle('show', window.scrollY > 500));
@@ -124,6 +151,7 @@
       const totalUnicos = Object.keys(grupo).length;
       const totalOfertas = precios.length;
       const librerias = [...new Set(precios.map(p => p.libreria))].length;
+      const provinciasDetectadas = [...new Set(precios.map(p => normalizarProvincia(p.provincia || "")))].filter(Boolean).length;
       const precioPromedio = (precios.reduce((a, b) => a + b.precio, 0) / precios.length).toFixed(2);
       const precioMin = Math.min(...precios.map(p => p.precio));
       const precioMax = Math.max(...precios.map(p => p.precio));
@@ -141,6 +169,7 @@
         <div class="kpi-card success"><h3>Precio promedio</h3><p>$${precioPromedio}</p></div>
         <div class="kpi-card"><h3>Más barato</h3><p>$${precioMin}</p></div>
         <div class="kpi-card danger"><h3>Más caro</h3><p>$${precioMax}</p></div>
+        <div class="kpi-card warning"><h3>Provincias con datos</h3><p>${provinciasDetectadas}</p></div>
       </div>
 
       <div class="section"><h2>Top 15 Libros Más Populares</h2><div class="books-grid" id="topGrid"></div></div>
@@ -149,7 +178,11 @@
       <div class="section"><h2>Top 15 Libros Más Baratos</h2><table><thead><tr><th>Título</th><th>Precio</th><th>Librería</th></tr></thead><tbody id="cheapestBody"></tbody><tr class="ver-mas" id="verMasCheapest"><td colspan="3">Ver más ofertas</td></tr></table></div>
 
       <div class="section">
-        <h2>Ubicación de Librerías (Google Maps + SRI)</h2>
+        <h2>Mapa de librerías por provincia (Google Maps + SRI)</h2>
+        <div class="provincia-controls">
+          <span class="provincia-label">Vista geográfica:</span>
+          <select id="provinciaSelect" class="provincia-select"></select>
+        </div>
         <div class="leyenda">
           <strong>Leyenda:</strong><br>
           <span style="color:#1e40af">Marcadores azules</span> → Librerías reales (Google Maps)<br>
@@ -163,7 +196,7 @@
           <h2>Comparativa Google Maps vs SRI (Datos Oficiales 2025)</h2>
           <div class="kpi-grid" style="margin-bottom:2rem;">
             <div class="kpi-card success"><h3>Librerías en Google Maps</h3><p id="googleCount">0</p></div>
-            <div class="kpi-card danger"><h3>Zonas SRI Registradas</h3><p id="sriCount">0</p></div>
+            <div class="kpi-card danger"><h3>Zonas SRI registradas</h3><p id="sriCount">0</p></div>
             <div class="kpi-card danger"><h3>Total establecimientos SRI</h3><p id="totalSRI">0</p></div>
             <div class="kpi-card" id="coberturaCard"><h3>Cobertura real (Google vs SRI)</h3><p id="coberturaPorcentaje">0%</p></div>
           </div>
@@ -255,44 +288,85 @@
           document.getElementById("verMasCheapest").remove();
         }
       };
+      inicializarMapa();
+    }
 
+    function configurarProvinciaSelect() {
+      const select = document.getElementById("provinciaSelect");
+      if (!select) return;
+      const actual = provinciaActiva || "TODAS";
+      let opciones = `<option value="TODAS">Ecuador completo</option>`;
+      provincias.forEach(p => {
+        const codigo = normalizarProvincia(p);
+        opciones += `<option value="${codigo}">${etiquetaProvincia(codigo)}</option>`;
+      });
+      select.innerHTML = opciones;
+      select.value = provincias.includes(actual) || actual === "TODAS" ? actual : "TODAS";
+      select.onchange = () => {
+        provinciaActiva = select.value;
+        renderMapa();
+      };
+    }
 
-
-      // ====== MAPA + COMPARATIVA FINAL CON EXPANSIÓN ======
-      const map = L.map('map').setView([-0.1807, -78.4678], 10);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap' }).addTo(map);
-
-      const iconGoogle = L.icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34] });
-      const iconSRI = L.icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34] });
-      const iconSRIGrande = L.icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png', iconSize: [38, 62], iconAnchor: [19, 62], popupAnchor: [1, -50] });
-
-      let googleCount = 0;
-      if (ubicaciones.length > 0) {
-        ubicaciones.forEach(lib => { if (lib.lat && lib.lng) { googleCount++; L.marker([lib.lat, lib.lng], { icon: iconGoogle }).addTo(map).bindPopup(`<b style="color:#1e40af">Librería Real (Google)</b><br><b>${lib.nombre || 'Sin nombre'}</b><br>${lib.direccion || ''}`); } });
+    function inicializarMapa() {
+      if (mapa) {
+        mapa.remove();
+        mapa = null;
       }
-
+      mapa = L.map('map').setView([-1.8312, -78.1834], 6);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap' }).addTo(mapa);
+      capaGoogle = L.layerGroup().addTo(mapa);
+      capaSRI = L.layerGroup().addTo(mapa);
+      configurarProvinciaSelect();
       fetch('sri_pichincha_pastaza_coordenadas.json')
         .then(r => r.ok ? r.json() : Promise.reject())
         .then(sri => {
-          const totalEstablecimientosSRI = sri.reduce((a, z) => a + z.TOTAL_SUM_ESTABLECIMIENTOS, 0);
-          const zonasGrandes = sri.filter(z => z.TOTAL_SUM_ESTABLECIMIENTOS > 150).length;
-          const coberturaReal = Math.round((googleCount / totalEstablecimientosSRI) * 100);
+          datosSRI = sri;
+          renderMapa();
+        })
+        .catch(() => {
+          document.getElementById("sriCount").textContent = "No disponible";
+        });
+    }
 
-          sri.forEach(z => {
-            if (z.lat && z.lng) {
-              const esGrande = z.TOTAL_SUM_ESTABLECIMIENTOS > 150;
-              const zonaNombre = z.DIRECCION.split(',')[0].replace('Quito', '').trim() || 'Centro Quito';
-              L.marker([z.lat, z.lng], { icon: esGrande ? iconSRIGrande : iconSRI }).addTo(map)
-                .bindPopup(`<div style="font-size:14px"><b style="color:#dc2626">Zona Oficial SRI</b><br><b>${zonaNombre}</b><br><hr style="margin:8px 0;border-top:1px solid #eee"><small><b>Establecimientos:</b> ${z.TOTAL_SUM_ESTABLECIMIENTOS}<br><b>Provincia:</b> ${z.DESCRIPCION_PROVINCIA_EST}</small></div>`);
-            }
-          });
-
-          // KPIs
-          document.getElementById("googleCount").textContent = googleCount.toLocaleString();
-          document.getElementById("sriCount").textContent = sri.length + " zonas";
-          document.getElementById("totalSRI").textContent = totalEstablecimientosSRI.toLocaleString();
-
-          document.getElementById("coberturaCard").innerHTML = `
+    function renderMapa() {
+      if (!mapa || !capaGoogle || !capaSRI) return;
+      capaGoogle.clearLayers();
+      capaSRI.clearLayers();
+      let googleCount = 0;
+      const iconGoogle = L.icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34] });
+      const iconSRI = L.icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34] });
+      const iconSRIGrande = L.icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png', iconSize: [38, 62], iconAnchor: [19, 62], popupAnchor: [1, -50] });
+      const puntos = [];
+      const filtroProvincia = provinciaActiva && provinciaActiva !== "TODAS" ? provinciaActiva : null;
+      ubicaciones.forEach(lib => {
+        if (!lib.lat || !lib.lng) return;
+        const codigo = normalizarProvincia(lib.provincia || "");
+        if (filtroProvincia && codigo !== filtroProvincia) return;
+        googleCount++;
+        const marcador = L.marker([lib.lat, lib.lng], { icon: iconGoogle }).addTo(capaGoogle);
+        marcador.bindPopup(`<b style="color:#1e40af">Librería real (Google)</b><br><b>${lib.nombre || 'Sin nombre'}</b><br>${lib.direccion || ''}`);
+        puntos.push([lib.lat, lib.lng]);
+      });
+      const sriFiltrado = datosSRI.filter(z => {
+        if (!z.lat || !z.lng) return false;
+        if (!filtroProvincia) return true;
+        const codigo = normalizarProvincia(z.DESCRIPCION_PROVINCIA_EST);
+        return codigo === filtroProvincia;
+      });
+      const totalEstablecimientosSRI = sriFiltrado.reduce((a, z) => a + z.TOTAL_SUM_ESTABLECIMIENTOS, 0);
+      sriFiltrado.forEach(z => {
+        const esGrande = z.TOTAL_SUM_ESTABLECIMIENTOS > 150;
+        const zonaNombre = z.DIRECCION.split(',')[0].replace('Quito', '').trim() || 'Zona';
+        const marcador = L.marker([z.lat, z.lng], { icon: esGrande ? iconSRIGrande : iconSRI }).addTo(capaSRI);
+        marcador.bindPopup(`<div style="font-size:14px"><b style="color:#dc2626">Zona oficial SRI</b><br><b>${zonaNombre}</b><br><hr style="margin:8px 0;border-top:1px solid #eee"><small><b>Establecimientos:</b> ${z.TOTAL_SUM_ESTABLECIMIENTOS}<br><b>Provincia:</b> ${z.DESCRIPCION_PROVINCIA_EST}</small></div>`);
+        puntos.push([z.lat, z.lng]);
+      });
+      const coberturaReal = totalEstablecimientosSRI > 0 ? Math.round((googleCount / totalEstablecimientosSRI) * 100) : 0;
+      document.getElementById("googleCount").textContent = googleCount.toLocaleString();
+      document.getElementById("sriCount").textContent = sriFiltrado.length + " zonas";
+      document.getElementById("totalSRI").textContent = totalEstablecimientosSRI.toLocaleString();
+      document.getElementById("coberturaCard").innerHTML = `
                         <h3>Cobertura real (Google vs SRI)</h3>
                         <p style="font-size:2.4rem;color:${coberturaReal < 40 ? '#ef4444' : '#f59e0b'}">${coberturaReal}%</p>
                         <small style="color:#64748b;font-size:0.95rem">
@@ -300,26 +374,28 @@
                             de <strong>${totalEstablecimientosSRI.toLocaleString()}</strong> establecimientos oficiales
                         </small>
                     `;
-
-          // Top 10 inicial
-          const topOrdenado = sri.sort((a, b) => b.TOTAL_SUM_ESTABLECIMIENTOS - a.TOTAL_SUM_ESTABLECIMIENTOS);
-          const mostrarTop = (hasta = 10) => {
-            document.getElementById("topSRI").innerHTML = topOrdenado.slice(0, hasta).map((z, i) => {
-              const nombre = z.DIRECCION.split(',')[0].replace('Quito', '').trim() || 'Centro Quito';
-              return `<tr><td>${i + 1}</td><td>${nombre}</td><td><strong>${z.TOTAL_SUM_ESTABLECIMIENTOS}</strong></td></tr>`;
-            }).join("");
-          };
-          mostrarTop(10);
-
-          // Botón "Ver más zonas"
-          document.getElementById("verMasSRI").onclick = () => {
-            mostrarTop(1000);
-            document.getElementById("verMasSRI").remove();
-          };
-
-          setTimeout(() => { const puntos = [...ubicaciones.map(l => [l.lat, l.lng]), ...sri.map(z => [z.lat, z.lng])].filter(p => p[0] && p[1]); if (puntos.length > 0) map.fitBounds(puntos, { padding: [50, 50] }); }, 1000);
-        })
-        .catch(() => { document.getElementById("sriCount").textContent = "No disponible"; });
+      const topOrdenado = [...datosSRI].filter(z => {
+        if (!filtroProvincia) return true;
+        const codigo = normalizarProvincia(z.DESCRIPCION_PROVINCIA_EST);
+        return codigo === filtroProvincia;
+      }).sort((a, b) => b.TOTAL_SUM_ESTABLECIMIENTOS - a.TOTAL_SUM_ESTABLECIMIENTOS);
+      const mostrarTop = (hasta = 10) => {
+        document.getElementById("topSRI").innerHTML = topOrdenado.slice(0, hasta).map((z, i) => {
+          const nombre = z.DIRECCION.split(',')[0].replace('Quito', '').trim() || 'Zona';
+          return `<tr><td>${i + 1}</td><td>${nombre}</td><td><strong>${z.TOTAL_SUM_ESTABLECIMIENTOS}</strong></td></tr>`;
+        }).join("");
+      };
+      mostrarTop(10);
+      const verMas = document.getElementById("verMasSRI");
+      if (verMas) {
+        verMas.onclick = () => {
+          mostrarTop(1000);
+          verMas.remove();
+        };
+      }
+      if (puntos.length > 0) {
+        mapa.fitBounds(puntos, { padding: [50, 50] });
+      }
     }
 
     // CATÁLOGO, MODAL y funciones openTab igual que antes...

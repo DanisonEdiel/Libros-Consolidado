@@ -1,10 +1,10 @@
 :root {
-  --p: #3b82f6;
-  --s: #10b981;
-  --w: #f59e0b;
-  --d: #1e293b;
+  --p: #003366;
+  --s: #fbbf24;
+  --w: #f97316;
+  --d: #0f172a;
   --g: #64748b;
-  --bg: #f8fafc;
+  --bg: #f5f5f7;
   --r: #ef4444;
 }
 
@@ -21,23 +21,73 @@ body {
   line-height: 1.6;
 }
 
-header {
-  background: linear-gradient(135deg, #1e40af, #3b82f6);
-  color: white;
-  padding: 3rem 1rem;
-  text-align: center;
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
 }
 
-h1 {
+.header-text {
+  max-width: 760px;
+}
+
+.header-meta {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #e5e7eb;
+}
+
+.header-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 220px;
+}
+
+header {
+  background: radial-gradient(circle at top left, #145ea8 0, #002045 55%, #000814 100%);
+  color: white;
+  padding: 3rem 1.5rem 2.5rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.45);
+}
+
+header h1 {
   font-size: 3rem;
   font-weight: 900;
   margin: 0;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .subtitle {
   font-size: 1.3rem;
   opacity: 0.95;
   margin-top: 0.5rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  color: #e5e7eb;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.pill-accent {
+  background: #fbbf24;
+  border-color: #fbbf24;
+  color: #1f2937;
 }
 
 .tabs {
@@ -372,4 +422,33 @@ tr:hover {
 
 #modalTitulo {
   color: white;
+}
+
+.provincia-controls {
+  margin: 1.5rem 0 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.provincia-label {
+  font-weight: 600;
+  color: var(--d);
+  font-size: 0.95rem;
+}
+
+.provincia-select {
+  min-width: 220px;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  border: 2px solid #e2e8f0;
+  font-size: 0.95rem;
+  background: white;
+}
+
+.provincia-select:focus {
+  outline: none;
+  border-color: var(--p);
+  box-shadow: 0 0 0 4px rgba(0, 51, 102, 0.18);
 }
