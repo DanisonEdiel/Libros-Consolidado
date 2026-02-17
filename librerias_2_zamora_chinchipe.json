@@ -1,0 +1,5744 @@
+{
+  "metadata": {
+    "fecha_creacion": "2026-02-16",
+    "version": "1.0",
+    "descripcion": "Datos normalizados de librerias y establecimientos en Zamora Chinchipe",
+    "fuentes": [
+      "SRI_RUC_Zamora_Chinchipe.csv"
+    ]
+  },
+  "resumen_general": {
+    "total_ruc_unicos": 220,
+    "total_establecimientos": 289,
+    "total_ubicaciones": 31,
+    "total_librerias_destacadas": 0,
+    "total_libros_catalogados": 0,
+    "venta_mensual_total_usd": 0.0,
+    "venta_anual_total_usd": 0.0
+  },
+  "codigos_ciiu": {
+    "G476101": {
+      "descripcion": "",
+      "total_establecimientos": 19
+    },
+    "G476102": {
+      "descripcion": "",
+      "total_establecimientos": 4
+    },
+    "G476103": {
+      "descripcion": "",
+      "total_establecimientos": 266
+    },
+    "G476104": {
+      "descripcion": "",
+      "total_establecimientos": 0
+    }
+  },
+  "establecimientos_por_ruc": {
+    "1900750637001": {
+      "nombre_comercial": "LIBRERIA Y PAPELERIA AMAZONAS EC",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2017-02-22",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900446988001": {
+      "nombre_comercial": "PAPELERIA ANSHY",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "LOS ENCUENTROS, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2003-04-04",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1104555667001": {
+      "nombre_comercial": "CUEVA DIAZ MERCY AIDE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PALANDA, PALANDA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2011-04-06",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "PALANDA, PALANDA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2011-04-06",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900465244001": {
+      "nombre_comercial": "MULTICOMERCIO MARY",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "GUAYZIMI, NANGARITZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2005-02-01",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900452010001": {
+      "nombre_comercial": "LIBRERIA CA&LU",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PACHICUTZA, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2010-06-11",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1600468852001": {
+      "nombre_comercial": "ESPUELA DE COBRE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 3,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "TUNDAYME, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2006-10-30",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "TUNDAYME, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2006-10-30",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 3,
+          "ubicacion": "TUNDAYME, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2006-10-30",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900814862001": {
+      "nombre_comercial": "CONDOY REYES KARLA LUCIA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "LOS ENCUENTROS, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2020-10-29",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "LOS ENCUENTROS, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2020-10-29",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900027853001": {
+      "nombre_comercial": "LIBRERIA Y PAPELERIA GENESIS",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "1999-01-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900830066001": {
+      "nombre_comercial": "LIBRERIA Y BISUTERIA FERODIS",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "TUTUPALI, YACUAMBI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2017-05-22",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900652999001": {
+      "nombre_comercial": "TIENDA DE ABARROTES Y VERDURAS",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2022-07-07",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2022-07-07",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900734268001": {
+      "nombre_comercial": "PAPELERIA Y SERVICIOS",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2022-08-09",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2022-08-09",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1101959094001": {
+      "nombre_comercial": "PAPELERIA CAMINITOS DE LUZ",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PALANDA, PALANDA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "1999-10-08",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900337724001": {
+      "nombre_comercial": "QUEZADA PAPELERIA Y BAZAR",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2012-11-23",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900816008001": {
+      "nombre_comercial": "AGUIRRE HURTADO MASSIEL CRISTINA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2024-07-30",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900834522001": {
+      "nombre_comercial": "VILLA RODRIGUEZ WIDINSON STEVEN",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "GUAYZIMI, NANGARITZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2024-06-24",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "0105313316001": {
+      "nombre_comercial": "VARIEDADES EDRIMAX",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-05-07",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900597871001": {
+      "nombre_comercial": "ASESORIA CONTABLE L&L",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 3,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBI, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2007-10-11",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "ZUMBI, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2007-10-11",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 3,
+          "ubicacion": "ZUMBI, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2007-10-11",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900372093001": {
+      "nombre_comercial": "BAZAR Y PAPELERIA ANGELIQUE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 3,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2007-06-22",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2007-06-22",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 3,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2007-06-22",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900521137001": {
+      "nombre_comercial": "CYBERNET REINA DEL CISNE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBI, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2010-05-04",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900652213001": {
+      "nombre_comercial": "SAETAMA FAJARDO KARINA JACKELINE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 3,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2016-09-22",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2016-09-22",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 3,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2016-09-22",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900062140001": {
+      "nombre_comercial": "I\u00d1IGUEZ AGUILAR ADRIANA MARIBEL",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2004-04-06",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900430388001": {
+      "nombre_comercial": "AUTO SERVICIO ENCARNACION GANGOTENA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2008-07-30",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900644848001": {
+      "nombre_comercial": "CUEVA MERINO JONATHAN MANUEL",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476102",
+          "fecha_actividad": "2011-08-23",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900290451001": {
+      "nombre_comercial": "BAZAR Y PAPELERIA TOVEL",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 3,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2005-06-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "ZUMBI, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2005-06-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 3,
+          "ubicacion": "ZUMBI, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2005-06-01",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900424852001": {
+      "nombre_comercial": "SERVICIO EDUCATIVO ANDY",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476101",
+          "fecha_actividad": "2009-10-19",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900299361001": {
+      "nombre_comercial": "BAZAR Y PAPELERIA SAN JOSE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "GUADALUPE, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2007-06-01",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "GUADALUPE, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2007-06-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1104906142001": {
+      "nombre_comercial": "SPCM SOLUCIONES",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "LIZARZABURU, RIOBAMBA, CHIMBORAZO",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2016-07-06",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2016-07-06",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900363522001": {
+      "nombre_comercial": "EL PALACIO DEL RECUERDO",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2000-03-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900010370001": {
+      "nombre_comercial": "QUEZADA IGLESIAS VICTOR ABRAHAN",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "GUADALUPE, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2003-08-07",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1950054732001": {
+      "nombre_comercial": "LIBRERIA Y COPIADORA JADE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "LOS ENCUENTROS, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2024-03-25",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900294263001": {
+      "nombre_comercial": "PAPELERIA HERRERA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2014-04-14",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900540624001": {
+      "nombre_comercial": "GUARNIZO GUAMAN BARBARA NICOL",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 6,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-10-03",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-10-03",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 3,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-10-03",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 4,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-10-03",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 5,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-10-03",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 6,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-10-03",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1105682080001": {
+      "nombre_comercial": "MACANCELA ALBA ERIKA SALOME",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2024-05-13",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1104958259001": {
+      "nombre_comercial": "JIMENEZ ROSALES ERWIN FRANKLIN",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PORVENIR DEL CARMEN, PALANDA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2023-05-08",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900378504001": {
+      "nombre_comercial": "SOCIO CIA. DE TRANSPORTES EN TAXIS EN AUTOMOVILES TRANSANTURIOS S.A",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2014-07-07",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2014-07-07",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900620533001": {
+      "nombre_comercial": "OBACO ORTIZ MARIA LEONOR",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476102",
+          "fecha_actividad": "2010-05-18",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900834845001": {
+      "nombre_comercial": "PAPELERIA SOFIA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "CHICA\u00d1A, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2020-08-18",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "CHICA\u00d1A, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2020-08-18",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900691088001": {
+      "nombre_comercial": "BAZAR Y PAPELERIA LUCY",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PAGUINTZA, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2023-05-10",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900584986001": {
+      "nombre_comercial": "MEDINA CHALAN BERTHA CARMELINA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "28 DE MAYO (SAN JOSE DE YACUAMBI), YACUAMBI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2012-03-20",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1717498529001": {
+      "nombre_comercial": "ROA CARRION NATALY SILVANA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-06-05",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "ZUMBI, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-06-05",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900575570001": {
+      "nombre_comercial": "PC SOLUTIONS",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2005-05-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "CUMBARATZA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2005-05-01",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900708387001": {
+      "nombre_comercial": "INGA LOJANO DIANA MARIBEL",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 3,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2017-10-16",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2017-10-16",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 3,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2017-10-16",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1999307805001": {
+      "nombre_comercial": "LA-PAPELERIA S.A.S.",
+      "tipo_contribuyente": "SOCIEDAD",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2023-04-11",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1105131906001": {
+      "nombre_comercial": "KAUTIVA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 3,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBA, CHINCHIPE, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2012-11-08",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "ZUMBA, CHINCHIPE, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2012-11-08",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 3,
+          "ubicacion": "ZUMBA, CHINCHIPE, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2012-11-08",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900240803001": {
+      "nombre_comercial": "PAPELERIA MARIAIDI",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2012-10-25",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900630375001": {
+      "nombre_comercial": "CIBER EL VERGEL",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "SAN FRANCISCO DE VERGEL, PALANDA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2024-04-12",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900624360001": {
+      "nombre_comercial": "MULTISHOP C Y L",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2023-09-15",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1950003556001": {
+      "nombre_comercial": "LIBRERIA DAVID",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "28 DE MAYO (SAN JOSE DE YACUAMBI), YACUAMBI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2021-06-10",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900623107001": {
+      "nombre_comercial": "BAZAR Y PAPELERIA DIVINO NI\u00d1O",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "NUEVO QUITO, PAQUISHA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2009-10-06",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900362797001": {
+      "nombre_comercial": "COMERCIAL ROSITA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "28 DE MAYO (SAN JOSE DE YACUAMBI), YACUAMBI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2000-09-01",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900834258001": {
+      "nombre_comercial": "GUI\u00d1ANSACA CABRERA CRISTIAN GEOVANNY",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "TUNDAYME, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2014-01-10",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900635630001": {
+      "nombre_comercial": "ANDRADE SANMARTIN HELIDA JACKELINE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 4,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2013-09-25",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2013-09-25",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 3,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2013-09-25",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 4,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2013-09-25",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1104638240001": {
+      "nombre_comercial": "LANCHE JARA MARIA MARGOTH",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 4,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PORVENIR DEL CARMEN, PALANDA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2008-10-28",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "SAN SEBASTIAN, LOJA, LOJA",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2008-10-28",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 3,
+          "ubicacion": "EL PORVENIR DEL CARMEN, PALANDA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2008-10-28",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 4,
+          "ubicacion": "PALANDA, PALANDA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2008-10-28",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "0801047028001": {
+      "nombre_comercial": "GAMEZ PATA PROSPERO JUVENCIO",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2008-08-30",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900457365001": {
+      "nombre_comercial": "SERVICOP",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2011-07-19",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1751677798001": {
+      "nombre_comercial": "PAPELERIA RODRIGUEZ",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "GUADALUPE, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2023-03-27",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1105382921001": {
+      "nombre_comercial": "BAZAR PAPELERIA DAYANARA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "GUADALUPE, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2019-08-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900479666001": {
+      "nombre_comercial": "COMERCIO ABA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PAQUISHA, PAQUISHA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2019-07-23",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900534676001": {
+      "nombre_comercial": "BAZAR Y PAPELERIA DIANITA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "GUADALUPE, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2014-07-07",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1150347498001": {
+      "nombre_comercial": "PARDO MERINO SILVIA BEATRIZ",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PALANDA, PALANDA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-10-31",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900467851001": {
+      "nombre_comercial": "GUAMAN POMA ROSA MARGARITA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "LA PAZ, YACUAMBI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2017-01-16",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "LA PAZ, YACUAMBI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2017-01-16",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900469915001": {
+      "nombre_comercial": "COLORCITOS PLUS",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2009-04-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1709366429001": {
+      "nombre_comercial": "COMERCIAL BUSTAMANTE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBA, CHINCHIPE, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476101",
+          "fecha_actividad": "2008-02-15",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "0911607976001": {
+      "nombre_comercial": "LIBRERIA BERACA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2006-07-27",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2006-07-27",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1103866818001": {
+      "nombre_comercial": "PAPER LOVE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2024-02-06",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900706605001": {
+      "nombre_comercial": "BAZAR Y PAPELERIA ABY",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "GUAYZIMI, NANGARITZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2015-03-18",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "GUAYZIMI, NANGARITZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2015-03-18",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900277888001": {
+      "nombre_comercial": "ISABEL",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBI, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2009-08-05",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "0705342657001": {
+      "nombre_comercial": "BERNAL VALAREZO JEAN PIERRE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2022-04-26",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900490499001": {
+      "nombre_comercial": "TRACTOLED INNOVATION",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2012-11-15",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2012-11-15",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900252881001": {
+      "nombre_comercial": "BAZAR ROSITA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2002-11-28",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900420082001": {
+      "nombre_comercial": "SERAQUIVE MOROCHO LUZ CLEMENTINA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "28 DE MAYO (SAN JOSE DE YACUAMBI), YACUAMBI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2021-01-07",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900788124001": {
+      "nombre_comercial": "CYBER MICAELA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "NUEVO QUITO, PAQUISHA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2012-01-19",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900461383001": {
+      "nombre_comercial": "GUERRON GOMEZ STEEVEN ANDRES",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476101",
+          "fecha_actividad": "2021-08-04",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900200187001": {
+      "nombre_comercial": "CARRION JARAMILLO FANNY NELY",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "VALLADOLID, PALANDA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2008-09-26",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900105196001": {
+      "nombre_comercial": "EL JARDIN MULTIOCACIONES",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2005-12-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900856087001": {
+      "nombre_comercial": "ZHUNAULA GUAMAN DARWIN EFRAIN",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PAQUISHA, PAQUISHA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2023-08-21",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900471572001": {
+      "nombre_comercial": "PAPELERIA Y BAZAR J&N",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "SAN CARLOS DE LAS MINAS, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2008-09-12",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "0701558462001": {
+      "nombre_comercial": "RAMON RAMON ENRIQUE BOLIVAR",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL GUISMI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476101",
+          "fecha_actividad": "1984-08-01",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "HUAQUILLAS, HUAQUILLAS, EL ORO",
+          "codigo_ciiu": "G476101",
+          "fecha_actividad": "1984-08-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900722669001": {
+      "nombre_comercial": "LIBRERIA EL CISNE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "GUAYZIMI, NANGARITZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2023-06-30",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1104161003001": {
+      "nombre_comercial": "ARELYS",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "TIMBARA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2009-03-27",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900678036001": {
+      "nombre_comercial": "BAZAR Y PAPELERIA KATYS",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZURMI, NANGARITZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2019-09-04",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1100607249001": {
+      "nombre_comercial": "RODRIGUEZ SANMARTIN BOLIVAR ATAHUALPA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBA, CHINCHIPE, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476102",
+          "fecha_actividad": "2010-04-22",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1102591896001": {
+      "nombre_comercial": "JUMBO QUICHIMBO MIRIAN DEL CISNE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBI, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2020-07-21",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "0703471615001": {
+      "nombre_comercial": "CORDOVA PRADO ERWIN OSWALDO",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2014-06-30",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2014-06-30",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1100017969001": {
+      "nombre_comercial": "PAPELERIA SAN DIEGO",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBI, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "1996-02-29",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "0602030793001": {
+      "nombre_comercial": "INFORMIX",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476101",
+          "fecha_actividad": "1993-01-28",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900856038001": {
+      "nombre_comercial": "CYBERIA ABBY",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "CHICA\u00d1A, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-01-10",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1104098833001": {
+      "nombre_comercial": "CAMINITOS DE LUZ",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PALANDA, PALANDA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2015-08-21",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900858299001": {
+      "nombre_comercial": "NET CENTER",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "GUAYZIMI, NANGARITZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2019-05-08",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900605070001": {
+      "nombre_comercial": "PAPELERIA ANABEL",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "GUADALUPE, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2009-02-09",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900345891001": {
+      "nombre_comercial": "ARBOLEDA REINOSO MARCO VINICIO",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2007-01-03",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1103911804001": {
+      "nombre_comercial": "MORALES GALVEZ WILSON ANDRES",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2024-12-09",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1950002954001": {
+      "nombre_comercial": "RAPIPAGOS MONTA\u00d1O",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2021-06-11",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900528553001": {
+      "nombre_comercial": "D' COPAS LICORER\u00cdA & CERVECER\u00cdA 24 HORAS",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2010-02-17",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1450176068001": {
+      "nombre_comercial": "COMERCIAL BAZAR Y PAPELERIA DANIELA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "TUNDAYME, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2023-12-01",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900069889001": {
+      "nombre_comercial": "BAZAR Y LIBRERIA YURAK SISA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "28 DE MAYO (SAN JOSE DE YACUAMBI), YACUAMBI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2012-08-03",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1101819082001": {
+      "nombre_comercial": "BAZAR Y PAPELERIA SAN VICENTE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PALANDA, PALANDA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "1999-10-08",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900040724001": {
+      "nombre_comercial": "BUS DE COMPA\u00d1IA DE TRANSURBASUR",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 3,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "SUCRE, LOJA, LOJA",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "1988-07-12",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "SUCRE, LOJA, LOJA",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "1988-07-12",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 3,
+          "ubicacion": "ZUMBA, CHINCHIPE, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "1988-07-12",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900284959001": {
+      "nombre_comercial": "BAZAR Y PAPELERIA EL REGALO",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476101",
+          "fecha_actividad": "2002-07-05",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900390806001": {
+      "nombre_comercial": "IZQUIERDO VALLADAREZ LUIS HUMBERTO",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "28 DE MAYO (SAN JOSE DE YACUAMBI), YACUAMBI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2007-02-02",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "VALLE, LOJA, LOJA",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2007-02-02",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900839679001": {
+      "nombre_comercial": "COMERCIAL JARAMILLO",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZURMI, NANGARITZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2022-04-27",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "ZURMI, NANGARITZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2022-04-27",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900219559001": {
+      "nombre_comercial": "CAFETERIA  ESTEFANY",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "1995-07-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "1995-07-01",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900588706001": {
+      "nombre_comercial": "PAPELERIA JHOELENA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2019-06-07",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900132117001": {
+      "nombre_comercial": "SALAZAR ERRAEZ MARIANA DE JESUS",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "GUADALUPE, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2009-06-29",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900258078001": {
+      "nombre_comercial": "VICENTE ABAD MARIA ORFA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "SAN CARLOS DE LAS MINAS, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2011-06-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900603968001": {
+      "nombre_comercial": "BAZAR Y PAPELERIA MARBELLA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "LOS ENCUENTROS, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2009-03-09",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900428234001": {
+      "nombre_comercial": "LOJA ORTEGA SUSANA ALEJANDRINA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2010-04-21",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900869510001": {
+      "nombre_comercial": "BAZAR Y PAPELERIA FER",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "GUAYZIMI, NANGARITZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2022-09-13",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1105184442001": {
+      "nombre_comercial": "CHINCHIPE PC",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBA, CHINCHIPE, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2016-11-24",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900527043001": {
+      "nombre_comercial": "PAPELER\u00cdA TELLO",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2005-04-04",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900790443001": {
+      "nombre_comercial": "ASADOS & ALGO MAS",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 3,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2017-01-30",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2017-01-30",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 3,
+          "ubicacion": "28 DE MAYO (SAN JOSE DE YACUAMBI), YACUAMBI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2017-01-30",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900312644001": {
+      "nombre_comercial": "LOPEZ GORDILLO MIRIAM DEL CARMEN",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "CUMBARATZA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "1999-02-01",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1105155319001": {
+      "nombre_comercial": "BAZAR Y PAPELERIA SANTIAGUITO",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "LOS ENCUENTROS, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2014-04-09",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900775063001": {
+      "nombre_comercial": "COPIADORA  VICMA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 3,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2017-02-21",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2017-02-21",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 3,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2017-02-21",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900457688001": {
+      "nombre_comercial": "LUNA VI\u00d1AMAO LEONARDO DAVID",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-04-24",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900421684001": {
+      "nombre_comercial": "TORRES ORTEGA SANDRA ELOIZA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2001-02-06",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900440007001": {
+      "nombre_comercial": "YHOVANCOPY",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2005-04-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900230655001": {
+      "nombre_comercial": "REPRESENTACIONES UMAR KLERT",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476101",
+          "fecha_actividad": "2012-09-05",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900671957001": {
+      "nombre_comercial": "JARAMILLO ROSALES MILTON EFRAIN",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "SAN FRANCISCO DE VERGEL, PALANDA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2009-08-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900764596001": {
+      "nombre_comercial": "JARAMILLO NARVAEZ JESSICA KATHERINE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2012-11-16",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900338284001": {
+      "nombre_comercial": "CHAMBA CHAMBA LUZ YOLANDA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "1997-02-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "1997-02-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "0926905993001": {
+      "nombre_comercial": "PAPALERIA JESSILUC",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBI, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-03-06",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900447754001": {
+      "nombre_comercial": "SERVITEC COM",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2016-08-01",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "0500661012001": {
+      "nombre_comercial": "PAPELERIA VIZUETE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBA, CHINCHIPE, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2005-01-31",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "ZUMBA, CHINCHIPE, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2005-01-31",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1104687379001": {
+      "nombre_comercial": "LIBRERIA ELIZABETH",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBI, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-07-02",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900423417001": {
+      "nombre_comercial": "CHULLA VIDA 593",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2012-01-26",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2012-01-26",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900533199001": {
+      "nombre_comercial": "PAPELERIA Y FLORISTERIA IMARI",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2008-09-12",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900713239001": {
+      "nombre_comercial": "PAPELERIA Y NOVEDADES LORENITA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZURMI, NANGARITZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2019-08-27",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900153790001": {
+      "nombre_comercial": "CALVA JIMENEZ JESUS SALVADOR",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PAQUISHA, PAQUISHA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476101",
+          "fecha_actividad": "2020-03-09",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1104727480001": {
+      "nombre_comercial": "MERINO ALVAREZ DIANA ALEXANDRA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PALANDA, PALANDA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2008-07-02",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "SUCRE, LOJA, LOJA",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2008-07-02",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900413897001": {
+      "nombre_comercial": "MULTIVARIEDADES ANTHONNY",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBI, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2006-08-18",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1100268356001": {
+      "nombre_comercial": "ORDO\u00d1EZ MORENO EMMA MARIA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "1999-01-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "1999-01-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900509181001": {
+      "nombre_comercial": "ROMERO GUAMAN LILIANA MARIUXI",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2022-04-01",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1105029233001": {
+      "nombre_comercial": "PAPELERIA GONZALEZ",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2022-01-13",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2022-01-13",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900453042001": {
+      "nombre_comercial": "MOROCHO ORTIZ LUZ MARINA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2010-11-23",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900691872001": {
+      "nombre_comercial": "INTERNET Y PAPELERIA D'CHARLIE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBI, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2019-08-20",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1104109390001": {
+      "nombre_comercial": "COPYNET S Y M",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2019-10-09",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1102651146001": {
+      "nombre_comercial": "LIBRRIA Y PAPELERIA AMAZONAS",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476101",
+          "fecha_actividad": "1997-01-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900499409001": {
+      "nombre_comercial": "LIBRERIA JHONATAN",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBI, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2015-10-05",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900148782001": {
+      "nombre_comercial": "LIBRERIA MARY",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "1996-01-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "1996-01-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900827534001": {
+      "nombre_comercial": "BAZAR Y LIBRERIA DYLANCHITO",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2019-12-13",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1103810386001": {
+      "nombre_comercial": "PAPELERIA Y BAZAR LA CASTELLANA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2012-12-01",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900443282001": {
+      "nombre_comercial": "JARAMILLO RODRIGUEZ DUVAL JAVIER",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBA, CHINCHIPE, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2009-09-04",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900528694001": {
+      "nombre_comercial": "TIENDA FER Y CAR",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PAQUISHA, PAQUISHA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2014-05-27",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "PAQUISHA, PAQUISHA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2014-05-27",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900440387001": {
+      "nombre_comercial": "SAETAMA FAJARDO JOHANA SUSANA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2007-08-13",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900282052001": {
+      "nombre_comercial": "NAMICELA CHUQUI LIVIA MARIA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "GUAYZIMI, NANGARITZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2015-01-13",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900758416001": {
+      "nombre_comercial": "LOAIZA REYES ANDREA VIVIANA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2012-09-11",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1105150179001": {
+      "nombre_comercial": "ISABELITA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-12-05",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900549518001": {
+      "nombre_comercial": "BAZAR Y LIBRERIA LEITO",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-02-28",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900413301001": {
+      "nombre_comercial": "VILLACIS JIMENEZ MERLY LUCIA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBA, CHINCHIPE, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2005-07-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "ZUMBA, CHINCHIPE, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2005-07-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900408814001": {
+      "nombre_comercial": "LIBRERIA MOVILQUIK",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2014-10-28",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1102170600001": {
+      "nombre_comercial": "BAZAR Y PAPELERIA AGUILAR",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBA, CHINCHIPE, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2022-03-31",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900789668001": {
+      "nombre_comercial": "PAPELERIA FERNANDITA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "28 DE MAYO (SAN JOSE DE YACUAMBI), YACUAMBI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-09-04",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "0105645899001": {
+      "nombre_comercial": "MULTISERVICIO RUBI",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "NUEVO QUITO, PAQUISHA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2015-03-10",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900489491001": {
+      "nombre_comercial": "FIERRO GRANILLO GABRIELA KARINA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2013-02-08",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1104515331001": {
+      "nombre_comercial": "TACURI OCAMPO LILA ENIDT",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PAGUINTZA, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2011-09-15",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900534601001": {
+      "nombre_comercial": "UN MUNDO DE COLORES",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "LOS ENCUENTROS, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2013-08-27",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900295161001": {
+      "nombre_comercial": "NOVEDADES SAN FRANCISCO",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "GUAYZIMI, NANGARITZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476101",
+          "fecha_actividad": "2013-11-11",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1950013548001": {
+      "nombre_comercial": "PAPELERIA GUAMAN",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "28 DE MAYO (SAN JOSE DE YACUAMBI), YACUAMBI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2022-04-05",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900278142001": {
+      "nombre_comercial": "LIBRERIA REYNA DEL CISNE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476101",
+          "fecha_actividad": "1994-12-08",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900742592001": {
+      "nombre_comercial": "PAPELERIA REINA DEL CISNE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "28 DE MAYO (SAN JOSE DE YACUAMBI), YACUAMBI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2016-03-10",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900410398001": {
+      "nombre_comercial": "DIARIO GUAMAN",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476102",
+          "fecha_actividad": "2008-05-26",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1104253578001": {
+      "nombre_comercial": "BAZAR Y PAPELERIA ELISABETH",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "LOS ENCUENTROS, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2011-01-04",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900751593001": {
+      "nombre_comercial": "BAR ANTOJITOS",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBI, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2017-09-04",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "ZUMBI, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2017-09-04",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900499979001": {
+      "nombre_comercial": "PAPELERIA ALEJANDRO",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2016-03-14",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900584226001": {
+      "nombre_comercial": "BAZAR Y PAPELERIA FERNABER",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2010-11-05",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900667500001": {
+      "nombre_comercial": "ORDO\u00d1EZ GUARACA ROSA ANGELICA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PACHICUTZA, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2019-03-15",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1103453526001": {
+      "nombre_comercial": "ORTIZ ROMERO RITA GUADALUPE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2014-10-28",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1950176055001": {
+      "nombre_comercial": "AYUI GANGOTENA JOSELYN VERENICE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2023-08-07",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900548627001": {
+      "nombre_comercial": "LIBRERIA EL ESTUDIANTE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2010-02-03",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2010-02-03",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "0151682366001": {
+      "nombre_comercial": "SERVICIO EDUCATIVO ALICIA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476101",
+          "fecha_actividad": "2015-06-16",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1990915675001": {
+      "nombre_comercial": "SERVICIO EDUCATIVO ALICIA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476101",
+          "fecha_actividad": "2015-06-16",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1400660054001": {
+      "nombre_comercial": "PAPELERIA STEFANI",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "GUAYZIMI, NANGARITZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2017-11-16",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900526185001": {
+      "nombre_comercial": "PAPELERIA EL CHUMBERO",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "28 DE MAYO (SAN JOSE DE YACUAMBI), YACUAMBI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2012-03-28",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900390699001": {
+      "nombre_comercial": "BAZAR Y PAPELERIA MONSERRATH",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBI, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2012-09-06",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1950168482001": {
+      "nombre_comercial": "QUEZADA TENE EVELYN XIMENA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2022-09-28",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900121144001": {
+      "nombre_comercial": "JUMBO JIMA JUANA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2003-10-31",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2003-10-31",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900076009001": {
+      "nombre_comercial": "JIMENEZ ALVERCA GLORIA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZURMI, NANGARITZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2005-07-25",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900079573001": {
+      "nombre_comercial": "PAPELERIA GONZALEZ",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476101",
+          "fecha_actividad": "1980-03-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900134972001": {
+      "nombre_comercial": "REYES REYES ANA LIA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PAQUISHA, PAQUISHA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2005-07-01",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1101776217001": {
+      "nombre_comercial": "COOP. TRANS. MIXTO 17 DE MARZO",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 3,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2002-02-04",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2002-02-04",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 3,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2002-02-04",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1105705428001": {
+      "nombre_comercial": "BAZAR Y PAPELERIA KIMBERLY",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2019-08-14",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900115443001": {
+      "nombre_comercial": "CINDERELLA ACCESORIOS",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2004-03-02",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2004-03-02",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900181296001": {
+      "nombre_comercial": "PAPELER\u00cdA TELLO",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2010-11-22",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900410059001": {
+      "nombre_comercial": "COMERCIAL ARELIS",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBI, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2003-11-04",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1104457674001": {
+      "nombre_comercial": "ABC PAPELERIA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2017-07-27",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900845973001": {
+      "nombre_comercial": "CYBER PAPELERIA REINA DEL CISNE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "CHICA\u00d1A, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2014-09-10",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1104263940001": {
+      "nombre_comercial": "JIMENEZ JIRON GLORIA NOEMI",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBA, CHINCHIPE, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-07-25",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900496207001": {
+      "nombre_comercial": "BUITRON SIMBA\u00d1A LEONARDO DAVID",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476101",
+          "fecha_actividad": "2017-07-27",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1711414928001": {
+      "nombre_comercial": "ABAD AVILA ESPERANZA DE JESUS",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2003-03-25",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1105557894001": {
+      "nombre_comercial": "MINGA LOZANO MANUEL SANTOS",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 3,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PAQUISHA, PAQUISHA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2015-04-07",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "PAQUISHA, PAQUISHA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2015-04-07",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 3,
+          "ubicacion": "PAQUISHA, PAQUISHA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2015-04-07",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900298710001": {
+      "nombre_comercial": "PAPELERIA & PUBLICIDAD  MAX",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2008-06-20",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900442359001": {
+      "nombre_comercial": "CHAMBA JIMENEZ HILDA SUSANA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "GUAYZIMI, NANGARITZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2019-07-26",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1717868432001": {
+      "nombre_comercial": "CHAMAZA CHICAIZA NANCY MERCEDES",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-02-27",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1103215818001": {
+      "nombre_comercial": "ABA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PAQUISHA, PAQUISHA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2007-05-10",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1105096075001": {
+      "nombre_comercial": "PAPELERIA RM",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "VALLADOLID, PALANDA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2023-01-06",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900014950001": {
+      "nombre_comercial": "BAZAR Y PAPELERIA GONZALEZ",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2001-05-07",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900456300001": {
+      "nombre_comercial": "COPIADORA M&M",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2013-12-16",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900615160001": {
+      "nombre_comercial": "PAPELERIA EMELY",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "SAN CARLOS DE LAS MINAS, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2008-11-19",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900710417001": {
+      "nombre_comercial": "PAPELERIA ISABEL",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PAGUINTZA, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2013-04-03",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900584572001": {
+      "nombre_comercial": "PAPELERIA ANNY PAXA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2008-01-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1101966511001": {
+      "nombre_comercial": "BAZAR Y PAPELERIA SALAZAR",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PAQUISHA, PAQUISHA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2006-07-31",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1990000669001": {
+      "nombre_comercial": "MARQUEZ CHOCHO BALBINA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476101",
+          "fecha_actividad": "1973-10-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1102022462001": {
+      "nombre_comercial": "GUERRERO QUEZADA GLORIA DOLORES",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "CUMBARATZA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2004-09-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900090323001": {
+      "nombre_comercial": "ORQUIDEAS ZAMORA CHINCHIPE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476101",
+          "fecha_actividad": "1997-04-21",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900893023001": {
+      "nombre_comercial": "PAPELERIA GONZALEZ",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-06-06",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-06-06",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900098425001": {
+      "nombre_comercial": "PAPELERIA Y COMERCIO MARIANITA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 2,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "GUADALUPE, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2011-07-05",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "id_establecimiento": 2,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2011-07-05",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1950051720001": {
+      "nombre_comercial": "PAPELERIA SUSY",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "28 DE MAYO (SAN JOSE DE YACUAMBI), YACUAMBI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-05-08",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1105947434001": {
+      "nombre_comercial": "SOLANO MORENO WILMER IVAN",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBI, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2011-10-11",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900725761001": {
+      "nombre_comercial": "PEREZ ANGUASHA GABRIELA ALEXANDRA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PAGUINTZA, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2018-02-14",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900726553001": {
+      "nombre_comercial": "PAPELERIA DAFNE",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PACHICUTZA, EL PANGUI, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2022-07-13",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900738871001": {
+      "nombre_comercial": "PAPELERIA Y BAZAR DAYA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "SAN CARLOS DE LAS MINAS, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2022-08-18",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900412139001": {
+      "nombre_comercial": "BAZAR Y PAPELERIA DON FICO",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "GUADALUPE, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2010-12-03",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900294024001": {
+      "nombre_comercial": "JUMBO PINEDA EDGAR GEOVANNY",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZUMBA, CHINCHIPE, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476101",
+          "fecha_actividad": "1999-08-01",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900227404001": {
+      "nombre_comercial": "CUMBICOS ROSALES FULVIA ESPERANZA",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2010-09-06",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900603976001": {
+      "nombre_comercial": "LIBRERIA Y PAPELERIA GENESIS",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2007-04-19",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900366970001": {
+      "nombre_comercial": "COPY.COM",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2008-07-03",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900567452001": {
+      "nombre_comercial": "LIBRER\u00cdA Y BAZAR SE\u00d1OR L\u00c1PIZ",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2017-03-15",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900597921001": {
+      "nombre_comercial": "CASTILLO GAONA MARIELA SOLEDAD",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "PAQUISHA, PAQUISHA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2022-08-25",
+          "estado": "ABI",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    },
+    "1900449552001": {
+      "nombre_comercial": "LIBRERIA Y BAZAR LEITO",
+      "tipo_contribuyente": "PERSONA NATURAL",
+      "data_comercial": null,
+      "total_establecimientos": 1,
+      "establecimientos": [
+        {
+          "id_establecimiento": 1,
+          "ubicacion": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+          "codigo_ciiu": "G476103",
+          "fecha_actividad": "2017-08-17",
+          "estado": "CER",
+          "coordenadas": {
+            "lat": null,
+            "lng": null
+          }
+        }
+      ]
+    }
+  },
+  "libros": [],
+  "inventario_libros_por_libreria": [],
+  "ubicaciones_geograficas": [
+    {
+      "id_ubicacion": 1,
+      "nombre": "ZAMORA, ZAMORA, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "ZAMORA",
+      "parroquia": "ZAMORA",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 48,
+      "ruc_establecimientos": [
+        "0602030793001",
+        "0703471615001",
+        "0801047028001",
+        "0911607976001",
+        "1100268356001",
+        "1102651146001",
+        "1103453526001",
+        "1104906142001",
+        "1105682080001",
+        "1900027853001",
+        "1900062140001",
+        "1900090323001",
+        "1900105196001",
+        "1900115443001",
+        "1900227404001",
+        "1900290451001",
+        "1900298710001",
+        "1900338284001",
+        "1900345891001",
+        "1900372093001",
+        "1900408814001",
+        "1900421684001",
+        "1900423417001",
+        "1900453042001",
+        "1900456300001",
+        "1900457365001",
+        "1900461383001",
+        "1900469915001",
+        "1900489491001",
+        "1900496207001",
+        "1900575570001",
+        "1900603976001",
+        "1900620533001",
+        "1900644848001",
+        "1900750637001",
+        "1900764596001",
+        "1900775063001",
+        "1990000669001"
+      ]
+    },
+    {
+      "id_ubicacion": 2,
+      "nombre": "LOS ENCUENTROS, YANTZAZA, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "YANTZAZA",
+      "parroquia": "LOS ENCUENTROS",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 8,
+      "ruc_establecimientos": [
+        "1104253578001",
+        "1105155319001",
+        "1900446988001",
+        "1900534601001",
+        "1900603968001",
+        "1900814862001",
+        "1950054732001"
+      ]
+    },
+    {
+      "id_ubicacion": 3,
+      "nombre": "PALANDA, PALANDA, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "PALANDA",
+      "parroquia": "PALANDA",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 8,
+      "ruc_establecimientos": [
+        "1101819082001",
+        "1101959094001",
+        "1104098833001",
+        "1104555667001",
+        "1104638240001",
+        "1104727480001",
+        "1150347498001"
+      ]
+    },
+    {
+      "id_ubicacion": 4,
+      "nombre": "GUAYZIMI, NANGARITZA, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "NANGARITZA",
+      "parroquia": "GUAYZIMI",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 11,
+      "ruc_establecimientos": [
+        "1400660054001",
+        "1900282052001",
+        "1900295161001",
+        "1900442359001",
+        "1900465244001",
+        "1900706605001",
+        "1900722669001",
+        "1900834522001",
+        "1900858299001",
+        "1900869510001"
+      ]
+    },
+    {
+      "id_ubicacion": 5,
+      "nombre": "PACHICUTZA, EL PANGUI, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "EL PANGUI",
+      "parroquia": "PACHICUTZA",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 3,
+      "ruc_establecimientos": [
+        "1900452010001",
+        "1900667500001",
+        "1900726553001"
+      ]
+    },
+    {
+      "id_ubicacion": 6,
+      "nombre": "TUNDAYME, EL PANGUI, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "EL PANGUI",
+      "parroquia": "TUNDAYME",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 5,
+      "ruc_establecimientos": [
+        "1450176068001",
+        "1600468852001",
+        "1900834258001"
+      ]
+    },
+    {
+      "id_ubicacion": 7,
+      "nombre": "TUTUPALI, YACUAMBI, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "YACUAMBI",
+      "parroquia": "TUTUPALI",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 1,
+      "ruc_establecimientos": [
+        "1900830066001"
+      ]
+    },
+    {
+      "id_ubicacion": 8,
+      "nombre": "EL PANGUI, EL PANGUI, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "EL PANGUI",
+      "parroquia": "EL PANGUI",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 36,
+      "ruc_establecimientos": [
+        "0105313316001",
+        "1103911804001",
+        "1104109390001",
+        "1104457674001",
+        "1105029233001",
+        "1105705428001",
+        "1900181296001",
+        "1900219559001",
+        "1900252881001",
+        "1900378504001",
+        "1900428234001",
+        "1900430388001",
+        "1900440007001",
+        "1900440387001",
+        "1900457688001",
+        "1900527043001",
+        "1900528553001",
+        "1900540624001",
+        "1900624360001",
+        "1900652213001",
+        "1900652999001",
+        "1900708387001",
+        "1900893023001",
+        "1950176055001"
+      ]
+    },
+    {
+      "id_ubicacion": 9,
+      "nombre": "YANZATZA, YANTZAZA, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "YANTZAZA",
+      "parroquia": "YANZATZA",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 59,
+      "ruc_establecimientos": [
+        "0151682366001",
+        "0705342657001",
+        "1101776217001",
+        "1103810386001",
+        "1103866818001",
+        "1105150179001",
+        "1711414928001",
+        "1717498529001",
+        "1717868432001",
+        "1900014950001",
+        "1900079573001",
+        "1900098425001",
+        "1900121144001",
+        "1900148782001",
+        "1900230655001",
+        "1900240803001",
+        "1900278142001",
+        "1900284959001",
+        "1900294263001",
+        "1900337724001",
+        "1900363522001",
+        "1900366970001",
+        "1900410398001",
+        "1900424852001",
+        "1900447754001",
+        "1900449552001",
+        "1900490499001",
+        "1900499979001",
+        "1900509181001",
+        "1900533199001",
+        "1900540624001",
+        "1900548627001",
+        "1900549518001",
+        "1900567452001",
+        "1900584226001",
+        "1900584572001",
+        "1900588706001",
+        "1900635630001",
+        "1900734268001",
+        "1900758416001",
+        "1900790443001",
+        "1900816008001",
+        "1900827534001",
+        "1950002954001",
+        "1950168482001",
+        "1990915675001",
+        "1999307805001"
+      ]
+    },
+    {
+      "id_ubicacion": 10,
+      "nombre": "ZUMBI, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "CENTINELA DEL CONDOR",
+      "parroquia": "ZUMBI",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 20,
+      "ruc_establecimientos": [
+        "0926905993001",
+        "1100017969001",
+        "1102591896001",
+        "1104687379001",
+        "1105947434001",
+        "1717498529001",
+        "1900277888001",
+        "1900290451001",
+        "1900390699001",
+        "1900410059001",
+        "1900413897001",
+        "1900499409001",
+        "1900521137001",
+        "1900597871001",
+        "1900691872001",
+        "1900751593001"
+      ]
+    },
+    {
+      "id_ubicacion": 11,
+      "nombre": "GUADALUPE, ZAMORA, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "ZAMORA",
+      "parroquia": "GUADALUPE",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 10,
+      "ruc_establecimientos": [
+        "1105382921001",
+        "1751677798001",
+        "1900010370001",
+        "1900098425001",
+        "1900132117001",
+        "1900299361001",
+        "1900412139001",
+        "1900534676001",
+        "1900605070001"
+      ]
+    },
+    {
+      "id_ubicacion": 12,
+      "nombre": "LIZARZABURU, RIOBAMBA, CHIMBORAZO",
+      "provincia": "CHIMBORAZO",
+      "canton": "RIOBAMBA",
+      "parroquia": "LIZARZABURU",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 1,
+      "ruc_establecimientos": [
+        "1104906142001"
+      ]
+    },
+    {
+      "id_ubicacion": 13,
+      "nombre": "EL PORVENIR DEL CARMEN, PALANDA, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "PALANDA",
+      "parroquia": "EL PORVENIR DEL CARMEN",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 3,
+      "ruc_establecimientos": [
+        "1104638240001",
+        "1104958259001"
+      ]
+    },
+    {
+      "id_ubicacion": 14,
+      "nombre": "CHICA\u00d1A, YANTZAZA, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "YANTZAZA",
+      "parroquia": "CHICA\u00d1A",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 4,
+      "ruc_establecimientos": [
+        "1900834845001",
+        "1900845973001",
+        "1900856038001"
+      ]
+    },
+    {
+      "id_ubicacion": 15,
+      "nombre": "PAGUINTZA, CENTINELA DEL CONDOR, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "CENTINELA DEL CONDOR",
+      "parroquia": "PAGUINTZA",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 4,
+      "ruc_establecimientos": [
+        "1104515331001",
+        "1900691088001",
+        "1900710417001",
+        "1900725761001"
+      ]
+    },
+    {
+      "id_ubicacion": 16,
+      "nombre": "28 DE MAYO (SAN JOSE DE YACUAMBI), YACUAMBI, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "YACUAMBI",
+      "parroquia": "28 DE MAYO (SAN JOSE DE YACUAMBI)",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 12,
+      "ruc_establecimientos": [
+        "1900069889001",
+        "1900362797001",
+        "1900390806001",
+        "1900420082001",
+        "1900526185001",
+        "1900584986001",
+        "1900742592001",
+        "1900789668001",
+        "1900790443001",
+        "1950003556001",
+        "1950013548001",
+        "1950051720001"
+      ]
+    },
+    {
+      "id_ubicacion": 17,
+      "nombre": "ZUMBA, CHINCHIPE, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "CHINCHIPE",
+      "parroquia": "ZUMBA",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 15,
+      "ruc_establecimientos": [
+        "0500661012001",
+        "1100607249001",
+        "1102170600001",
+        "1104263940001",
+        "1105131906001",
+        "1105184442001",
+        "1709366429001",
+        "1900040724001",
+        "1900294024001",
+        "1900413301001",
+        "1900443282001"
+      ]
+    },
+    {
+      "id_ubicacion": 18,
+      "nombre": "SAN FRANCISCO DE VERGEL, PALANDA, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "PALANDA",
+      "parroquia": "SAN FRANCISCO DE VERGEL",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 2,
+      "ruc_establecimientos": [
+        "1900630375001",
+        "1900671957001"
+      ]
+    },
+    {
+      "id_ubicacion": 19,
+      "nombre": "NUEVO QUITO, PAQUISHA, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "PAQUISHA",
+      "parroquia": "NUEVO QUITO",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 3,
+      "ruc_establecimientos": [
+        "0105645899001",
+        "1900623107001",
+        "1900788124001"
+      ]
+    },
+    {
+      "id_ubicacion": 20,
+      "nombre": "PAQUISHA, PAQUISHA, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "PAQUISHA",
+      "parroquia": "PAQUISHA",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 12,
+      "ruc_establecimientos": [
+        "1101966511001",
+        "1103215818001",
+        "1105557894001",
+        "1900134972001",
+        "1900153790001",
+        "1900479666001",
+        "1900528694001",
+        "1900597921001",
+        "1900856087001"
+      ]
+    },
+    {
+      "id_ubicacion": 21,
+      "nombre": "LA PAZ, YACUAMBI, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "YACUAMBI",
+      "parroquia": "LA PAZ",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 2,
+      "ruc_establecimientos": [
+        "1900467851001"
+      ]
+    },
+    {
+      "id_ubicacion": 22,
+      "nombre": "VALLADOLID, PALANDA, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "PALANDA",
+      "parroquia": "VALLADOLID",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 2,
+      "ruc_establecimientos": [
+        "1105096075001",
+        "1900200187001"
+      ]
+    },
+    {
+      "id_ubicacion": 23,
+      "nombre": "SAN CARLOS DE LAS MINAS, ZAMORA, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "ZAMORA",
+      "parroquia": "SAN CARLOS DE LAS MINAS",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 4,
+      "ruc_establecimientos": [
+        "1900258078001",
+        "1900471572001",
+        "1900615160001",
+        "1900738871001"
+      ]
+    },
+    {
+      "id_ubicacion": 24,
+      "nombre": "EL GUISMI, EL PANGUI, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "EL PANGUI",
+      "parroquia": "EL GUISMI",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 1,
+      "ruc_establecimientos": [
+        "0701558462001"
+      ]
+    },
+    {
+      "id_ubicacion": 25,
+      "nombre": "TIMBARA, ZAMORA, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "ZAMORA",
+      "parroquia": "TIMBARA",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 1,
+      "ruc_establecimientos": [
+        "1104161003001"
+      ]
+    },
+    {
+      "id_ubicacion": 26,
+      "nombre": "ZURMI, NANGARITZA, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "NANGARITZA",
+      "parroquia": "ZURMI",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 5,
+      "ruc_establecimientos": [
+        "1900076009001",
+        "1900678036001",
+        "1900713239001",
+        "1900839679001"
+      ]
+    },
+    {
+      "id_ubicacion": 27,
+      "nombre": "SUCRE, LOJA, LOJA",
+      "provincia": "LOJA",
+      "canton": "LOJA",
+      "parroquia": "SUCRE",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 3,
+      "ruc_establecimientos": [
+        "1104727480001",
+        "1900040724001"
+      ]
+    },
+    {
+      "id_ubicacion": 28,
+      "nombre": "CUMBARATZA, ZAMORA, ZAMORA CHINCHIPE",
+      "provincia": "ZAMORA CHINCHIPE",
+      "canton": "ZAMORA",
+      "parroquia": "CUMBARATZA",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 3,
+      "ruc_establecimientos": [
+        "1102022462001",
+        "1900312644001",
+        "1900575570001"
+      ]
+    },
+    {
+      "id_ubicacion": 29,
+      "nombre": "SAN SEBASTIAN, LOJA, LOJA",
+      "provincia": "LOJA",
+      "canton": "LOJA",
+      "parroquia": "SAN SEBASTIAN",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 1,
+      "ruc_establecimientos": [
+        "1104638240001"
+      ]
+    },
+    {
+      "id_ubicacion": 30,
+      "nombre": "VALLE, LOJA, LOJA",
+      "provincia": "LOJA",
+      "canton": "LOJA",
+      "parroquia": "VALLE",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 1,
+      "ruc_establecimientos": [
+        "1900390806001"
+      ]
+    },
+    {
+      "id_ubicacion": 31,
+      "nombre": "HUAQUILLAS, HUAQUILLAS, EL ORO",
+      "provincia": "EL ORO",
+      "canton": "HUAQUILLAS",
+      "parroquia": "HUAQUILLAS",
+      "coordenadas": {
+        "lat": null,
+        "lng": null
+      },
+      "total_establecimientos": 1,
+      "ruc_establecimientos": [
+        "0701558462001"
+      ]
+    }
+  ],
+  "estadisticas_por_canton": {
+    "ZAMORA": {
+      "total_establecimientos": 66,
+      "total_ruc_unicos": 54,
+      "estados": {
+        "CER": 40,
+        "ABI": 26
+      }
+    },
+    "YANTZAZA": {
+      "total_establecimientos": 71,
+      "total_ruc_unicos": 57,
+      "estados": {
+        "CER": 38,
+        "ABI": 33
+      }
+    },
+    "PALANDA": {
+      "total_establecimientos": 15,
+      "total_ruc_unicos": 12,
+      "estados": {
+        "CER": 8,
+        "ABI": 7
+      }
+    },
+    "NANGARITZA": {
+      "total_establecimientos": 16,
+      "total_ruc_unicos": 14,
+      "estados": {
+        "ABI": 10,
+        "CER": 6
+      }
+    },
+    "EL PANGUI": {
+      "total_establecimientos": 45,
+      "total_ruc_unicos": 31,
+      "estados": {
+        "ABI": 24,
+        "CER": 21
+      }
+    },
+    "YACUAMBI": {
+      "total_establecimientos": 15,
+      "total_ruc_unicos": 14,
+      "estados": {
+        "ABI": 9,
+        "CER": 6
+      }
+    },
+    "CENTINELA DEL CONDOR": {
+      "total_establecimientos": 24,
+      "total_ruc_unicos": 20,
+      "estados": {
+        "CER": 15,
+        "ABI": 9
+      }
+    },
+    "RIOBAMBA": {
+      "total_establecimientos": 1,
+      "total_ruc_unicos": 1,
+      "estados": {
+        "CER": 1
+      }
+    },
+    "CHINCHIPE": {
+      "total_establecimientos": 15,
+      "total_ruc_unicos": 11,
+      "estados": {
+        "CER": 9,
+        "ABI": 6
+      }
+    },
+    "PAQUISHA": {
+      "total_establecimientos": 15,
+      "total_ruc_unicos": 12,
+      "estados": {
+        "ABI": 8,
+        "CER": 7
+      }
+    },
+    "LOJA": {
+      "total_establecimientos": 5,
+      "total_ruc_unicos": 4,
+      "estados": {
+        "CER": 5
+      }
+    },
+    "HUAQUILLAS": {
+      "total_establecimientos": 1,
+      "total_ruc_unicos": 1,
+      "estados": {
+        "CER": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,1726 @@
+{
+	"metadata": {
+		"fecha_creacion": "2026-02-16",
+		"version": "1.0",
+		"descripcion": "Datos normalizados de librerias y establecimientos en Galapagos",
+		"fuentes": [
+			"galapagos_mapa_completo.json",
+			"librerias_galapagos.json",
+			"libros_galapagos.json"
+		]
+	},
+	"resumen_general": {
+		"total_ruc_unicos": 67,
+		"total_establecimientos": 84,
+		"total_ubicaciones": 7,
+		"total_librerias_destacadas": 4,
+		"total_libros_catalogados": 8,
+		"venta_mensual_total_usd": 39270.0,
+		"venta_anual_total_usd": 471240.0
+	},
+	"codigos_ciiu": {
+		"G476101": {
+			"descripcion": "Venta al por menor de libros",
+			"total_establecimientos": 13
+		},
+		"G476102": {
+			"descripcion": "Venta al por menor de periodicos y revistas",
+			"total_establecimientos": 3
+		},
+		"G476103": {
+			"descripcion": "Venta al por menor de articulos de papeleria",
+			"total_establecimientos": 68
+		},
+		"G476104": {
+			"descripcion": "Otros articulos relacionados",
+			"total_establecimientos": 0
+		}
+	},
+	"establecimientos_por_ruc": {
+		"2091767731001": {
+			"nombre_comercial": "KAWAII PLANET S.A.S.",
+			"tipo_contribuyente": "SOCIEDAD",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "SANTA ROSA (INCLUYE LA ISLA BALTRA), SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2024-08-21",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.459667,
+						"lng": -90.27139439999999
+					}
+				}
+			]
+		},
+		"2091759201001": {
+			"nombre_comercial": "LIBRIMUNDI EN GALAPAGOS",
+			"tipo_contribuyente": "SOCIEDAD",
+			"total_establecimientos": 2,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "SANTA ROSA (INCLUYE LA ISLA BALTRA), SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476101",
+					"fecha_actividad": "2013-10-23",
+					"estado": "PASIVO",
+					"coordenadas": {
+						"lat": -0.459667,
+						"lng": -90.27139439999999
+					}
+				},
+				{
+					"id_establecimiento": 2,
+					"ubicacion": "SANTA ROSA (INCLUYE LA ISLA BALTRA), SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476101",
+					"fecha_actividad": "2013-10-23",
+					"estado": "PASIVO",
+					"coordenadas": {
+						"lat": -0.459667,
+						"lng": -90.27139439999999
+					}
+				}
+			]
+		},
+		"1707842181001": {
+			"nombre_comercial": "CASTRO RIVADENEIRA FRANCISCO XAVIER",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 2,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "SANTA ROSA (INCLUYE LA ISLA BALTRA), SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "1997-03-22",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.459667,
+						"lng": -90.27139439999999
+					}
+				},
+				{
+					"id_establecimiento": 2,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "1997-03-22",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"501617864001": {
+			"nombre_comercial": "ALDAZ ARIAS JOSE IVAN",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 3,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2008-10-03",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				},
+				{
+					"id_establecimiento": 2,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2008-10-03",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				},
+				{
+					"id_establecimiento": 3,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2008-10-03",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"2000095717001": {
+			"nombre_comercial": "CALAPUCHA VARELEZ MARLON JAIRO",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 3,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2010-11-23",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				},
+				{
+					"id_establecimiento": 2,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2010-11-23",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				},
+				{
+					"id_establecimiento": 3,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2010-11-23",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"1805132378001": {
+			"nombre_comercial": "CHISAGUANO CHISAGUANO SARA LISETH",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2016-09-16",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"2091767564001": {
+			"nombre_comercial": "LIBRERIA LEGENDA S.A.S.",
+			"tipo_contribuyente": "SOCIEDAD",
+			"data_comercial": {
+				"nombre_completo": "LIBRERIA LEGENDA BOOKERY, ARTS & CAFE",
+				"resenas": 17,
+				"calificacion": 4.8,
+				"venta_mensual_usd": 5313.0,
+				"venta_anual_usd": 63756.0,
+				"sitio_web": "",
+				"url_maps": "https://www.google.com/maps/place/?q=place_id:ChIJIY1CQ0JdqpoRRE-VnPlk3vw",
+				"tiene_catalogo_libros": false
+			},
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476101",
+					"fecha_actividad": "2023-12-06",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"800654436001": {
+			"nombre_comercial": "MONROY ACHILIE EUTERLI ERMIDA",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2004-05-17",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"1805132444001": {
+			"nombre_comercial": "CHISAGUANO CHISAGUANO REBECA MICHELLE",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2024-04-25",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"2000045191001": {
+			"nombre_comercial": "ENRIQUE TOMALA LOURDES ALEXANDRA",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2022-04-27",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"917567786001": {
+			"nombre_comercial": "CASTILLO VENTES CARLOS IGNACIO",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2006-01-06",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"1803428570001": {
+			"nombre_comercial": "CAIZA CHANGO VICTOR OSWALDO",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 3,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2010-09-03",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				},
+				{
+					"id_establecimiento": 2,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2010-09-03",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				},
+				{
+					"id_establecimiento": 3,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2010-09-03",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"2000040168001": {
+			"nombre_comercial": "MARCILLO ALAY PETITA ISIDORA",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 3,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2003-03-13",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				},
+				{
+					"id_establecimiento": 2,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2003-03-13",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				},
+				{
+					"id_establecimiento": 3,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2003-03-13",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"1801027390001": {
+			"nombre_comercial": "NARANJO LEON LUIS MEDARDO",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 5,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "1991-03-23",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				},
+				{
+					"id_establecimiento": 2,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "1991-03-23",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				},
+				{
+					"id_establecimiento": 3,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "1991-03-23",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				},
+				{
+					"id_establecimiento": 4,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "1991-03-23",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				},
+				{
+					"id_establecimiento": 5,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "1991-03-23",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"912782323001": {
+			"nombre_comercial": "MONTOYA SILVA FELICITA BETTY",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2012-01-25",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"1752387652001": {
+			"nombre_comercial": "BARTLETT ALICE CATHERINE",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"data_comercial": {
+				"nombre_completo": "THE BOOK SHOP, GALAPAGOS",
+				"resenas": 6,
+				"calificacion": 4.2,
+				"venta_mensual_usd": 2079.0,
+				"venta_anual_usd": 24948.0,
+				"sitio_web": "",
+				"url_maps": "https://www.google.com/maps/place/?q=place_id:ChIJL3QX8zNdqpoRS6Mzuy7irRY",
+				"tiene_catalogo_libros": true
+			},
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476101",
+					"fecha_actividad": "2021-07-21",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"1801672187001": {
+			"nombre_comercial": "OCANA FERNANDEZ MARIA AMANDA",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2020-03-12",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"1102473020001": {
+			"nombre_comercial": "AVILA MONCAYO ANGEL VINICIO",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 4,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "1994-11-09",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				},
+				{
+					"id_establecimiento": 2,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "1994-11-09",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				},
+				{
+					"id_establecimiento": 3,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "1994-11-09",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				},
+				{
+					"id_establecimiento": 4,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "1994-11-09",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"900268491001": {
+			"nombre_comercial": "MACHUCA MESTANZA JOSE ENRIQUE",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476101",
+					"fecha_actividad": "2002-05-03",
+					"estado": "PASIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"2000127999001": {
+			"nombre_comercial": "NUNEZ RAMIREZ MARIA NICOLE",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2017-04-17",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"2000095907001": {
+			"nombre_comercial": "INGA VELEZ ANA GABRIELA",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2012-06-27",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"2000016267001": {
+			"nombre_comercial": "CORDOVA TOAINGA BLANCA AZUCENA",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2016-05-10",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"912066693001": {
+			"nombre_comercial": "ROSALES SELLAN HAYDEE ALICIA",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476101",
+					"fecha_actividad": "2012-03-15",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"1704491362001": {
+			"nombre_comercial": "BEJARANO MORENO BYRON VINICIO",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"data_comercial": [
+				{
+					"nombre_sucursal": "MUSEO KAYNA KUNAN WINAYPASH CAFETERIA NINA CHUMBI (Sucursal #1)",
+					"resenas": 1821,
+					"calificacion": 4.8,
+					"venta_mensual_usd": 22770.0,
+					"venta_anual_usd": 273240.0,
+					"sitio_web": "http://guayasamin.org.ec/",
+					"url_maps": "https://www.google.com/maps/search/?api=1&query=FLOREANA%20S/N%20Y%20CUCUVE%2BPUERTO%20AYORA%2BSANTA%20CRUZ%2BGALAPAGOS%2BEcuador"
+				},
+				{
+					"nombre_sucursal": "BEJARANO MORENO BYRON VINICIO (Sucursal #2)",
+					"resenas": 82,
+					"calificacion": 5.0,
+					"venta_mensual_usd": 9108.0,
+					"venta_anual_usd": 109296.0,
+					"sitio_web": "http://wa.me/593998183101",
+					"url_maps": "https://www.google.com/maps/search/?api=1&query=FLOREANA%20S/N%20Y%20CUCUVE%2BPUERTO%20AYORA%2BSANTA%20CRUZ%2BGALAPAGOS%2BEcuador"
+				}
+			],
+			"total_establecimientos": 2,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476101",
+					"fecha_actividad": "1990-03-05",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				},
+				{
+					"id_establecimiento": 2,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476101",
+					"fecha_actividad": "1990-03-05",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"2000092862001": {
+			"nombre_comercial": "VACAS CHINGA GEOMAYRA KATHERYNE",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2010-10-22",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"2000126637001": {
+			"nombre_comercial": "SILVA SILVA ANGEL RAUL",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2016-10-24",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"2000025367001": {
+			"nombre_comercial": "ANGERMEYER SOHNREY ANA",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2001-06-15",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"2000130068001": {
+			"nombre_comercial": "SOLESDIPA AVILA JHONNY FERNANDO",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2019-04-09",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"1803998234001": {
+			"nombre_comercial": "CRIOLLO YUCAILLA NEYDA GUADALUPE",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2013-11-19",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"924813447001": {
+			"nombre_comercial": "ESPINOZA PERALTA BETSY ALEXANDRA",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 2,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2009-06-18",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				},
+				{
+					"id_establecimiento": 2,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2009-06-18",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"915051502001": {
+			"nombre_comercial": "LOZANO GAINZA AMALIA ALEXANDRA",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2010-07-29",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"941083552001": {
+			"nombre_comercial": "LOPEZ ZAMBRANO BRANDON WASHINGTON",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2022-06-20",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.7433862999999999,
+						"lng": -90.3156597
+					}
+				}
+			]
+		},
+		"1801941087001": {
+			"nombre_comercial": "TOCALEMA VALENCIA MARIA LUZ",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 2,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "BELLAVISTA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2003-10-16",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.6393592,
+						"lng": -90.3371889
+					}
+				},
+				{
+					"id_establecimiento": 2,
+					"ubicacion": "BELLAVISTA, SANTA CRUZ, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2003-10-16",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.6393592,
+						"lng": -90.3371889
+					}
+				}
+			]
+		},
+		"2000079968001": {
+			"nombre_comercial": "BELTRAN MIRANDA EMILY GRACE",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2024-10-02",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				}
+			]
+		},
+		"2000047809001": {
+			"nombre_comercial": "LEON BUENANO NELSON DANILO",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 2,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2002-11-13",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				},
+				{
+					"id_establecimiento": 2,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2002-11-13",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				}
+			]
+		},
+		"1709280083001": {
+			"nombre_comercial": "VELOZ FLORES LIGIA SILVANA",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 2,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2006-01-02",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				},
+				{
+					"id_establecimiento": 2,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2006-01-02",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				}
+			]
+		},
+		"1312280496001": {
+			"nombre_comercial": "MACIAS BRAVO MIGUEL ANGEL",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476101",
+					"fecha_actividad": "2018-05-21",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				}
+			]
+		},
+		"904926615001": {
+			"nombre_comercial": "JARAMILLO POVEDA JOSE ABELARDO",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2006-01-26",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				}
+			]
+		},
+		"1700628231001": {
+			"nombre_comercial": "MONTENEGRO MALDONADO ARMANDO RENE",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476101",
+					"fecha_actividad": "1983-06-29",
+					"estado": "PASIVO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				}
+			]
+		},
+		"2000051736001": {
+			"nombre_comercial": "SERRANO GUAMAN KARINA ELIZABETH",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2007-02-07",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				}
+			]
+		},
+		"2100248000001": {
+			"nombre_comercial": "ROMERO GOMEZ LENIN EDUARDO",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2010-03-10",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				}
+			]
+		},
+		"2000047577001": {
+			"nombre_comercial": "CORDOVA CUEVA YESSENIA DEL CISNE",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 2,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2005-10-18",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				},
+				{
+					"id_establecimiento": 2,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2005-10-18",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				}
+			]
+		},
+		"911213064001": {
+			"nombre_comercial": "RENTERIA BAEZ LUZ BOLIVIA",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476101",
+					"fecha_actividad": "1996-02-08",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				}
+			]
+		},
+		"2050007208001": {
+			"nombre_comercial": "LEON TORRES BELGICA SHARON",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2022-05-04",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				}
+			]
+		},
+		"903521656001": {
+			"nombre_comercial": "RAMIREZ CARLOS HUMBERTO",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476102",
+					"fecha_actividad": "1982-01-01",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				}
+			]
+		},
+		"2000078168001": {
+			"nombre_comercial": "VERA MORENO MODESTO HERNAN",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476102",
+					"fecha_actividad": "2013-04-16",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				}
+			]
+		},
+		"2000081238001": {
+			"nombre_comercial": "VERA MORENO ROSA ANDREA",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476102",
+					"fecha_actividad": "2009-05-15",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				}
+			]
+		},
+		"1701588541001": {
+			"nombre_comercial": "ROJAS FALCONI HIPATIA MAGDALENA",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 4,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "1975-10-23",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				},
+				{
+					"id_establecimiento": 2,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "1975-10-23",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				},
+				{
+					"id_establecimiento": 3,
+					"ubicacion": "EL PROGRESO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "1975-10-23",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.9022540000000001,
+						"lng": -89.55594599999999
+					}
+				},
+				{
+					"id_establecimiento": 4,
+					"ubicacion": "EL PROGRESO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "1975-10-23",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.9022540000000001,
+						"lng": -89.55594599999999
+					}
+				}
+			]
+		},
+		"1801390897001": {
+			"nombre_comercial": "ZAVALA OLAYA RONY VEGA",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476101",
+					"fecha_actividad": "1993-10-28",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				}
+			]
+		},
+		"2000013629001": {
+			"nombre_comercial": "MARTINEZ LARA RAQUEL ESTELA",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "1999-10-21",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				}
+			]
+		},
+		"1900383041001": {
+			"nombre_comercial": "BAUTISTA BASTIDAS PAOLA VERONICA",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2005-04-21",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				}
+			]
+		},
+		"801967720001": {
+			"nombre_comercial": "QUIMBIULCO LEONES WALTER OVER",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2018-10-25",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				}
+			]
+		},
+		"2000034732001": {
+			"nombre_comercial": "HERNANDEZ VARGAS DORIA ILDA",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2001-06-26",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				}
+			]
+		},
+		"603876863001": {
+			"nombre_comercial": "ROLDAN TORRES RENE ALEXANDER",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2022-06-10",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				}
+			]
+		},
+		"1313035469001": {
+			"nombre_comercial": "BAZURTO MUNOZ MARIA FERNANDA",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2018-01-23",
+					"estado": "ACTIVO",
+					"coordenadas": {
+						"lat": -0.9031235,
+						"lng": -89.61089419999999
+					}
+				}
+			]
+		},
+		"2000017513001": {
+			"nombre_comercial": "TUPIZA JARAMILLO DORA GRACIELA",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO VILLAMIL, ISABELA, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2003-06-13",
+					"estado": "PASIVO",
+					"coordenadas": {
+						"lat": -0.9544574,
+						"lng": -90.96414670000001
+					}
+				}
+			]
+		},
+		"1711933976001": {
+			"nombre_comercial": "NAZARENO CAICEDO LILIS MERCIS",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO VILLAMIL, ISABELA, GALAPAGOS",
+					"codigo_ciiu": "G476101",
+					"fecha_actividad": "2005-12-13",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.9544574,
+						"lng": -90.96414670000001
+					}
+				}
+			]
+		},
+		"2000145579001": {
+			"nombre_comercial": "YEPEZ TUPIZA DAYANNA YADIRA",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO VILLAMIL, ISABELA, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2018-06-27",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.9544574,
+						"lng": -90.96414670000001
+					}
+				}
+			]
+		},
+		"800322711001": {
+			"nombre_comercial": "VELEZ BONE VIDAL LEANDRO",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 2,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO VILLAMIL, ISABELA, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2004-01-09",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.9544574,
+						"lng": -90.96414670000001
+					}
+				},
+				{
+					"id_establecimiento": 2,
+					"ubicacion": "PUERTO VILLAMIL, ISABELA, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2004-01-09",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.9544574,
+						"lng": -90.96414670000001
+					}
+				}
+			]
+		},
+		"2000061222001": {
+			"nombre_comercial": "FRANCO GUERRERO JAIME FRANCISCO",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "PUERTO VILLAMIL, ISABELA, GALAPAGOS",
+					"codigo_ciiu": "G476103",
+					"fecha_actividad": "2013-09-10",
+					"estado": "SUSPENDIDO",
+					"coordenadas": {
+						"lat": -0.9544574,
+						"lng": -90.96414670000001
+					}
+				}
+			]
+		},
+		"2000001798001": {
+			"nombre_comercial": "GORDILLO GORDILLO JACINTO ARTURO",
+			"tipo_contribuyente": "PERSONA_NATURAL",
+			"total_establecimientos": 1,
+			"establecimientos": [
+				{
+					"id_establecimiento": 1,
+					"ubicacion": "TOMAS DE BERLANGA (SANTO TOMAS), ISABELA, GALAPAGOS",
+					"codigo_ciiu": "G476101",
+					"fecha_actividad": "2000-10-06",
+					"estado": "PASIVO",
+					"coordenadas": {
+						"lat": -0.8291902999999999,
+						"lng": -91.28910359999999
+					}
+				}
+			]
+		}
+	},
+	"libros": [
+		{
+			"id_libro": 1,
+			"titulo": "Las vanguardias literarias en Bolivia, Colombia, Ecuador, Peru y Venezuela",
+			"autores": ["Hubert Poppel", "Miguel Gomes"],
+			"editorial": "Iberoamericana Editorial",
+			"precio_usd": 25.0,
+			"categorias": ["Latin American literature"],
+			"link_google_books": "https://books.google.com/books/about/Las_vanguardias_literarias_en_Bolivia_Co.html?hl=&id=swtU781aty4C"
+		},
+		{
+			"id_libro": 2,
+			"titulo": "Cronistas Coloniales Tomo II Apartes de la historia de Ecuador, Peru, Colombia y Panama",
+			"autores": ["Jose Roberto Paez Flor"],
+			"editorial": "Ediciones LAVP",
+			"precio_usd": 7.99,
+			"categorias": ["History"],
+			"link_google_books": "https://play.google.com/store/books/details?id=m3-mDwAAQBAJ"
+		},
+		{
+			"id_libro": 3,
+			"titulo": "Biblioteca boliviana, catalogo de la seccion de libros i folletos [by G. Rene-Moreno].",
+			"autores": ["Gabriel Rene-Moreno"],
+			"editorial": null,
+			"precio_usd": 25.0,
+			"categorias": [],
+			"link_google_books": "https://play.google.com/store/books/details?id=9BcIAAAAQAAJ"
+		},
+		{
+			"id_libro": 4,
+			"titulo": "Bolivia",
+			"autores": ["Deanna Swaney"],
+			"editorial": null,
+			"precio_usd": 25.0,
+			"categorias": ["Travel"],
+			"link_google_books": "https://books.google.com/books/about/Bolivia.html?hl=&id=54DjAAAAMAAJ"
+		},
+		{
+			"id_libro": 5,
+			"titulo": "Historia natural de la isla Santa Cruz, Galapagos, Ecuador",
+			"autores": [],
+			"editorial": null,
+			"precio_usd": 5.0,
+			"categorias": [],
+			"link_google_books": "https://books.google.com/books/about/Historia_natural_de_la_isla_Santa_Cruz_G.html?hl=&id=e7hxjwEACAAJ"
+		},
+		{
+			"id_libro": 6,
+			"titulo": "Galapagos y el Ecuador",
+			"autores": ["Humberto Vera H."],
+			"editorial": null,
+			"precio_usd": 16.2,
+			"categorias": ["Galapagos Islands"],
+			"link_google_books": "https://books.google.com/books/about/Gal%C3%A1pagos_y_el_Ecuador.html?hl=&id=umsbAAAAYAAJ"
+		}
+	],
+	"inventario_libros_por_libreria": [
+		{
+			"ruc": "2091767564001",
+			"nombre_libreria": "LIBRERIA LEGENDA BOOKERY, ARTS & CAFE",
+			"libros_disponibles": [1, 2, 3]
+		},
+		{
+			"ruc": "1752387652001",
+			"nombre_libreria": "THE BOOK SHOP, GALAPAGOS",
+			"libros_disponibles": [1, 2, 4, 5, 6]
+		}
+	],
+	"ubicaciones_geograficas": [
+		{
+			"id_ubicacion": 1,
+			"nombre": "SANTA ROSA (INCLUYE LA ISLA BALTRA), SANTA CRUZ, GALAPAGOS",
+			"provincia": "GALAPAGOS",
+			"canton": "SANTA CRUZ",
+			"parroquia": "SANTA ROSA (INCLUYE LA ISLA BALTRA)",
+			"coordenadas": {
+				"lat": -0.459667,
+				"lng": -90.27139439999999
+			},
+			"total_establecimientos": 4,
+			"ruc_establecimientos": ["2091767731001", "2091759201001", "1707842181001"]
+		},
+		{
+			"id_ubicacion": 2,
+			"nombre": "PUERTO AYORA, SANTA CRUZ, GALAPAGOS",
+			"provincia": "GALAPAGOS",
+			"canton": "SANTA CRUZ",
+			"parroquia": "PUERTO AYORA",
+			"coordenadas": {
+				"lat": -0.7433862999999999,
+				"lng": -90.3156597
+			},
+			"total_establecimientos": 43,
+			"ruc_establecimientos": [
+				"501617864001",
+				"2000095717001",
+				"1805132378001",
+				"2091767564001",
+				"800654436001",
+				"1805132444001",
+				"2000045191001",
+				"917567786001",
+				"1803428570001",
+				"2000040168001",
+				"1801027390001",
+				"912782323001",
+				"1752387652001",
+				"1801672187001",
+				"1102473020001",
+				"900268491001",
+				"2000127999001",
+				"2000095907001",
+				"2000016267001",
+				"912066693001",
+				"1704491362001",
+				"2000092862001",
+				"2000126637001",
+				"2000025367001",
+				"2000130068001",
+				"1803998234001",
+				"924813447001",
+				"915051502001",
+				"941083552001",
+				"1707842181001"
+			]
+		},
+		{
+			"id_ubicacion": 3,
+			"nombre": "BELLAVISTA, SANTA CRUZ, GALAPAGOS",
+			"provincia": "GALAPAGOS",
+			"canton": "SANTA CRUZ",
+			"parroquia": "BELLAVISTA",
+			"coordenadas": {
+				"lat": -0.6393592,
+				"lng": -90.3371889
+			},
+			"total_establecimientos": 2,
+			"ruc_establecimientos": ["1801941087001"]
+		},
+		{
+			"id_ubicacion": 4,
+			"nombre": "PUERTO BAQUERIZO MORENO, SAN CRISTOBAL, GALAPAGOS",
+			"provincia": "GALAPAGOS",
+			"canton": "SAN CRISTOBAL",
+			"parroquia": "PUERTO BAQUERIZO MORENO",
+			"coordenadas": {
+				"lat": -0.9031235,
+				"lng": -89.61089419999999
+			},
+			"total_establecimientos": 26,
+			"ruc_establecimientos": [
+				"2000079968001",
+				"2000047809001",
+				"1709280083001",
+				"1312280496001",
+				"904926615001",
+				"1700628231001",
+				"2000051736001",
+				"2100248000001",
+				"2000047577001",
+				"911213064001",
+				"2050007208001",
+				"903521656001",
+				"2000078168001",
+				"2000081238001",
+				"1701588541001",
+				"1801390897001",
+				"2000013629001",
+				"1900383041001",
+				"801967720001",
+				"2000034732001",
+				"603876863001",
+				"1313035469001"
+			]
+		},
+		{
+			"id_ubicacion": 5,
+			"nombre": "EL PROGRESO, SAN CRISTOBAL, GALAPAGOS",
+			"provincia": "GALAPAGOS",
+			"canton": "SAN CRISTOBAL",
+			"parroquia": "EL PROGRESO",
+			"coordenadas": {
+				"lat": -0.9022540000000001,
+				"lng": -89.55594599999999
+			},
+			"total_establecimientos": 2,
+			"ruc_establecimientos": ["1701588541001"]
+		},
+		{
+			"id_ubicacion": 6,
+			"nombre": "PUERTO VILLAMIL, ISABELA, GALAPAGOS",
+			"provincia": "GALAPAGOS",
+			"canton": "ISABELA",
+			"parroquia": "PUERTO VILLAMIL",
+			"coordenadas": {
+				"lat": -0.9544574,
+				"lng": -90.96414670000001
+			},
+			"total_establecimientos": 6,
+			"ruc_establecimientos": [
+				"2000017513001",
+				"1711933976001",
+				"2000145579001",
+				"800322711001",
+				"2000061222001"
+			]
+		},
+		{
+			"id_ubicacion": 7,
+			"nombre": "TOMAS DE BERLANGA (SANTO TOMAS), ISABELA, GALAPAGOS",
+			"provincia": "GALAPAGOS",
+			"canton": "ISABELA",
+			"parroquia": "TOMAS DE BERLANGA (SANTO TOMAS)",
+			"coordenadas": {
+				"lat": -0.8291902999999999,
+				"lng": -91.28910359999999
+			},
+			"total_establecimientos": 1,
+			"ruc_establecimientos": ["2000001798001"]
+		}
+	],
+	"estadisticas_por_canton": {
+		"SANTA CRUZ": {
+			"total_establecimientos": 49,
+			"total_ruc_unicos": 35,
+			"estados": {
+				"ACTIVO": 36,
+				"SUSPENDIDO": 9,
+				"PASIVO": 4
+			}
+		},
+		"SAN CRISTOBAL": {
+			"total_establecimientos": 28,
+			"total_ruc_unicos": 23,
+			"estados": {
+				"ACTIVO": 11,
+				"SUSPENDIDO": 16,
+				"PASIVO": 1
+			}
+		},
+		"ISABELA": {
+			"total_establecimientos": 7,
+			"total_ruc_unicos": 6,
+			"estados": {
+				"ACTIVO": 0,
+				"SUSPENDIDO": 6,
+				"PASIVO": 1
+			}
+		}
+	}
+}

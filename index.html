@@ -29,10 +29,10 @@
     </div>
   </header>
 
-  <div class="tabs">
-    <div class="tab active" onclick="openTab('dashboard')">Dashboard Inteligente</div>
-    <div class="tab" onclick="openTab('catalogo')">Catálogo Completo</div>
-    <div class="tab" onclick="openTab('metodologia')">Metodología</div>
+    <div class="tabs">
+    <div class="tab active" onclick="openTab('dashboard')">Panorama nacional</div>
+    <div class="tab" onclick="openTab('catalogo')">Catálogo de libros</div>
+    <div class="tab" onclick="openTab('metodologia')">Metodología UCE</div>
   </div>
 
   <div class="container">
@@ -114,36 +114,29 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     const defaultImg = "https://placehold.co/400x600/cccccc/666666?text=Sin+Portada";
-    const CACHE_KEY = "librosEcuador_v38";
-    const provinciasArchivos = [
-      "azuay",
-      "bolivar",
-      "cañar",
-      "carchi",
-      "chimborazo",
-      "cotopaxi",
-      "el_oro",
-      "esmeraldas",
-      "galapagos",
-      "guayas",
-      "imbabura",
-      "loja",
-      "los_rios",
-      "manabi",
-      "morona_santiago",
-      "napo",
-      "orellana",
-      "pastaza",
-      "pichincha",
-      "santa_elena",
-      "santo_domingo",
-      "sucumbios",
-      "tungurahua",
-      "zamora_chinchipe"
+    const CACHE_KEY = "librosEcuador_v39";
+    const EXTRA_PRECIOS_FILES = [];
+    const EXTRA_UBICACIONES_FILES = [
+      "librerias_ecuador_cañar_db.json",
+      "librerias_ecuador_tungurahua_db.json",
+      "librerias_ecuador_napo_db.json",
+      "librerias_ecuador_bolívar_db.json",
+      "librerias_ecuador_orellana_db.json",
+      "librerias_ecuador_chimborazo_db.json",
+      "librerias_ecuador_manabí_db.json",
+      "librerias_ecuador_cotopaxi_db.json",
+      "librerias_ecuador_imbabura_db.json",
+      "librerias_ecuador_loja_db.json",
+      "galapagos_normalizado.json",
+      "librerias_2_zamora_chinchipe.json",
+      "librerias_2_sucumbios.json",
+      "librerias_2_santo_domingo_tsachilas.json",
+      "librerias_2_morona_santiago.json",
+      "LOS_RIOS.json",
+      "ESMERALDAS_CARCHI.json",
+      "AZUAY_GUAYAS.json"
     ];
-    const EXTRA_PRECIOS_FILES = provinciasArchivos.map(p => `precios_${p}.json`);
-    const EXTRA_UBICACIONES_FILES = provinciasArchivos.map(p => `ubicaciones_${p}.json`);
-    const EXTRA_SRI_FILES = provinciasArchivos.map(p => `sri_${p}.json`);
+    const EXTRA_SRI_FILES = [];
     let precios = [], grupo = {}, ubicaciones = [], provincias = [], provinciaActiva = "TODAS", datosSRI = [], mapa, capaGoogle, capaSRI;
 
     function normalizarProvincia(nombre) {
@@ -320,7 +313,7 @@
         <div id="map"></div>
 
         <!-- COMPARATIVA FINAL CON TOTAL OFICIAL Y EXPANSIÓN -->
-        <div style="margin-top:3rem;">
+        <div class="top-sri-panel">
           <h2>Comparativa Google Maps vs SRI (Datos Oficiales 2025)</h2>
           <div class="kpi-grid" style="margin-bottom:2rem;">
             <div class="kpi-card success"><h3>Librerías en Google Maps</h3><p id="googleCount">0</p></div>
@@ -329,9 +322,9 @@
             <div class="kpi-card" id="coberturaCard"><h3>Cobertura real (Google vs SRI)</h3><p id="coberturaPorcentaje">0%</p></div>
           </div>
 
-          <div style="background:#f0f9ff;padding:1.5rem;border-radius:16px;">
+          <div class="top-sri-inner">
             <strong>Top 10 Zonas con más establecimientos registrados (Datos oficiales SRI)</strong>
-            <table style="margin-top:1rem;">
+            <table>
               <thead><tr><th>#</th><th>Zona / Parroquia</th><th>Establecimientos</th></tr></thead>
               <tbody id="topSRI"></tbody>
             </table>

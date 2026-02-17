@@ -1,0 +1,167 @@
+[
+  {
+    "place_id": "ChIJsZDomQsX05ER_pQidvRhupE",
+    "nombre": "Amor de papel guaranda",
+    "direccion": "020101, Guaranda 020101, Ecuador",
+    "provincia": "Bolívar",
+    "lat": -1.5910920000000002,
+    "lng": -78.9999054,
+    "rating": null,
+    "website": null,
+    "keyword_found": "papelería"
+  },
+  {
+    "place_id": "ChIJfUGDsUQX05ERL1uH9lsqAOg",
+    "nombre": "Bazar Jugueteria Papeleria San Pedro Xpress",
+    "direccion": "CX4X+9P7, Convención de 1884, Guaranda, Ecuador",
+    "provincia": "Bolívar",
+    "lat": -1.5940995999999998,
+    "lng": -79.0006901,
+    "rating": 4.4,
+    "website": null,
+    "keyword_found": "librería"
+  },
+  {
+    "place_id": "ChIJ3_oxy3EX05ERxb8Ph9ZTsL4",
+    "nombre": "Libreria y Papelería Central",
+    "direccion": "Calle Manuela Cañizares, y, Guaranda, Ecuador",
+    "provincia": "Bolívar",
+    "lat": -1.5900412,
+    "lng": -79.0006027,
+    "rating": null,
+    "website": null,
+    "keyword_found": "librería"
+  },
+  {
+    "place_id": "ChIJRY9QdjtzLZARge40RRmqpwk",
+    "nombre": "Librería Cristiana CGC (CRISTO, GRACIA Y CRUZ)",
+    "direccion": "090112, Guayaquil 090610, Ecuador",
+    "provincia": "Bolívar",
+    "lat": -2.1425142999999998,
+    "lng": -79.9253614,
+    "rating": 5,
+    "website": "https://www.facebook.com/CGC365/",
+    "keyword_found": "librería cristiana"
+  },
+  {
+    "place_id": "ChIJ25dn5t-p05ERHYRRduO_4wc",
+    "nombre": "Librería Cristiana Pan De Vida",
+    "direccion": "Mercado de San Francisco, Riobamba, Ecuador",
+    "provincia": "Bolívar",
+    "lat": -1.6749983,
+    "lng": -78.6471546,
+    "rating": 5,
+    "website": null,
+    "keyword_found": "librería cristiana"
+  },
+  {
+    "place_id": "ChIJVZ7WHnUX05EREMJaO9u1LVc",
+    "nombre": "Librería García Hermanos",
+    "direccion": "C. Manuela Cañizares, Guaranda 020105, Ecuador",
+    "provincia": "Bolívar",
+    "lat": -1.5901169,
+    "lng": -79.00060479999999,
+    "rating": 5,
+    "website": "https://www.facebook.com/profile.php?id=100063537732576&mibextid=LQQJ4d",
+    "keyword_found": "librería"
+  },
+  {
+    "place_id": "ChIJN5u9uxAX05ER_iCgpybhmCY",
+    "nombre": "Librería González",
+    "direccion": "Manuela Canizares, Guaranda 020103, Ecuador",
+    "provincia": "Bolívar",
+    "lat": -1.5899942,
+    "lng": -79.0006868,
+    "rating": 4.6,
+    "website": null,
+    "keyword_found": "librería"
+  },
+  {
+    "place_id": "ChIJQc6Tt2MX05EREEpTjMiH_ms",
+    "nombre": "Librería OMEGA",
+    "direccion": "C. Manuela Cañizares, Guaranda, Ecuador",
+    "provincia": "Bolívar",
+    "lat": -1.5897211,
+    "lng": -78.99986299999999,
+    "rating": 2.3,
+    "website": null,
+    "keyword_found": "librería"
+  },
+  {
+    "place_id": "ChIJBQ6ENiEV05ER4tpRpw9ev_I",
+    "nombre": "Librería OMEGA",
+    "direccion": "FX2V+GPV, Guaranda, Ecuador",
+    "provincia": "Bolívar",
+    "lat": -1.5486258,
+    "lng": -79.00569159999999,
+    "rating": 2.8,
+    "website": null,
+    "keyword_found": "librería"
+  },
+  {
+    "place_id": "ChIJz8o5KGOp05ERx0PAXfgpQzk",
+    "nombre": "Librería Universitaria",
+    "direccion": "GUAYAQUIL, Y, Riobamba 060110, Ecuador",
+    "provincia": "Bolívar",
+    "lat": -1.680491,
+    "lng": -78.6420651,
+    "rating": 4.7,
+    "website": "https://libreriauniversitaria.ec/",
+    "keyword_found": "librería universitaria"
+  },
+  {
+    "place_id": "ChIJOZFBmUoX05ER3ozqBcVchDE",
+    "nombre": "Librería y Papeleria Jennifer",
+    "direccion": "Sucre, y, Guaranda, Ecuador",
+    "provincia": "Bolívar",
+    "lat": -1.5946805,
+    "lng": -79.00131329999999,
+    "rating": null,
+    "website": null,
+    "keyword_found": "librería"
+  },
+  {
+    "place_id": "ChIJ83YFh60X05ERVff8ZT_ZZzU",
+    "nombre": "Papelería Iris",
+    "direccion": "Vinchoa Central, Guaranda, Ecuador",
+    "provincia": "Bolívar",
+    "lat": -1.6020961,
+    "lng": -78.9891378,
+    "rating": 5,
+    "website": null,
+    "keyword_found": "papelería"
+  },
+  {
+    "place_id": "ChIJI2YUmq8H05ERNEkMwFEFROw",
+    "nombre": "Papelería Universitaria y Tecnología",
+    "direccion": "Avenida La Prensa 1860 Y, Riobamba 060101, Ecuador",
+    "provincia": "Bolívar",
+    "lat": -1.6649372999999998,
+    "lng": -78.6648745,
+    "rating": 3.6,
+    "website": null,
+    "keyword_found": "libreria universitaria"
+  },
+  {
+    "place_id": "ChIJG9vyUEcW05ER4K_phmhL2Oo",
+    "nombre": "SS Cia . Ltda",
+    "direccion": "Av. Elisa Mariño de Carvajal 531 y Pasaje Esther Rivadeneira 020103,, Guaranda, Ecuador",
+    "provincia": "Bolívar",
+    "lat": -1.5934618999999999,
+    "lng": -78.99623439999999,
+    "rating": 3.9,
+    "website": null,
+    "keyword_found": "librería"
+  },
+  {
+    "place_id": "ChIJcagtleAX05ERhRrOp-VRm4k",
+    "nombre": "s y s",
+    "direccion": "Av. Elisa Mariño de Carvajal 531 y, Pasaje Esther Rivadeneira 020103, Guaranda, Ecuador",
+    "provincia": "Bolívar",
+    "lat": -1.5934617999999998,
+    "lng": -78.9962346,
+    "rating": null,
+    "website": null,
+    "keyword_found": "librería"
+  }
+]
