@@ -24,6 +24,7 @@
       <div class="header-badges">
         <span class="pill pill-accent">Trabajo de titulación UCE</span>
         <span class="pill">Cobertura nacional en construcción</span>
+        <button class="presentation-toggle" onclick="togglePresentacion()">Modo presentación</button>
       </div>
     </div>
   </header>
@@ -31,6 +32,7 @@
   <div class="tabs">
     <div class="tab active" onclick="openTab('dashboard')">Dashboard Inteligente</div>
     <div class="tab" onclick="openTab('catalogo')">Catálogo Completo</div>
+    <div class="tab" onclick="openTab('metodologia')">Metodología</div>
   </div>
 
   <div class="container">
@@ -39,6 +41,41 @@
     </div>
     <div id="catalogo" class="tab-content">
       <div class="loading">Preparando catálogo…</div>
+    </div>
+    <div id="metodologia" class="tab-content">
+      <div class="section metodologia-section">
+        <h2>Metodología del Observatorio UCE</h2>
+        <p class="metodologia-intro">
+          Este observatorio combina datos oficiales del Servicio de Rentas Internas (SRI) con librerías geolocalizadas en Google Maps para evaluar la disponibilidad real de libros en Ecuador.
+        </p>
+        <div class="metodologia-grid">
+          <div class="metodologia-card">
+            <h3>Fuentes de datos</h3>
+            <ul>
+              <li>Registros oficiales del SRI por provincia y zona.</li>
+              <li>Librerías y papelerías detectadas en Google Maps.</li>
+              <li>Precios reales de catálogos comerciales de librerías.</li>
+            </ul>
+          </div>
+          <div class="metodologia-card">
+            <h3>Fecha de corte</h3>
+            <p>
+              Los datos utilizados corresponden al año 2025. Nuevos JSON por provincia (por ejemplo precios_pichincha.json, ubicaciones_pichincha.json o precios_azuay.json) pueden incorporarse para actualizar el análisis sin modificar el código.
+            </p>
+          </div>
+          <div class="metodologia-card">
+            <h3>Limitaciones</h3>
+            <ul>
+              <li>No todas las librerías del país cuentan con presencia digital.</li>
+              <li>Los precios pueden cambiar con el tiempo respecto a los catálogos capturados.</li>
+              <li>La cobertura por provincia depende de la calidad de los JSON aportados por el equipo.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="metodologia-nota">
+          La plataforma está pensada como herramienta de apoyo para el análisis académico de la Universidad Central del Ecuador, no como listado comercial definitivo.
+        </p>
+      </div>
     </div>
   </div>
 
@@ -78,6 +115,35 @@
   <script>
     const defaultImg = "https://placehold.co/400x600/cccccc/666666?text=Sin+Portada";
     const CACHE_KEY = "librosEcuador_v38";
+    const provinciasArchivos = [
+      "azuay",
+      "bolivar",
+      "cañar",
+      "carchi",
+      "chimborazo",
+      "cotopaxi",
+      "el_oro",
+      "esmeraldas",
+      "galapagos",
+      "guayas",
+      "imbabura",
+      "loja",
+      "los_rios",
+      "manabi",
+      "morona_santiago",
+      "napo",
+      "orellana",
+      "pastaza",
+      "pichincha",
+      "santa_elena",
+      "santo_domingo",
+      "sucumbios",
+      "tungurahua",
+      "zamora_chinchipe"
+    ];
+    const EXTRA_PRECIOS_FILES = provinciasArchivos.map(p => `precios_${p}.json`);
+    const EXTRA_UBICACIONES_FILES = provinciasArchivos.map(p => `ubicaciones_${p}.json`);
+    const EXTRA_SRI_FILES = provinciasArchivos.map(p => `sri_${p}.json`);
     let precios = [], grupo = {}, ubicaciones = [], provincias = [], provinciaActiva = "TODAS", datosSRI = [], mapa, capaGoogle, capaSRI;
 
     function normalizarProvincia(nombre) {
@@ -108,6 +174,26 @@
       try { const r = await fetch('librerias_procesadas.json'); if (!r.ok) throw 1; preciosRaw = await r.json(); }
       catch (e) { document.getElementById('dashboard').innerHTML = `<div style="color:red;text-align:center;padding:5rem;font-size:2rem;">No se pudieron cargar los datos de librerías.<br><small style="font-size:1.2rem;color:#4b5563">Asegúrate de abrir el proyecto con un servidor web (por ejemplo <code>python -m http.server</code>) y que el archivo <strong>librerias_procesadas.json</strong> esté en la misma carpeta que <strong>index.html</strong>.</small><br><button onclick="location.reload()" style="margin-top:2rem;padding:1rem 2rem;background:#003366;color:white;border:none;border-radius:12px;cursor:pointer">Reintentar</button></div>`; return; }
       try { const r = await fetch('librerias_ecuador_pichincha_pastaza_intermedia.json'); if (r.ok) ubicaciones = await r.json(); } catch (e) { }
+
+      for (const archivo of EXTRA_PRECIOS_FILES) {
+        try {
+          const r = await fetch(archivo);
+          if (r.ok) {
+            const extra = await r.json();
+            if (Array.isArray(extra)) preciosRaw = preciosRaw.concat(extra);
+          }
+        } catch (e) { }
+      }
+
+      for (const archivo of EXTRA_UBICACIONES_FILES) {
+        try {
+          const r = await fetch(archivo);
+          if (r.ok) {
+            const extra = await r.json();
+            if (Array.isArray(extra)) ubicaciones = ubicaciones.concat(extra);
+          }
+        } catch (e) { }
+      }
 
       localStorage.setItem(CACHE_KEY, JSON.stringify({ destacados, preciosRaw, ubicaciones }));
       procesarDatos(destacados, preciosRaw, ubicaciones);
@@ -163,6 +249,37 @@
       const rankingBaratas = Object.entries(porLibreria).map(([n, d]) => ({ nombre: n, promedio: +(d.s / d.c).toFixed(2), libros: d.c })).sort((a, b) => a.promedio - b.promedio);
       const rankingCaras = [...rankingBaratas].reverse();
 
+      const porProvincia = {};
+      precios.forEach(l => {
+        const prov = normalizarProvincia(l.provincia || "SIN PROVINCIA");
+        if (!porProvincia[prov]) porProvincia[prov] = { s: 0, c: 0, librerias: new Set() };
+        porProvincia[prov].s += l.precio;
+        porProvincia[prov].c++;
+        porProvincia[prov].librerias.add(l.libreria);
+      });
+      const resumenProvincias = Object.entries(porProvincia).map(([prov, d]) => ({
+        provincia: prov,
+        promedio: d.c ? d.s / d.c : 0,
+        ofertas: d.c,
+        librerias: d.librerias.size
+      }));
+      let conclusionesHtml = "";
+      if (resumenProvincias.length > 0) {
+        const ordenPorPrecio = [...resumenProvincias].sort((a, b) => a.promedio - b.promedio);
+        const ordenPorOfertas = [...resumenProvincias].sort((a, b) => b.ofertas - a.ofertas);
+        const masBarataProv = ordenPorPrecio[0];
+        const masCaraProv = ordenPorPrecio[ordenPorPrecio.length - 1];
+        const masOfertasProv = ordenPorOfertas[0];
+        conclusionesHtml = `
+          <ul class="insights-list">
+            <li><span class="insights-badge">01</span><span>El análisis incluye datos de <strong>${provinciasDetectadas}</strong> provincias con ofertas de libros registradas.</span></li>
+            <li><span class="insights-badge">02</span><span><strong>${etiquetaProvincia(masBarataProv.provincia)}</strong> presenta el precio promedio más bajo (~$${masBarataProv.promedio.toFixed(2)}).</span></li>
+            <li><span class="insights-badge">03</span><span><strong>${etiquetaProvincia(masCaraProv.provincia)}</strong> concentra los precios promedio más altos (~$${masCaraProv.promedio.toFixed(2)}).</span></li>
+            <li><span class="insights-badge">04</span><span>La provincia con más ofertas registradas es <strong>${etiquetaProvincia(masOfertasProv.provincia)}</strong> con ${masOfertasProv.ofertas.toLocaleString()} precios capturados.</span></li>
+          </ul>
+        `;
+      }
+
       dash.innerHTML = `
       <div class="kpi-grid">
         <div class="kpi-card"><h3>Libros únicos</h3><p>${totalUnicos.toLocaleString()}</p></div>
@@ -172,8 +289,19 @@
         <div class="kpi-card warning"><h3>Provincias con datos</h3><p>${provinciasDetectadas}</p></div>
       </div>
 
+      <div class="section">
+        <h2>Conclusiones rápidas para el trabajo UCE</h2>
+        ${conclusionesHtml || `<p style="color:#64748b">Cuando se carguen datos de varias provincias, aquí aparecerá un resumen automático de hallazgos.</p>`}
+      </div>
+
       <div class="section"><h2>Top 15 Libros Más Populares</h2><div class="books-grid" id="topGrid"></div></div>
-      <div class="section"><h2>Librerías Más Baratas</h2><table><thead><tr><th>#</th><th>Librería</th><th>Precio Prom.</th><th>Libros</th></tr></thead><tbody id="baratasBody"></tbody><tr class="ver-mas" id="verMasBaratas"><td colspan="4">Mostrar todas</td></tr></table></div>
+      <div class="section">
+        <div class="section-header-row">
+          <h2>Librerías Más Baratas</h2>
+          <button class="csv-button" id="csvBaratas">Descargar CSV</button>
+        </div>
+        <table><thead><tr><th>#</th><th>Librería</th><th>Precio Prom.</th><th>Libros</th></tr></thead><tbody id="baratasBody"></tbody><tr class="ver-mas" id="verMasBaratas"><td colspan="4">Mostrar todas</td></tr></table>
+      </div>
       <div class="section"><h2>Librerías Más Caras</h2><table><thead><tr><th>#</th><th>Librería</th><th>Precio Prom.</th><th>Libros</th></tr></thead><tbody id="carasBody"></tbody><tr class="ver-mas" id="verMasCaras"><td colspan="4">Mostrar más</td></tr></table></div>
       <div class="section"><h2>Top 15 Libros Más Baratos</h2><table><thead><tr><th>Título</th><th>Precio</th><th>Librería</th></tr></thead><tbody id="cheapestBody"></tbody><tr class="ver-mas" id="verMasCheapest"><td colspan="3">Ver más ofertas</td></tr></table></div>
 
@@ -207,7 +335,10 @@
               <thead><tr><th>#</th><th>Zona / Parroquia</th><th>Establecimientos</th></tr></thead>
               <tbody id="topSRI"></tbody>
             </table>
-            <div class="ver-mas" id="verMasSRI" style="margin-top:1rem;">Ver más zonas</div>
+            <div class="metodologia-footer-row">
+              <div class="ver-mas" id="verMasSRI" style="margin-top:1rem;">Ver más zonas</div>
+              <button class="csv-button" id="csvTopSRI">Descargar Top SRI CSV</button>
+            </div>
           </div>
         </div>
       </div>
@@ -289,6 +420,19 @@
         }
       };
       inicializarMapa();
+
+      const btnCSVBaratas = document.getElementById("csvBaratas");
+      if (btnCSVBaratas) {
+        btnCSVBaratas.onclick = () => {
+          const filas = rankingBaratas.map((l, i) => ({
+            posicion: i + 1,
+            libreria: l.nombre,
+            precio_promedio: l.promedio,
+            total_libros: l.libros
+          }));
+          descargarCSVGenerico(filas, "librerias_mas_baratas.csv");
+        };
+      }
     }
 
     function configurarProvinciaSelect() {
@@ -393,6 +537,18 @@
           verMas.remove();
         };
       }
+      const btnSRI = document.getElementById("csvTopSRI");
+      if (btnSRI) {
+        btnSRI.onclick = () => {
+          const filas = topOrdenado.map((z, i) => ({
+            posicion: i + 1,
+            zona: z.DIRECCION,
+            provincia: z.DESCRIPCION_PROVINCIA_EST,
+            establecimientos: z.TOTAL_SUM_ESTABLECIMIENTOS
+          }));
+          descargarCSVGenerico(filas, "top_sri.csv");
+        };
+      }
       if (puntos.length > 0) {
         mapa.fitBounds(puntos, { padding: [50, 50] });
       }
@@ -400,7 +556,10 @@
 
     // CATÁLOGO, MODAL y funciones openTab igual que antes...
     function renderCatalogo() {
-      document.getElementById("catalogo").innerHTML = `<div class="section"><h2>Catálogo Completo (${Object.keys(grupo).length} libros únicos)</h2><input type="text" class="table-search" id="searchCat" placeholder="Buscar libro, autor, editorial..." onkeyup="filtrarCat()"><div class="books-grid" id="catGrid"></div></div>`;
+      const opcionesProvincia = provincias.length
+        ? provincias.map(p => `<option value="${p}">${etiquetaProvincia(p)}</option>`).join("")
+        : "";
+      document.getElementById("catalogo").innerHTML = `<div class="section"><h2>Catálogo Completo (${Object.keys(grupo).length} libros únicos)</h2><div class="catalogo-filtros"><input type="text" class="table-search" id="searchCat" placeholder="Buscar libro, autor, editorial..." onkeyup="filtrarCat()"><select id="provinciaCat" class="provincia-select" onchange="filtrarCat()"><option value="TODAS">Todas las provincias</option>${opcionesProvincia}</select></div><div class="books-grid" id="catGrid"></div></div>`;
       mostrarTodos();
     }
     function mostrarTodos() {
@@ -416,13 +575,22 @@
     function filtrarCat() {
       const t = document.getElementById("searchCat").value.toLowerCase();
       const g = document.getElementById("catGrid"); g.innerHTML = "";
-      Object.entries(grupo).filter(([k, _]) => k.toLowerCase().includes(t)).forEach(([k, v]) => {
-        const libro = v[0], min = Math.min(...v.map(x => x.precio));
-        g.innerHTML += `<div class="book-card" onclick="abrirModal('${k.replace(/'/g, "\\'")}')">
+      const selectProvincia = document.getElementById("provinciaCat");
+      const filtroProvincia = selectProvincia ? selectProvincia.value : "TODAS";
+      Object.entries(grupo)
+        .filter(([k, _]) => k.toLowerCase().includes(t))
+        .filter(([_, v]) => {
+          if (!filtroProvincia || filtroProvincia === "TODAS") return true;
+          const setProv = new Set(v.map(x => normalizarProvincia(x.provincia || "")));
+          return setProv.has(filtroProvincia);
+        })
+        .forEach(([k, v]) => {
+          const libro = v[0], min = Math.min(...v.map(x => x.precio));
+          g.innerHTML += `<div class="book-card" onclick="abrirModal('${k.replace(/'/g, "\\'")}')">
           <img src="${libro.imagen || defaultImg}" onerror="this.src='${defaultImg}'" loading="lazy">
           <div class="book-info"><h4>${libro.titulo}</h4><div class="price">$${min.toFixed(2)}</div><div class="disponible">En ${v.length} librerías</div></div>
         </div>`;
-      });
+        });
     }
 
     let modalData = [];
@@ -449,6 +617,32 @@
       document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
       document.getElementById(id).classList.add("active");
       document.querySelector(`[onclick="openTab('${id}')"]`).classList.add("active");
+    }
+
+    function descargarCSVGenerico(filas, nombre) {
+      if (!filas || !filas.length) return;
+      const encabezados = Object.keys(filas[0]);
+      const lineas = [];
+      lineas.push(encabezados.join(";"));
+      filas.forEach(f => {
+        lineas.push(encabezados.map(c => {
+          const valor = f[c] == null ? "" : String(f[c]).replace(/"/g, '""');
+          return `"${valor}"`;
+        }).join(";"));
+      });
+      const blob = new Blob([lineas.join("\n")], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = nombre;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function togglePresentacion() {
+      document.body.classList.toggle("presentation");
     }
 
     cargarDatos();
