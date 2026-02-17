@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Libros Ecuador 2025</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+
+  <header>
+    <h1>Libros Ecuador</h1>
+  </header>
+
+  <div class="tabs">
+    <div class="tab active" onclick="openTab('dashboard')">Dashboard Inteligente</div>
+    <div class="tab" onclick="openTab('catalogo')">Catálogo Completo</div>
+  </div>
+
+  <div class="container">
+    <div id="dashboard" class="tab-content active">
+      <div class="loading">Cargando datos…</div>
+    </div>
+    <div id="catalogo" class="tab-content">
+      <div class="loading">Preparando catálogo…</div>
+    </div>
+  </div>
+
+  <div class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <div id="modal" class="modal" onclick="if(event.target===this)this.style.display='none'">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitulo">Libro</h2>
+        <span class="close" onclick="document.getElementById('modal').style.display='none'">×</span>
+      </div>
+      <div class="modal-body">
+        <div class="modal-controls">
+          <input type="text" id="modalSearch" placeholder="Filtrar librería..." onkeyup="filtrarModal()">
+          <select id="modalOrder" onchange="ordenarModal()">
+            <option value="precio-asc">Precio: menor → mayor</option>
+            <option value="precio-desc">Precio: mayor → menor</option>
+          </select>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Librería</th>
+              <th>Precio</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody id="modalBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const defaultImg = "https://placehold.co/400x600/cccccc/666666?text=Sin+Portada";
+    const CACHE_KEY = "librosEcuador_v37";
+    let precios = [], grupo = {}, ubicaciones = [];
+
+    async function cargarDatos() {
+      const cached = localStorage.getItem(CACHE_KEY);
+      if (cached) {
+        try {
+          const data = JSON.parse(cached);
+          procesarDatos(data.destacados || [], data.preciosRaw || [], data.ubicaciones || []);
+          return;
+        } catch (e) { localStorage.removeItem(CACHE_KEY); }
+      }
+
+      document.getElementById('dashboard').innerHTML = `<div class="loading">Cargando datos…<br><small>Libros, precios y mapa (3-8 segundos la primera vez)</small></div>`;
+
+      let destacados = [], preciosRaw = [], ubicaciones = [];
+
+      try { const r = await fetch('libros_imagenes.json'); if (r.ok) destacados = await r.json(); } catch (e) { }
+      try { const r = await fetch('librerias_procesadas.json'); if (!r.ok) throw 1; preciosRaw = await r.json(); }
+      catch (e) { document.getElementById('dashboard').innerHTML = `<div style="color:red;text-align:center;padding:5rem;font-size:2rem;">Error: No se encuentra librerias_procesadas.json<br><button onclick="location.reload()" style="margin-top:2rem;padding:1rem 2rem;background:#3b82f6;color:white;border:none;border-radius:12px;cursor:pointer">Reintentar</button></div>`; return; }
+      try { const r = await fetch('librerias_ecuador_pichincha_pastaza_intermedia.json'); if (r.ok) ubicaciones = await r.json(); } catch (e) { }
+
+      localStorage.setItem(CACHE_KEY, JSON.stringify({ destacados, preciosRaw, ubicaciones }));
+      procesarDatos(destacados, preciosRaw, ubicaciones);
+    }
+
+    function procesarDatos(destacados, preciosRaw, ubicacionesGuardadas) {
+      ubicaciones = ubicacionesGuardadas;
+      precios = preciosRaw.filter(l => {
+        const p = Number(l.precio) || 0, t = (l.titulo || "").trim(), lib = (l.libreria || "").toLowerCase();
+        return p >= 2 && p <= 120 && t && !/^libro(\s*\d*)?$/i.test(t) && !lib.includes("coral") && !lib.includes("hipermercados") && !lib.includes("tama shop") && !lib.includes("tía conocoto");
+      });
+
+      precios.forEach(l => {
+        const m = destacados.find(d => d.titulo.toLowerCase().includes(l.titulo.toLowerCase()));
+        if (m && m.imagen) l.imagen = m.imagen;
+      });
+
+      const visto = new Set();
+      precios.forEach(l => {
+        const claveTitulo = l.titulo.trim().toUpperCase();
+        const clave = `${claveTitulo}|||${l.libreria}`;
+        if (!visto.has(clave)) {
+          visto.add(clave);
+          if (!grupo[claveTitulo]) grupo[claveTitulo] = [];
+          grupo[claveTitulo].push(l);
+        }
+      });
+
+      renderDashboard();
+      renderCatalogo();
+      window.addEventListener('scroll', () => document.getElementById('backTop').classList.toggle('show', window.scrollY > 500));
+    }
+
+    function renderDashboard() {
+      const dash = document.getElementById("dashboard");
+      const totalUnicos = Object.keys(grupo).length;
+      const totalOfertas = precios.length;
+      const librerias = [...new Set(precios.map(p => p.libreria))].length;
+      const precioPromedio = (precios.reduce((a, b) => a + b.precio, 0) / precios.length).toFixed(2);
+      const precioMin = Math.min(...precios.map(p => p.precio));
+      const precioMax = Math.max(...precios.map(p => p.precio));
+      const populares = Object.values(grupo).filter(a => a.length >= 3).length;
+      const raros = Object.values(grupo).filter(a => a.length === 1).length;
+
+      const porLibreria = {};
+      precios.forEach(l => { if (!porLibreria[l.libreria]) porLibreria[l.libreria] = { s: 0, c: 0 }; porLibreria[l.libreria].s += l.precio; porLibreria[l.libreria].c++; });
+      const rankingBaratas = Object.entries(porLibreria).map(([n, d]) => ({ nombre: n, promedio: +(d.s / d.c).toFixed(2), libros: d.c })).sort((a, b) => a.promedio - b.promedio);
+      const rankingCaras = [...rankingBaratas].reverse();
+
+      dash.innerHTML = `
+      <div class="kpi-grid">
+        <div class="kpi-card"><h3>Libros únicos</h3><p>${totalUnicos.toLocaleString()}</p></div>
+        <div class="kpi-card success"><h3>Precio promedio</h3><p>$${precioPromedio}</p></div>
+        <div class="kpi-card"><h3>Más barato</h3><p>$${precioMin}</p></div>
+        <div class="kpi-card danger"><h3>Más caro</h3><p>$${precioMax}</p></div>
+      </div>
+
+      <div class="section"><h2>Top 15 Libros Más Populares</h2><div class="books-grid" id="topGrid"></div></div>
+      <div class="section"><h2>Librerías Más Baratas</h2><table><thead><tr><th>#</th><th>Librería</th><th>Precio Prom.</th><th>Libros</th></tr></thead><tbody id="baratasBody"></tbody><tr class="ver-mas" id="verMasBaratas"><td colspan="4">Mostrar todas</td></tr></table></div>
+      <div class="section"><h2>Librerías Más Caras</h2><table><thead><tr><th>#</th><th>Librería</th><th>Precio Prom.</th><th>Libros</th></tr></thead><tbody id="carasBody"></tbody><tr class="ver-mas" id="verMasCaras"><td colspan="4">Mostrar más</td></tr></table></div>
+      <div class="section"><h2>Top 15 Libros Más Baratos</h2><table><thead><tr><th>Título</th><th>Precio</th><th>Librería</th></tr></thead><tbody id="cheapestBody"></tbody><tr class="ver-mas" id="verMasCheapest"><td colspan="3">Ver más ofertas</td></tr></table></div>
+
+      <div class="section">
+        <h2>Ubicación de Librerías (Google Maps + SRI)</h2>
+        <div class="leyenda">
+          <strong>Leyenda:</strong><br>
+          <span style="color:#1e40af">Marcadores azules</span> → Librerías reales (Google Maps)<br>
+          <span style="color:#dc2626">Marcadores rojos</span> → Zonas oficiales del SRI<br>
+          <span style="color:#f97316">Marcadores naranjas grandes</span> → Más de 150 establecimientos registrados
+        </div>
+        <div id="map"></div>
+
+        <!-- COMPARATIVA FINAL CON TOTAL OFICIAL Y EXPANSIÓN -->
+        <div style="margin-top:3rem;">
+          <h2>Comparativa Google Maps vs SRI (Datos Oficiales 2025)</h2>
+          <div class="kpi-grid" style="margin-bottom:2rem;">
+            <div class="kpi-card success"><h3>Librerías en Google Maps</h3><p id="googleCount">0</p></div>
+            <div class="kpi-card danger"><h3>Zonas SRI Registradas</h3><p id="sriCount">0</p></div>
+            <div class="kpi-card danger"><h3>Total establecimientos SRI</h3><p id="totalSRI">0</p></div>
+            <div class="kpi-card" id="coberturaCard"><h3>Cobertura real (Google vs SRI)</h3><p id="coberturaPorcentaje">0%</p></div>
+          </div>
+
+          <div style="background:#f0f9ff;padding:1.5rem;border-radius:16px;">
+            <strong>Top 10 Zonas con más establecimientos registrados (Datos oficiales SRI)</strong>
+            <table style="margin-top:1rem;">
+              <thead><tr><th>#</th><th>Zona / Parroquia</th><th>Establecimientos</th></tr></thead>
+              <tbody id="topSRI"></tbody>
+            </table>
+            <div class="ver-mas" id="verMasSRI" style="margin-top:1rem;">Ver más zonas</div>
+          </div>
+        </div>
+      </div>
+      `;
+
+      // (Código de tops y tablas normales igual que antes...)
+
+      Object.entries(grupo).sort((a, b) => b[1].length - a[1].length).slice(0, 15).forEach(([k, v]) => {
+        const libro = v[0], min = Math.min(...v.map(x => x.precio));
+        document.getElementById("topGrid").innerHTML += `
+        <div class="book-card" onclick="abrirModal('${k.replace(/'/g, "\\'")}')">
+          <img src="${libro.imagen || defaultImg}" onerror="this.src='${defaultImg}'" loading="lazy">
+          <div class="book-info"><h4>${libro.titulo}</h4><div class="price">$${min.toFixed(2)}</div><div class="disponible">En ${v.length} librerías</div></div>
+        </div>`;
+      });
+
+      rankingBaratas.slice(0, 10).forEach((l, i) => document.getElementById("baratasBody").innerHTML += `<tr><td>${i + 1}</td><td>${l.nombre}</td><td>$${l.promedio}</td><td>${l.libros}</td></tr>`);
+      rankingCaras.slice(0, 10).forEach((l, i) => document.getElementById("carasBody").innerHTML += `<tr><td>${i + 1}</td><td>${l.nombre}</td><td>$${l.promedio}</td><td>${l.libros}</td></tr>`);
+      precios.sort((a, b) => a.precio - b.precio).slice(0, 15).forEach(l => {
+        const t = l.titulo.length > 60 ? l.titulo.substr(0, 60) + '...' : l.titulo;
+        document.getElementById("cheapestBody").innerHTML += `<tr><td title="${l.titulo}">${t}</td><td style="color:green;font-weight:bold">$${l.precio.toFixed(2)}</td><td>${l.libreria}</td></tr>`;
+      });
+
+
+      // ==================== VER MÁS DE 10 EN 10 (INTELIGENTE) ====================
+
+      // Librerías Más Baratas
+      let offsetBaratas = 10;
+      document.getElementById("verMasBaratas").onclick = () => {
+        const siguientes = rankingBaratas.slice(offsetBaratas, offsetBaratas + 10);
+        siguientes.forEach((l, i) => {
+          document.getElementById("baratasBody").innerHTML +=
+            `<tr><td>${offsetBaratas + i + 1}</td><td>${l.nombre}</td><td>$${l.promedio}</td><td>${l.libros}</td></tr>`;
+        });
+        offsetBaratas += 10;
+
+        // Si ya no hay más, elimina el botón
+        if (offsetBaratas >= rankingBaratas.length) {
+          document.getElementById("verMasBaratas").remove();
+        }
+      };
+
+      // Librerías Más Caras
+      let offsetCaras = 10;
+      document.getElementById("verMasCaras").onclick = () => {
+        const siguientes = rankingCaras.slice(offsetCaras, offsetCaras + 10);
+        siguientes.forEach((l, i) => {
+          document.getElementById("carasBody").innerHTML +=
+            `<tr><td>${offsetCaras + i + 1}</td><td>${l.nombre}</td><td>$${l.promedio}</td><td>${l.libros}</td></tr>`;
+        });
+        offsetCaras += 10;
+
+        if (offsetCaras >= rankingCaras.length) {
+          document.getElementById("verMasCaras").remove();
+        }
+      };
+
+      // Libros Más Baratos (ordenados por precio)
+      let offsetCheapest = 15;
+      document.getElementById("verMasCheapest").onclick = () => {
+        const listaOrdenada = [...precios].sort((a, b) => a.precio - b.precio);
+        const siguientes = listaOrdenada.slice(offsetCheapest, offsetCheapest + 10);
+
+        siguientes.forEach((l, i) => {
+          const tituloCorto = l.titulo.length > 60 ? l.titulo.substr(0, 60) + '...' : l.titulo;
+          document.getElementById("cheapestBody").innerHTML +=
+            `<tr>
+        <td title="${l.titulo}">${tituloCorto}</td>
+        <td style="color:green;font-weight:bold">$${l.precio.toFixed(2)}</td>
+        <td>${l.libreria}</td>
+      </tr>`;
+        });
+
+        offsetCheapest += 10;
+
+        // Elimina el botón si ya no quedan más libros
+        if (offsetCheapest >= listaOrdenada.length) {
+          document.getElementById("verMasCheapest").remove();
+        }
+      };
+
+
+
+      // ====== MAPA + COMPARATIVA FINAL CON EXPANSIÓN ======
+      const map = L.map('map').setView([-0.1807, -78.4678], 10);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap' }).addTo(map);
+
+      const iconGoogle = L.icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34] });
+      const iconSRI = L.icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34] });
+      const iconSRIGrande = L.icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png', iconSize: [38, 62], iconAnchor: [19, 62], popupAnchor: [1, -50] });
+
+      let googleCount = 0;
+      if (ubicaciones.length > 0) {
+        ubicaciones.forEach(lib => { if (lib.lat && lib.lng) { googleCount++; L.marker([lib.lat, lib.lng], { icon: iconGoogle }).addTo(map).bindPopup(`<b style="color:#1e40af">Librería Real (Google)</b><br><b>${lib.nombre || 'Sin nombre'}</b><br>${lib.direccion || ''}`); } });
+      }
+
+      fetch('sri_pichincha_pastaza_coordenadas.json')
+        .then(r => r.ok ? r.json() : Promise.reject())
+        .then(sri => {
+          const totalEstablecimientosSRI = sri.reduce((a, z) => a + z.TOTAL_SUM_ESTABLECIMIENTOS, 0);
+          const zonasGrandes = sri.filter(z => z.TOTAL_SUM_ESTABLECIMIENTOS > 150).length;
+          const coberturaReal = Math.round((googleCount / totalEstablecimientosSRI) * 100);
+
+          sri.forEach(z => {
+            if (z.lat && z.lng) {
+              const esGrande = z.TOTAL_SUM_ESTABLECIMIENTOS > 150;
+              const zonaNombre = z.DIRECCION.split(',')[0].replace('Quito', '').trim() || 'Centro Quito';
+              L.marker([z.lat, z.lng], { icon: esGrande ? iconSRIGrande : iconSRI }).addTo(map)
+                .bindPopup(`<div style="font-size:14px"><b style="color:#dc2626">Zona Oficial SRI</b><br><b>${zonaNombre}</b><br><hr style="margin:8px 0;border-top:1px solid #eee"><small><b>Establecimientos:</b> ${z.TOTAL_SUM_ESTABLECIMIENTOS}<br><b>Provincia:</b> ${z.DESCRIPCION_PROVINCIA_EST}</small></div>`);
+            }
+          });
+
+          // KPIs
+          document.getElementById("googleCount").textContent = googleCount.toLocaleString();
+          document.getElementById("sriCount").textContent = sri.length + " zonas";
+          document.getElementById("totalSRI").textContent = totalEstablecimientosSRI.toLocaleString();
+
+          document.getElementById("coberturaCard").innerHTML = `
+                        <h3>Cobertura real (Google vs SRI)</h3>
+                        <p style="font-size:2.4rem;color:${coberturaReal < 40 ? '#ef4444' : '#f59e0b'}">${coberturaReal}%</p>
+                        <small style="color:#64748b;font-size:0.95rem">
+                            ${googleCount} ubicaciones exactas<br>
+                            de <strong>${totalEstablecimientosSRI.toLocaleString()}</strong> establecimientos oficiales
+                        </small>
+                    `;
+
+          // Top 10 inicial
+          const topOrdenado = sri.sort((a, b) => b.TOTAL_SUM_ESTABLECIMIENTOS - a.TOTAL_SUM_ESTABLECIMIENTOS);
+          const mostrarTop = (hasta = 10) => {
+            document.getElementById("topSRI").innerHTML = topOrdenado.slice(0, hasta).map((z, i) => {
+              const nombre = z.DIRECCION.split(',')[0].replace('Quito', '').trim() || 'Centro Quito';
+              return `<tr><td>${i + 1}</td><td>${nombre}</td><td><strong>${z.TOTAL_SUM_ESTABLECIMIENTOS}</strong></td></tr>`;
+            }).join("");
+          };
+          mostrarTop(10);
+
+          // Botón "Ver más zonas"
+          document.getElementById("verMasSRI").onclick = () => {
+            mostrarTop(1000);
+            document.getElementById("verMasSRI").remove();
+          };
+
+          setTimeout(() => { const puntos = [...ubicaciones.map(l => [l.lat, l.lng]), ...sri.map(z => [z.lat, z.lng])].filter(p => p[0] && p[1]); if (puntos.length > 0) map.fitBounds(puntos, { padding: [50, 50] }); }, 1000);
+        })
+        .catch(() => { document.getElementById("sriCount").textContent = "No disponible"; });
+    }
+
+    // CATÁLOGO, MODAL y funciones openTab igual que antes...
+    function renderCatalogo() {
+      document.getElementById("catalogo").innerHTML = `<div class="section"><h2>Catálogo Completo (${Object.keys(grupo).length} libros únicos)</h2><input type="text" class="table-search" id="searchCat" placeholder="Buscar libro, autor, editorial..." onkeyup="filtrarCat()"><div class="books-grid" id="catGrid"></div></div>`;
+      mostrarTodos();
+    }
+    function mostrarTodos() {
+      const g = document.getElementById("catGrid"); g.innerHTML = "";
+      Object.entries(grupo).forEach(([k, v]) => {
+        const libro = v[0], min = Math.min(...v.map(x => x.precio));
+        g.innerHTML += `<div class="book-card" onclick="abrirModal('${k.replace(/'/g, "\\'")}')">
+          <img src="${libro.imagen || defaultImg}" onerror="this.src='${defaultImg}'" loading="lazy">
+          <div class="book-info"><h4>${libro.titulo}</h4><div class="price">$${min.toFixed(2)}</div><div class="disponible">En ${v.length} librerías</div></div>
+        </div>`;
+      });
+    }
+    function filtrarCat() {
+      const t = document.getElementById("searchCat").value.toLowerCase();
+      const g = document.getElementById("catGrid"); g.innerHTML = "";
+      Object.entries(grupo).filter(([k, _]) => k.toLowerCase().includes(t)).forEach(([k, v]) => {
+        const libro = v[0], min = Math.min(...v.map(x => x.precio));
+        g.innerHTML += `<div class="book-card" onclick="abrirModal('${k.replace(/'/g, "\\'")}')">
+          <img src="${libro.imagen || defaultImg}" onerror="this.src='${defaultImg}'" loading="lazy">
+          <div class="book-info"><h4>${libro.titulo}</h4><div class="price">$${min.toFixed(2)}</div><div class="disponible">En ${v.length} librerías</div></div>
+        </div>`;
+      });
+    }
+
+    let modalData = [];
+    function abrirModal(clave) {
+      modalData = grupo[clave];
+      document.getElementById("modalTitulo").textContent = modalData[0].titulo;
+      renderModal();
+      document.getElementById("modal").style.display = "block";
+    }
+    function renderModal() {
+      let d = [...modalData];
+      const o = document.getElementById("modalOrder").value;
+      if (o === "precio-asc") d.sort((a, b) => a.precio - b.precio);
+      if (o === "precio-desc") d.sort((a, b) => b.precio - a.precio);
+      const f = document.getElementById("modalSearch").value.toLowerCase();
+      if (f) d = d.filter(l => l.libreria.toLowerCase().includes(f));
+      document.getElementById("modalBody").innerHTML = d.map(l => `<tr><td>${l.libreria}</td><td style="color:#10b981;font-weight:700">$${l.precio.toFixed(2)}</td><td>Disponible</td></tr>`).join("");
+    }
+    function filtrarModal() { renderModal(); }
+    function ordenarModal() { renderModal(); }
+
+    function openTab(id) {
+      document.querySelectorAll(".tab-content").forEach(t => t.classList.remove("active"));
+      document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+      document.querySelector(`[onclick="openTab('${id}')"]`).classList.add("active");
+    }
+
+    cargarDatos();
+  </script>
+</body>
+
+</html>
