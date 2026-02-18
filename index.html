@@ -114,7 +114,7 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     const defaultImg = "https://placehold.co/400x600/cccccc/666666?text=Sin+Portada";
-    const CACHE_KEY = "librosEcuador_v39";
+    const CACHE_KEY = "librosEcuador_v41";
     const EXTRA_PRECIOS_FILES = [];
     const EXTRA_UBICACIONES_FILES = [
       "librerias_ecuador_cañar_db.json",
@@ -127,11 +127,9 @@
       "librerias_ecuador_cotopaxi_db.json",
       "librerias_ecuador_imbabura_db.json",
       "librerias_ecuador_loja_db.json",
-      "galapagos_normalizado.json",
+      "librerias_el_oro_db.json",
+      "librerias_galapagos_db.json",
       "librerias_2_zamora_chinchipe.json",
-      "librerias_2_sucumbios.json",
-      "librerias_2_santo_domingo_tsachilas.json",
-      "librerias_2_morona_santiago.json",
       "LOS_RIOS.json",
       "ESMERALDAS_CARCHI.json",
       "AZUAY_GUAYAS.json"
@@ -188,8 +186,12 @@
         } catch (e) { }
       }
 
-      localStorage.setItem(CACHE_KEY, JSON.stringify({ destacados, preciosRaw, ubicaciones }));
       procesarDatos(destacados, preciosRaw, ubicaciones);
+      try {
+        localStorage.setItem(CACHE_KEY, JSON.stringify({ destacados, preciosRaw, ubicaciones }));
+      } catch (e) {
+        console.warn("No se pudo guardar caché en localStorage (cuota excedida)", e);
+      }
     }
 
     function procesarDatos(destacados, preciosRaw, ubicacionesGuardadas) {
