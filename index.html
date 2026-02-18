@@ -114,7 +114,7 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     const defaultImg = "https://placehold.co/400x600/cccccc/666666?text=Sin+Portada";
-    const CACHE_KEY = "librosEcuador_v41";
+    const CACHE_KEY = "librosEcuador_v42";
     const EXTRA_PRECIOS_FILES = [
       "LIBRERIAS_ENRIQUECIDO.json"
     ];
@@ -144,7 +144,12 @@
     let preciosBase = [], grupoBase = {}, precios = [], grupo = [], ubicaciones = [], provincias = [], provinciaActiva = "TODAS", provinciaKpi = "TODAS", datosSRI = [], mapa, capaGoogle, capaSRI;
 
     function normalizarProvincia(nombre) {
-      return (nombre || "").toString().trim().toUpperCase();
+      return (nombre || "")
+        .toString()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .trim()
+        .toUpperCase();
     }
 
     function etiquetaProvincia(codigo) {
