@@ -75,6 +75,47 @@
         <p class="metodologia-nota">
           La plataforma está pensada como herramienta de apoyo para el análisis académico de la Universidad Central del Ecuador, no como listado comercial definitivo.
         </p>
+        <div class="section metodologia-section" style="margin-top:2rem">
+          <h2>Modelo heurístico aplicado en el dashboard</h2>
+          <p>
+            El modelo se usa para sintetizar, por provincia, señales observables del mercado del libro en ausencia de un censo exhaustivo. Se integra la <strong>frecuencia digital</strong>, la <strong>presencia territorial</strong>, la <strong>categoría del título</strong> y el <strong>precio normalizado</strong>, sobre los <strong>24 territorios</strong> del país.
+          </p>
+          <h3>Entradas</h3>
+          <ul>
+            <li>Precio observado por título y librería (después de filtrar valores fuera de [2, 120]).</li>
+            <li>Frecuencia digital: número de ofertas únicas por título en la provincia.</li>
+            <li>Presencia territorial: existencia de ubicación validada en la provincia.</li>
+            <li>Categoría editorial declarada (Agricultura, Folklore, Educación Comunitaria, etc.).</li>
+          </ul>
+          <h3>Normalizaciones</h3>
+          <ul>
+            <li>Provincias: se normaliza removiendo diacríticos y mayúsculas para evitar duplicados.</li>
+            <li>Precios: se usa un zeta lineal acotado para comparabilidad intra-provincia.</li>
+            <li>Frecuencia: se escala por logaritmo para evitar sesgos por alta concentración.</li>
+          </ul>
+          <h3>Formulación</h3>
+          <div style="background:#0f172a;color:#e5e7eb;padding:1rem;border-radius:12px;line-height:1.6">
+            Sea un título <em>t</em> en provincia <em>p</em>. Definimos:<br>
+            - Precio normalizado: <strong>Zp(t) = 1 - (precio(t) - min_p) / (max_p - min_p)</strong>, con clipping en [0,1].<br>
+            - Frecuencia digital: <strong>Fp(t) = log(1 + n_p(t)) / log(1 + n_p^{max})</strong>, donde n_p(t) es el número de ofertas únicas del título en la provincia.<br>
+            - Presencia territorial: <strong>Dp(t) ∈ {0,1}</strong>, 1 si existe ubicación validada en la provincia, 0 en caso contrario.<br>
+            - Peso de categoría: <strong>C(t)</strong> en [0,1], asignado por categoría editorial (p.ej. Educación Comunitaria con mayor peso en análisis territorial).<br><br>
+            Puntaje heurístico:<br>
+            <strong>Hp(t) = w1·Zp(t) + w2·Fp(t) + w3·Dp(t) + w4·C(t)</strong><br>
+            con <strong>w1 + w2 + w3 + w4 = 1</strong>, típicamente <strong>w2 ≥ w1</strong> para dar mayor relevancia a presencia efectiva en mercado.<br>
+          </div>
+          <h3>Aplicación en la UI</h3>
+          <ul>
+            <li>El dashboard agrupa por título y librería, elimina duplicados y aplica filtros de precio.</li>
+            <li>Los KPIs por provincia (títulos únicos, ofertas, librerías activas, precios) son proxies de Fp(t), Zp(t) y Dp(t).</li>
+            <li>La selección de provincia calcula estadísticos con la base depurada, mostrando el desempeño relativo del territorio.</li>
+          </ul>
+          <h3>Interpretación</h3>
+          <ul>
+            <li>Valores altos de Hp(t) indican títulos con mejor posicionamiento relativo: precio competitivo, amplia presencia digital y ubicación validada.</li>
+            <li>Comparar provincias permite observar concentración urbana y brechas territoriales de acceso al libro.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -114,7 +155,8 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     const defaultImg = "https://placehold.co/400x600/cccccc/666666?text=Sin+Portada";
-    const CACHE_KEY = "librosEcuador_v42";
+    const CACHE_KEY = "librosEcuador_v43";
+    const BUST = `?v=${CACHE_KEY}`;
     const EXTRA_PRECIOS_FILES = [
       "LIBRERIAS_ENRIQUECIDO.json"
     ];
@@ -172,14 +214,14 @@
 
       let destacados = [], preciosRaw = [], ubicaciones = [];
 
-      try { const r = await fetch('libros_imagenes.json'); if (r.ok) destacados = await r.json(); } catch (e) { }
-      try { const r = await fetch('librerias_procesadas.json'); if (!r.ok) throw 1; preciosRaw = await r.json(); }
+      try { const r = await fetch('libros_imagenes.json' + BUST); if (r.ok) destacados = await r.json(); } catch (e) { }
+      try { const r = await fetch('librerias_procesadas.json' + BUST); if (!r.ok) throw 1; preciosRaw = await r.json(); }
       catch (e) { document.getElementById('dashboard').innerHTML = `<div style="color:red;text-align:center;padding:5rem;font-size:2rem;">No se pudieron cargar los datos de librerías.<br><small style="font-size:1.2rem;color:#4b5563">Asegúrate de abrir el proyecto con un servidor web (por ejemplo <code>python -m http.server</code>) y que el archivo <strong>librerias_procesadas.json</strong> esté en la misma carpeta que <strong>index.html</strong>.</small><br><button onclick="location.reload()" style="margin-top:2rem;padding:1rem 2rem;background:#003366;color:white;border:none;border-radius:12px;cursor:pointer">Reintentar</button></div>`; return; }
-      try { const r = await fetch('librerias_ecuador_pichincha_pastaza_intermedia.json'); if (r.ok) ubicaciones = await r.json(); } catch (e) { }
+      try { const r = await fetch('librerias_ecuador_pichincha_pastaza_intermedia.json' + BUST); if (r.ok) ubicaciones = await r.json(); } catch (e) { }
 
       for (const archivo of EXTRA_PRECIOS_FILES) {
         try {
-          const r = await fetch(archivo);
+          const r = await fetch(archivo + BUST);
           if (r.ok) {
             const extra = await r.json();
             if (Array.isArray(extra)) preciosRaw = preciosRaw.concat(extra);
@@ -189,7 +231,7 @@
 
       for (const archivo of EXTRA_UBICACIONES_FILES) {
         try {
-          const r = await fetch(archivo);
+          const r = await fetch(archivo + BUST);
           if (r.ok) {
             const extra = await r.json();
             if (Array.isArray(extra)) ubicaciones = ubicaciones.concat(extra);
