@@ -11,6 +11,28 @@
     "keyword_found": "papelería"
   },
   {
+    "place_id": "ChIJ5VXMk9GV15ERGhLaOV-8uyI",
+    "nombre": "BAZAR Y PAPELERÍA KARINA",
+    "direccion": "PARROQUIA, PARROQUIA UNIÓN MILAGREÑA, 220102, Ecuador",
+    "provincia": "Orellana",
+    "lat": -0.36388519999999996,
+    "lng": -76.7834891,
+    "rating": 1,
+    "website": null,
+    "keyword_found": "librería"
+  },
+  {
+    "place_id": "ChIJCwCKBhuv15ER-HzswcAIazY",
+    "nombre": "BAZAR Y PAPELERÍA YOMKAR",
+    "direccion": "El Triunfo, Ecuador",
+    "provincia": "Orellana",
+    "lat": -0.4481441,
+    "lng": -77.0160316,
+    "rating": 5,
+    "website": null,
+    "keyword_found": "papelería"
+  },
+  {
     "place_id": "ChIJt3NzKOGl15ERwjii5NtLK9k",
     "nombre": "Bazar y Papelería \"Rossita\"",
     "direccion": "Amazonas Río Zuno, y, Francisco de Orellana 220150, Ecuador",
@@ -44,17 +66,6 @@
     "keyword_found": "librería"
   },
   {
-    "place_id": "ChIJJ1b9wJtJy5ERcR-2DYodF2I",
-    "nombre": "Bookstore Ecuador",
-    "direccion": "BERNARDO VALDIVIESO 197-30, Y COLON A MEDIA CUADRA DE LA CATEDRAL, ENTRE, Loja, Ecuador",
-    "provincia": "Orellana",
-    "lat": -3.9957382,
-    "lng": -79.2015595,
-    "rating": 4.8,
-    "website": null,
-    "keyword_found": "book store"
-  },
-  {
     "place_id": "ChIJtQI06oSl15ERH8m8QBHMZnM",
     "nombre": "CYBER PLANET",
     "direccion": "Av. Alejandro Labaka, Portoviejo y, Manabi, Francisco de Orellana 220203, Ecuador",
@@ -66,26 +77,15 @@
     "keyword_found": "librería"
   },
   {
-    "place_id": "ChIJe6in5I-a1ZERv9HpRPozje8",
-    "nombre": "Cevallos Librería Jurídica",
-    "direccion": "Iñaquito, N37-168, Iñaquito 37-168, Quito 170105, Ecuador",
+    "place_id": "ChIJJwrrY0y515ERSQIM2t2eB9g",
+    "nombre": "CYBER Y PAPELERIA DYLAN",
+    "direccion": "593, San Sebastián del Coca 220103, Ecuador",
     "provincia": "Orellana",
-    "lat": -0.1738856,
-    "lng": -78.4871491,
-    "rating": 4.4,
-    "website": "https://www.facebook.com/cevalloslibreria/",
-    "keyword_found": "librería jurídica"
-  },
-  {
-    "place_id": "ChIJN60DOhGa1ZER-Y0bVXtPOME",
-    "nombre": "Cevallos librería jurídica - Matriz",
-    "direccion": "Jerónimo Carrión N22-14 y, Quito 170523, Ecuador",
-    "provincia": "Orellana",
-    "lat": -0.20760689999999998,
-    "lng": -78.4912768,
-    "rating": 4.6,
-    "website": "http://www.cevalloslibreriajuridica.com/",
-    "keyword_found": "librería jurídica"
+    "lat": -0.33949389999999996,
+    "lng": -77.0054234,
+    "rating": null,
+    "website": null,
+    "keyword_found": "papeleria"
   },
   {
     "place_id": "ChIJ261NUQCl15ERH2FEKsYeGew",
@@ -97,6 +97,17 @@
     "rating": null,
     "website": null,
     "keyword_found": "librería"
+  },
+  {
+    "place_id": "ChIJ_ef0rhe_15ERd0yL4z78wgs",
+    "nombre": "Crayola Papelería",
+    "direccion": "C. Velasco Ibarra, Joya de los Sachas 220350, Ecuador",
+    "provincia": "Orellana",
+    "lat": -0.2931754,
+    "lng": -76.8566531,
+    "rating": null,
+    "website": null,
+    "keyword_found": "papelería"
   },
   {
     "place_id": "ChIJSbgdUMoN15ERmgibiVIMMbM",
@@ -162,18 +173,7 @@
     "lng": -76.8543622,
     "rating": 4,
     "website": "https://isha-libreria.negocio.site/?utm_source=gmb&utm_medium=referral",
-    "keyword_found": "librería cristiana"
-  },
-  {
-    "place_id": "ChIJQc4vNUOb1ZERWg7P3AKCss8",
-    "nombre": "LIBRERÍA EL GRAN LIBRO JURÍDICO",
-    "direccion": "CORONEL CONOR ENTRE JOSE ARIZAGA Y ALFONSO PEREIRA, CONJUNTOS, Quito 170102, Ecuador",
-    "provincia": "Orellana",
-    "lat": -0.1705258,
-    "lng": -78.4860601,
-    "rating": 4.3,
-    "website": "http://www.elgranlibrojuridico.com/",
-    "keyword_found": "librería jurídica"
+    "keyword_found": "librería"
   },
   {
     "place_id": "ChIJ014itnC715ERbuqV9PHJI_Y",
@@ -184,7 +184,18 @@
     "lng": -76.99981629999999,
     "rating": null,
     "website": null,
-    "keyword_found": "papelería"
+    "keyword_found": "papeleria"
+  },
+  {
+    "place_id": "ChIJM4aJ8by_15ERQAm39D_JpA8",
+    "nombre": "Libreria y Papeleria Nicolle",
+    "direccion": "P42V+MQQ, Monseñor Alejandro Labaka, Joya de los Sachas, Ecuador",
+    "provincia": "Orellana",
+    "lat": -0.29829089999999997,
+    "lng": -76.85552229999999,
+    "rating": 4,
+    "website": null,
+    "keyword_found": "librería"
   },
   {
     "place_id": "ChIJuyKcXqyl15ERV0vXEGxQkrk",
@@ -198,39 +209,6 @@
     "keyword_found": "librería"
   },
   {
-    "place_id": "ChIJpwWAyHptLZARRCcBULPneBI",
-    "nombre": "Librería Cristiana Génesis",
-    "direccion": "Mall del Norte, Av. Francisco de Orellana, Guayaquil 090112, Ecuador",
-    "provincia": "Orellana",
-    "lat": -2.0951234,
-    "lng": -79.9126655,
-    "rating": 4.5,
-    "website": "http://www.libreriagenesis.net/",
-    "keyword_found": "librería cristiana"
-  },
-  {
-    "place_id": "ChIJJXeD13luLZARl31CZ9c6oFo",
-    "nombre": "Librería Jurídica Andina Ediciones",
-    "direccion": "Piso 3ro Of 315, Francisco García Avilez 513, Guayaquil 090104, Ecuador",
-    "provincia": "Orellana",
-    "lat": -2.1924302,
-    "lng": -79.8854837,
-    "rating": 4.4,
-    "website": "https://andinaediciones.com.ec/",
-    "keyword_found": "librería jurídica"
-  },
-  {
-    "place_id": "ChIJj6NMTSKa1ZERYa1tgI-JXHE",
-    "nombre": "Librería Jurídica O.N.I.",
-    "direccion": "Avenida 6 de Diciembre Sodiro Edf. Atenas, P.B, Quito 170136, Ecuador",
-    "provincia": "Orellana",
-    "lat": -0.21371869999999998,
-    "lng": -78.5006629,
-    "rating": 4.1,
-    "website": "http://libreriajuridicaoni.online/",
-    "keyword_found": "librería jurídica"
-  },
-  {
     "place_id": "ChIJAxITd7Kl15ERrLUCnRlfOkE",
     "nombre": "Librería Palma",
     "direccion": "220202, Francisco de Orellana 220202, Ecuador",
@@ -242,12 +220,34 @@
     "keyword_found": "librería"
   },
   {
+    "place_id": "ChIJg090msm_15ERYe6MmCDIH5U",
+    "nombre": "Librería y Ciber \"Walter Mauricio\"",
+    "direccion": "220101, Joya de los Sachas, Ecuador",
+    "provincia": "Orellana",
+    "lat": -0.2981631,
+    "lng": -76.8565174,
+    "rating": 4,
+    "website": "https://www.facebook.com/papeleriawm",
+    "keyword_found": "librería"
+  },
+  {
     "place_id": "ChIJg8KRl1al15ERkjofPnIaf9g",
     "nombre": "Librería y Papelería \"El Éxito Económico\"",
     "direccion": "G2H8+9M4, Coca, Ecuador",
     "provincia": "Orellana",
     "lat": -0.47163620000000006,
     "lng": -76.9832438,
+    "rating": 5,
+    "website": null,
+    "keyword_found": "librería"
+  },
+  {
+    "place_id": "ChIJn432-o6_15ER2QdgIIK5ROM",
+    "nombre": "Librería y Papelería \"Miguelito\"",
+    "direccion": "P42V+P5M, 12 de Febrero, Joya de los Sachas, Ecuador",
+    "provincia": "Orellana",
+    "lat": -0.298156,
+    "lng": -76.8570788,
     "rating": 5,
     "website": null,
     "keyword_found": "librería"
@@ -272,7 +272,29 @@
     "lng": -76.893883,
     "rating": null,
     "website": null,
-    "keyword_found": "librería infantil"
+    "keyword_found": "librería"
+  },
+  {
+    "place_id": "ChIJ1XBSMYT71pERg1UQODkN0xs",
+    "nombre": "PAPELERIA CINDY",
+    "direccion": "0°40'43.4\"S, 77°18'36 6\"W, Loreto, Ecuador",
+    "provincia": "Orellana",
+    "lat": -0.6786365999999999,
+    "lng": -77.3103346,
+    "rating": null,
+    "website": null,
+    "keyword_found": "papelería"
+  },
+  {
+    "place_id": "ChIJGw5z8K371pER_fkpt7qYuR4",
+    "nombre": "PAPELERIA G&C",
+    "direccion": "220209, Ecuador",
+    "provincia": "Orellana",
+    "lat": -0.6792499,
+    "lng": -77.3103386,
+    "rating": null,
+    "website": null,
+    "keyword_found": "papelería"
   },
   {
     "place_id": "ChIJh_HVRgCl15ERJE-Y1THBHP8",
@@ -330,6 +352,28 @@
     "keyword_found": "papelería"
   },
   {
+    "place_id": "ChIJP5mu2um_15ERdTquRL6uPiQ",
+    "nombre": "Papeleria MundoNet Mendoza",
+    "direccion": "garcia moreno y monseñor lavaca, M4XV+C5W, Joya de los Sachas, Ecuador",
+    "provincia": "Orellana",
+    "lat": -0.3013862,
+    "lng": -76.8570314,
+    "rating": null,
+    "website": null,
+    "keyword_found": "papelería"
+  },
+  {
+    "place_id": "ChIJLd8UVwC_15ERjVK-pawMNMo",
+    "nombre": "Papeleria andreita",
+    "direccion": "Av. de los Fundadores &, Joya de los Sachas, Ecuador",
+    "provincia": "Orellana",
+    "lat": -0.2966024,
+    "lng": -76.8567319,
+    "rating": null,
+    "website": null,
+    "keyword_found": "papelería"
+  },
+  {
     "place_id": "ChIJa8rEJVSl15ERyMzj1uVL6n0",
     "nombre": "Papeleria y Bazar Josue",
     "direccion": "G2H7+5P8, Vicente Rocafuerte, Francisco de Orellana, Ecuador",
@@ -338,15 +382,15 @@
     "lng": -76.9856704,
     "rating": null,
     "website": null,
-    "keyword_found": "papelería"
+    "keyword_found": "papeleria"
   },
   {
-    "place_id": "ChIJR0lVcgCl15ER0n-nHH271yw",
-    "nombre": "Papelería GUASGUA",
-    "direccion": "HX4W+2XP, E20, Francisco de Orellana, Ecuador",
+    "place_id": "ChIJDdBOuOAH15ERPmvXOUX-cDc",
+    "nombre": "Papelería",
+    "direccion": "8XV3+CRV, Ecuador",
     "provincia": "Orellana",
-    "lat": -0.44491529999999996,
-    "lng": -77.0025486,
+    "lat": -0.6563814,
+    "lng": -77.04544260000002,
     "rating": null,
     "website": null,
     "keyword_found": "papelería"
@@ -360,7 +404,7 @@
     "lng": -76.98694669999999,
     "rating": 5,
     "website": "https://www.facebook.com/supereconomia.ec",
-    "keyword_found": "librería"
+    "keyword_found": "libreria"
   },
   {
     "place_id": "ChIJAQ8jfni715ERdAABf8SpvLQ",
@@ -370,6 +414,17 @@
     "lat": -0.43679419999999997,
     "lng": -76.9998057,
     "rating": null,
+    "website": null,
+    "keyword_found": "papelería"
+  },
+  {
+    "place_id": "ChIJFavgljwV15ER4tA7O2ZUqEc",
+    "nombre": "Papelería y cyber Valentina",
+    "direccion": "Unnamed Road, Dayuma, Ecuador",
+    "provincia": "Orellana",
+    "lat": -0.8161507000000001,
+    "lng": -76.8918387,
+    "rating": 5,
     "website": null,
     "keyword_found": "papelería"
   },
@@ -394,6 +449,17 @@
     "rating": 5,
     "website": "https://www.facebook.com/profile.php?id=61556519700269",
     "keyword_found": "papelería"
+  },
+  {
+    "place_id": "ChIJEfQ_uKL71pERWK4WKiuRPTw",
+    "nombre": "Utiles Escolares Textos",
+    "direccion": "Ecuador",
+    "provincia": "Orellana",
+    "lat": -0.6891931,
+    "lng": -77.3108093,
+    "rating": null,
+    "website": null,
+    "keyword_found": "librería"
   },
   {
     "place_id": "ChIJb_BW_2ul15ERM5duuexsgp4",

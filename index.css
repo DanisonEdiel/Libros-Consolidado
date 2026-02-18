@@ -554,6 +554,21 @@ tr:hover {
   font-weight: 700;
 }
 
+.kpi-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.kpi-filter-label {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
 .csv-button {
   padding: 0.55rem 1.1rem;
   border-radius: 999px;

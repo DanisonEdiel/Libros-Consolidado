@@ -137,7 +137,7 @@
       "AZUAY_GUAYAS.json"
     ];
     const EXTRA_SRI_FILES = [];
-    let precios = [], grupo = {}, ubicaciones = [], provincias = [], provinciaActiva = "TODAS", datosSRI = [], mapa, capaGoogle, capaSRI;
+    let preciosBase = [], grupoBase = {}, precios = [], grupo = [], ubicaciones = [], provincias = [], provinciaActiva = "TODAS", provinciaKpi = "TODAS", datosSRI = [], mapa, capaGoogle, capaSRI;
 
     function normalizarProvincia(nombre) {
       return (nombre || "").toString().trim().toUpperCase();
@@ -194,16 +194,48 @@
 
     function procesarDatos(destacados, preciosRaw, ubicacionesGuardadas) {
       ubicaciones = ubicacionesGuardadas;
-      precios = preciosRaw.filter(l => {
+      preciosBase = preciosRaw.filter(l => {
         const p = Number(l.precio) || 0, t = (l.titulo || "").trim(), lib = (l.libreria || "").toLowerCase();
         return p >= 2 && p <= 120 && t && !/^libro(\s*\d*)?$/i.test(t) && !lib.includes("coral") && !lib.includes("hipermercados") && !lib.includes("tama shop") && !lib.includes("tía conocoto");
       });
 
-      precios.forEach(l => {
+      preciosBase.forEach(l => {
         const m = destacados.find(d => d.titulo.toLowerCase().includes(l.titulo.toLowerCase()));
         if (m && m.imagen) l.imagen = m.imagen;
       });
 
+      grupoBase = {};
+      const visto = new Set();
+      preciosBase.forEach(l => {
+        const claveTitulo = l.titulo.trim().toUpperCase();
+        const clave = `${claveTitulo}|||${l.libreria}`;
+        if (!visto.has(clave)) {
+          visto.add(clave);
+          if (!grupoBase[claveTitulo]) grupoBase[claveTitulo] = [];
+          grupoBase[claveTitulo].push(l);
+        }
+      });
+
+      const setProvincias = new Set();
+      preciosBase.forEach(l => { if (l.provincia) setProvincias.add(normalizarProvincia(l.provincia)); });
+      ubicaciones.forEach(l => { if (l.provincia) setProvincias.add(normalizarProvincia(l.provincia)); });
+      provincias = Array.from(setProvincias).sort();
+
+      aplicarFiltroKpi();
+      window.addEventListener('scroll', () => document.getElementById('backTop').classList.toggle('show', window.scrollY > 500));
+    }
+
+    function aplicarFiltroKpi() {
+      if (!preciosBase.length) return;
+      const filtro = provinciaKpi && provinciaKpi !== "TODAS" ? provinciaKpi : null;
+
+      if (filtro) {
+        precios = preciosBase.filter(l => normalizarProvincia(l.provincia || "") === filtro);
+      } else {
+        precios = [...preciosBase];
+      }
+
+      grupo = {};
       const visto = new Set();
       precios.forEach(l => {
         const claveTitulo = l.titulo.trim().toUpperCase();
@@ -215,14 +247,8 @@
         }
       });
 
-      const setProvincias = new Set();
-      precios.forEach(l => { if (l.provincia) setProvincias.add(normalizarProvincia(l.provincia)); });
-      ubicaciones.forEach(l => { if (l.provincia) setProvincias.add(normalizarProvincia(l.provincia)); });
-      provincias = Array.from(setProvincias).sort();
-
       renderDashboard();
       renderCatalogo();
-      window.addEventListener('scroll', () => document.getElementById('backTop').classList.toggle('show', window.scrollY > 500));
     }
 
     function renderDashboard() {
@@ -230,10 +256,10 @@
       const totalUnicos = Object.keys(grupo).length;
       const totalOfertas = precios.length;
       const librerias = [...new Set(precios.map(p => p.libreria))].length;
-      const provinciasDetectadas = [...new Set(precios.map(p => normalizarProvincia(p.provincia || "")))].filter(Boolean).length;
-      const precioPromedio = (precios.reduce((a, b) => a + b.precio, 0) / precios.length).toFixed(2);
-      const precioMin = Math.min(...precios.map(p => p.precio));
-      const precioMax = Math.max(...precios.map(p => p.precio));
+      const provinciasDetectadas = [...new Set(preciosBase.map(p => normalizarProvincia(p.provincia || "")))].filter(Boolean).length;
+      const precioPromedio = precios.length ? (precios.reduce((a, b) => a + b.precio, 0) / precios.length).toFixed(2) : "0.00";
+      const precioMin = precios.length ? Math.min(...precios.map(p => p.precio)) : 0;
+      const precioMax = precios.length ? Math.max(...precios.map(p => p.precio)) : 0;
       const populares = Object.values(grupo).filter(a => a.length >= 3).length;
       const raros = Object.values(grupo).filter(a => a.length === 1).length;
 
@@ -243,7 +269,7 @@
       const rankingCaras = [...rankingBaratas].reverse();
 
       const porProvincia = {};
-      precios.forEach(l => {
+      preciosBase.forEach(l => {
         const prov = normalizarProvincia(l.provincia || "SIN PROVINCIA");
         if (!porProvincia[prov]) porProvincia[prov] = { s: 0, c: 0, librerias: new Set() };
         porProvincia[prov].s += l.precio;
@@ -273,7 +299,20 @@
         `;
       }
 
+      const opcionesProvinciaKpi = ["TODAS", ...provincias].map(p => {
+        const codigo = p === "TODAS" ? "TODAS" : normalizarProvincia(p);
+        const etiqueta = p === "TODAS" ? "Ecuador completo" : etiquetaProvincia(codigo);
+        return `<option value="${codigo}">${etiqueta}</option>`;
+      }).join("");
+
       dash.innerHTML = `
+      <div class="kpi-filter-bar">
+        <div class="kpi-filter-label">Analizar datos de</div>
+        <select id="provinciaKpiSelect" class="provincia-select">
+          ${opcionesProvinciaKpi}
+        </select>
+      </div>
+
       <div class="kpi-grid">
         <div class="kpi-card"><h3>Libros únicos</h3><p>${totalUnicos.toLocaleString()}</p></div>
         <div class="kpi-card success"><h3>Precio promedio</h3><p>$${precioPromedio}</p></div>
@@ -350,7 +389,7 @@
 
       rankingBaratas.slice(0, 10).forEach((l, i) => document.getElementById("baratasBody").innerHTML += `<tr><td>${i + 1}</td><td>${l.nombre}</td><td>$${l.promedio}</td><td>${l.libros}</td></tr>`);
       rankingCaras.slice(0, 10).forEach((l, i) => document.getElementById("carasBody").innerHTML += `<tr><td>${i + 1}</td><td>${l.nombre}</td><td>$${l.promedio}</td><td>${l.libros}</td></tr>`);
-      precios.sort((a, b) => a.precio - b.precio).slice(0, 15).forEach(l => {
+      precios.slice().sort((a, b) => a.precio - b.precio).slice(0, 15).forEach(l => {
         const t = l.titulo.length > 60 ? l.titulo.substr(0, 60) + '...' : l.titulo;
         document.getElementById("cheapestBody").innerHTML += `<tr><td title="${l.titulo}">${t}</td><td style="color:green;font-weight:bold">$${l.precio.toFixed(2)}</td><td>${l.libreria}</td></tr>`;
       });
@@ -424,6 +463,15 @@
             total_libros: l.libros
           }));
           descargarCSVGenerico(filas, "librerias_mas_baratas.csv");
+        };
+      }
+
+      const selectKpi = document.getElementById("provinciaKpiSelect");
+      if (selectKpi) {
+        selectKpi.value = provinciaKpi || "TODAS";
+        selectKpi.onchange = () => {
+          provinciaKpi = selectKpi.value;
+          aplicarFiltroKpi();
         };
       }
     }

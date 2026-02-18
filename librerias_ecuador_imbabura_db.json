@@ -22,37 +22,15 @@
     "keyword_found": "librería"
   },
   {
-    "place_id": "ChIJZ1tHnJg9Ko4RUsHM-qS-QgE",
-    "nombre": "Actual Papelería",
-    "direccion": "Av.Sanchez y Cifuentes, y, Ibarra 100150, Ecuador",
+    "place_id": "ChIJGQaPUwARKo4RlgaBjiS2Mwg",
+    "nombre": "Ardillitas.Net_PAPELERÍA",
+    "direccion": "6R42+RWX, Ecuador",
     "provincia": "Imbabura",
-    "lat": 0.349825,
-    "lng": -78.1204123,
+    "lat": 0.2071105,
+    "lng": -78.1976348,
     "rating": null,
     "website": null,
-    "keyword_found": "papelería"
-  },
-  {
-    "place_id": "ChIJGVaR9RU9Ko4RWdaS7-EhJQE",
-    "nombre": "BAZAR PAPELERIA NOVA G/Y",
-    "direccion": "AV 9-15 Y, Ibarra, Ecuador",
-    "provincia": "Imbabura",
-    "lat": 0.3582536,
-    "lng": -78.12848430000001,
-    "rating": 4.3,
-    "website": null,
-    "keyword_found": "papelería"
-  },
-  {
-    "place_id": "ChIJ8XpmaWQjKo4RaWK7t8Loc2Y",
-    "nombre": "BAZAR Y PAPELERÍA Madilú",
-    "direccion": "Hugo Guzmán Lara 11-39 y, Ibarra 100112, Ecuador",
-    "provincia": "Imbabura",
-    "lat": 0.34008089999999996,
-    "lng": -78.1103973,
-    "rating": null,
-    "website": "https://www.facebook.com/cajasmadilu",
-    "keyword_found": "papelería"
+    "keyword_found": "librería"
   },
   {
     "place_id": "ChIJW5RLPM49Ko4RZ9punCBZ8E8",
@@ -66,12 +44,23 @@
     "keyword_found": "librería"
   },
   {
-    "place_id": "ChIJXVWUv_U9Ko4RoL5FGFOObrc",
-    "nombre": "CYBER PAPELERIA LA CASA DEL TGT",
-    "direccion": "Av. Teodoro Goméz de la Torre 3-80 Y, Ibarra, Ecuador",
+    "place_id": "ChIJmd804Rs9Ko4RGh3QzzZveMg",
+    "nombre": "CYBER PAPELERIA MILENIUM",
+    "direccion": "Av. Atahualpa, Ibarra, Ecuador",
     "provincia": "Imbabura",
-    "lat": 0.34231469999999997,
-    "lng": -78.1167301,
+    "lat": 0.3346124,
+    "lng": -78.120966,
+    "rating": 5,
+    "website": "https://www.facebook.com/papeleria.milenium.31",
+    "keyword_found": "papeleria"
+  },
+  {
+    "place_id": "ChIJo37vWCIjKo4RR0U0UezHZBA",
+    "nombre": "CYBER PAPELERÍA JMARTIN",
+    "direccion": "Ibarra 100121, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.3317155,
+    "lng": -78.1100151,
     "rating": 5,
     "website": null,
     "keyword_found": "papelería"
@@ -85,7 +74,40 @@
     "lng": -78.1185319,
     "rating": 5,
     "website": null,
-    "keyword_found": "librería"
+    "keyword_found": "libreria"
+  },
+  {
+    "place_id": "ChIJkwEInd4_Ko4RMYKwP9aAIjY",
+    "nombre": "Chukitos Papeleria",
+    "direccion": "7PXM+294, Cotacachi, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.297502,
+    "lng": -78.2665486,
+    "rating": 3.8,
+    "website": null,
+    "keyword_found": "papeleria"
+  },
+  {
+    "place_id": "ChIJR8FQfg0VKo4RHBCOG2GQTdI",
+    "nombre": "DN Naty Papelería",
+    "direccion": "Otavalo 100201, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.2225323,
+    "lng": -78.2635226,
+    "rating": null,
+    "website": null,
+    "keyword_found": "papelería"
+  },
+  {
+    "place_id": "ChIJhY0x0Ig-Ko4RzRWvbLjIpzw",
+    "nombre": "Dispol Papelería",
+    "direccion": "Calle Bolivar, y, Atuntaqui 100216, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.33421039999999996,
+    "lng": -78.21567139999999,
+    "rating": 4.5,
+    "website": null,
+    "keyword_found": "papelería"
   },
   {
     "place_id": "ChIJvy4gdNE9Ko4R1PUUk_ODHCM",
@@ -99,24 +121,13 @@
     "keyword_found": "librería"
   },
   {
-    "place_id": "ChIJV-Mqosk8Ko4Rfj2GpkxL4XA",
-    "nombre": "EXPOPAPELERIA",
-    "direccion": "Antonio Jose de Sucre 10-50, Ibarra 100104, Ecuador",
+    "place_id": "ChIJmWJ5fKw_Ko4RIpOXw5ybc0o",
+    "nombre": "ECOPRINT PAPELERÍA",
+    "direccion": "Gonzáles Suárez, Cotacachi 100301, Ecuador",
     "provincia": "Imbabura",
-    "lat": 0.3465294,
-    "lng": -78.1180953,
-    "rating": 4.4,
-    "website": null,
-    "keyword_found": "librería"
-  },
-  {
-    "place_id": "ChIJTZ3Uw7k8Ko4R_91VQNSFYhs",
-    "nombre": "Editorial Almeida",
-    "direccion": "9V2G+MMH, Ibarra, Ecuador",
-    "provincia": "Imbabura",
-    "lat": 0.35169,
-    "lng": -78.1232807,
-    "rating": 4,
+    "lat": 0.2999687,
+    "lng": -78.2636177,
+    "rating": 5,
     "website": null,
     "keyword_found": "librería"
   },
@@ -129,7 +140,7 @@
     "lng": -78.1291761,
     "rating": 5,
     "website": null,
-    "keyword_found": "papelería"
+    "keyword_found": "papeleria"
   },
   {
     "place_id": "ChIJ2X4l_8g8Ko4RXG_EldF_H6I",
@@ -151,7 +162,7 @@
     "lng": -78.1191138,
     "rating": 5,
     "website": null,
-    "keyword_found": "librería"
+    "keyword_found": "libreria"
   },
   {
     "place_id": "ChIJd0gETgA9Ko4RgwqyXglgRIk",
@@ -184,7 +195,7 @@
     "lng": -78.137058,
     "rating": null,
     "website": null,
-    "keyword_found": "librería"
+    "keyword_found": "libreria"
   },
   {
     "place_id": "ChIJZ_Vrij09Ko4RwBcGvCbBd5U",
@@ -218,17 +229,6 @@
     "rating": 4.8,
     "website": null,
     "keyword_found": "librería"
-  },
-  {
-    "place_id": "ChIJz8o5KGOp05ERx0PAXfgpQzk",
-    "nombre": "Librería Universitaria",
-    "direccion": "GUAYAQUIL, Y, Riobamba 060110, Ecuador",
-    "provincia": "Imbabura",
-    "lat": -1.680491,
-    "lng": -78.6420651,
-    "rating": 4.7,
-    "website": "https://libreriauniversitaria.ec/",
-    "keyword_found": "librería universitaria"
   },
   {
     "place_id": "ChIJP7tVHLk8Ko4Rc6bkrBEPaPU",
@@ -286,6 +286,28 @@
     "keyword_found": "librería"
   },
   {
+    "place_id": "ChIJqZIEBPc_Ko4Rgk551kz8y6o",
+    "nombre": "M&J Papelería",
+    "direccion": "10030, Cotacachi 100304, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.3102397,
+    "lng": -78.2630241,
+    "rating": 4.4,
+    "website": null,
+    "keyword_found": "papelería"
+  },
+  {
+    "place_id": "ChIJ5bWA8-sTKo4RIHbbqQwlLtc",
+    "nombre": "Mega Sistem papelería",
+    "direccion": "Gonzalez Suarez 100211, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.1812909,
+    "lng": -78.2028058,
+    "rating": 5,
+    "website": null,
+    "keyword_found": "librería"
+  },
+  {
     "place_id": "ChIJ5azkZMc9Ko4Re1hgBilB8NU",
     "nombre": "Megabooks",
     "direccion": "100150, Ibarra 100150, Ecuador",
@@ -295,6 +317,17 @@
     "rating": 4,
     "website": null,
     "keyword_found": "librería"
+  },
+  {
+    "place_id": "ChIJReEMepYUKo4REsCntL8zaBo",
+    "nombre": "Mi Papeleria",
+    "direccion": "6PMJ+7P7, Unnamed Road, Otavalo, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.23316720000000002,
+    "lng": -78.2681888,
+    "rating": 3,
+    "website": null,
+    "keyword_found": "papeleria"
   },
   {
     "place_id": "ChIJGQrN2SA9Ko4RNKoSgtAn0Wk",
@@ -308,6 +341,17 @@
     "keyword_found": "papelería"
   },
   {
+    "place_id": "ChIJOyJcA5c_Ko4RXzq5Mk5LaQE",
+    "nombre": "NOVA PAPELERIA",
+    "direccion": "GENERAL ENRIQUEZ - 10 DE AGOSTO Y, Jorge Regalado, Atuntaqui 100201, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.3253502,
+    "lng": -78.2124736,
+    "rating": 4,
+    "website": null,
+    "keyword_found": "papeleria"
+  },
+  {
     "place_id": "ChIJVw69uuk9Ko4R2wfgNHigkfI",
     "nombre": "PAPELERIA \"EL COLEGIAL\"",
     "direccion": "Simón Bolívar 1099, Ibarra, Ecuador",
@@ -316,7 +360,7 @@
     "lng": -78.11914929999999,
     "rating": 5,
     "website": null,
-    "keyword_found": "papelería"
+    "keyword_found": "papeleria"
   },
   {
     "place_id": "ChIJT2T-COs9Ko4RtbfXi6QUfAk",
@@ -327,7 +371,7 @@
     "lng": -78.12157549999999,
     "rating": 5,
     "website": null,
-    "keyword_found": "papelería"
+    "keyword_found": "papeleria"
   },
   {
     "place_id": "ChIJW1Ax-_09Ko4RkYB1YxKrFC4",
@@ -338,40 +382,29 @@
     "lng": -78.1699337,
     "rating": null,
     "website": null,
-    "keyword_found": "librería infantil"
-  },
-  {
-    "place_id": "ChIJ9zB2Uwc9Ko4RPc6bfhMX_FU",
-    "nombre": "PAPELERIA NICORDIS",
-    "direccion": "FRAY VACAS GALINDO, Y, Ibarra, Ecuador",
-    "provincia": "Imbabura",
-    "lat": 0.353688,
-    "lng": -78.1303932,
-    "rating": 5,
-    "website": null,
-    "keyword_found": "papelería"
-  },
-  {
-    "place_id": "ChIJ9SVNIAA9Ko4Rln-AovhSCmM",
-    "nombre": "PAPELERIA Y BAZAR DIANITA",
-    "direccion": "Sánchez y Cifuentes 8-54, Ibarra, Ecuador",
-    "provincia": "Imbabura",
-    "lat": 0.35068509999999997,
-    "lng": -78.1201334,
-    "rating": null,
-    "website": null,
     "keyword_found": "librería"
   },
   {
-    "place_id": "ChIJqU0UezM9Ko4R3hbJbIZZNRs",
-    "nombre": "Papeleria",
-    "direccion": "Alfredo Gomez Jaime 178-146, Ibarra, Ecuador",
+    "place_id": "ChIJI3Z4QxY_Ko4R8a-j44d4GrE",
+    "nombre": "PAPELERIA PEKIS",
+    "direccion": "Av. Modesto Peñaherrera, Cotacachi 100301, Ecuador",
     "provincia": "Imbabura",
-    "lat": 0.3590542,
-    "lng": -78.1258215,
-    "rating": null,
+    "lat": 0.29970589999999997,
+    "lng": -78.2639422,
+    "rating": 5,
     "website": null,
-    "keyword_found": "librería escolar"
+    "keyword_found": "papeleria"
+  },
+  {
+    "place_id": "ChIJrebZC58VKo4R_31Q9g9vYhg",
+    "nombre": "PAPELERÍA MONSERRATH",
+    "direccion": "C. Antonio José de Sucre 9-07, Otavalo 100450, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.22663760000000002,
+    "lng": -78.2640098,
+    "rating": 4.3,
+    "website": "https://www.facebook.com/bazarypapeleriamonserrath/",
+    "keyword_found": "papelería"
   },
   {
     "place_id": "ChIJb6dfSgA9Ko4R-nVDTFerBow",
@@ -385,6 +418,17 @@
     "keyword_found": "librería"
   },
   {
+    "place_id": "ChIJ1XBWB5AVKo4R-p8FMF69JrY",
+    "nombre": "Papeleria Copy Flash Otavalo",
+    "direccion": "1050, Otavalo, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.22487810000000003,
+    "lng": -78.2651353,
+    "rating": null,
+    "website": "https://www.facebook.com/profile.php?id=100095110899164&mibextid=2JQ9oc",
+    "keyword_found": "papeleria"
+  },
+  {
     "place_id": "ChIJ3ymvv-I9Ko4ReeCBZMyFUeI",
     "nombre": "Papeleria Galilea 2",
     "direccion": "Av.Eugenio espejo y Obispo Cesar Mosquera, 8VWG+2CF, Ibarra 100106, Ecuador",
@@ -393,7 +437,18 @@
     "lng": -78.1239591,
     "rating": 4.7,
     "website": null,
-    "keyword_found": "papelería"
+    "keyword_found": "papeleria"
+  },
+  {
+    "place_id": "ChIJ0cF7XPo8Ko4RJYVdeEHNzSo",
+    "nombre": "Papeleria INESITA",
+    "direccion": "246, Los Girasoles, Ibarra, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.3377927,
+    "lng": -78.1482583,
+    "rating": 4.6,
+    "website": null,
+    "keyword_found": "papeleria"
   },
   {
     "place_id": "ChIJ6fMFELE8Ko4RYiiwx1Sl4Qw",
@@ -407,37 +462,81 @@
     "keyword_found": "papelería"
   },
   {
-    "place_id": "ChIJL1U3Whg9Ko4ROBy9NiZuI7U",
-    "nombre": "Papelería \"La Ilusión\"",
-    "direccion": "Juana Atabalipa, Ibarra 100102, Ecuador",
+    "place_id": "ChIJx7cVEpwUKo4RngU6uzWEWBk",
+    "nombre": "Papeleria Lo Mejor En Copias",
+    "direccion": "6PFP+FHW, Unnamed Road, Otavalo, Ecuador",
     "provincia": "Imbabura",
-    "lat": 0.3352348,
-    "lng": -78.1234291,
+    "lat": 0.22372699999999998,
+    "lng": -78.26356,
+    "rating": 4.3,
+    "website": null,
+    "keyword_found": "papeleria"
+  },
+  {
+    "place_id": "ChIJBVBWWwAVKo4RE7jqVuHh4Zc",
+    "nombre": "Papeleria Mafer",
+    "direccion": "6PCP+R9Q, Otavalo 100203, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.22216719999999998,
+    "lng": -78.2639418,
+    "rating": null,
+    "website": null,
+    "keyword_found": "librería"
+  },
+  {
+    "place_id": "ChIJAwz7X048Ko4RnCGsF9CgGMk",
+    "nombre": "Papeleria San Antonio",
+    "direccion": "8RPH+8P2 pompeya guzman, Camilo Pompeyo Guzmán, San Antonio de Ibarra, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.3357555,
+    "lng": -78.17072499999999,
+    "rating": 4.3,
+    "website": null,
+    "keyword_found": "papeleria"
+  },
+  {
+    "place_id": "ChIJ1eVTU_ARKo4RqFB3jYrIAZI",
+    "nombre": "Papeleria SanchezJ",
+    "direccion": "Comunidad Pijal entrada el quide calle principal, 5R54+4Q2, Pijal, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.15776099999999998,
+    "lng": -78.1930983,
+    "rating": 4,
+    "website": null,
+    "keyword_found": "papeleria"
+  },
+  {
+    "place_id": "ChIJtQ3oPOAVKo4RGRnh_MNW2oE",
+    "nombre": "Papeleria Skool 2",
+    "direccion": "100201, Otavalo 100201, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.22662489999999996,
+    "lng": -78.26298589999999,
+    "rating": null,
+    "website": "https://www.facebook.com/Papeleriaskool1?locale=es_LA",
+    "keyword_found": "librería"
+  },
+  {
+    "place_id": "ChIJjQEXHBE9Ko4R9F0gcvLRVsM",
+    "nombre": "Papeleria y Bazar \"Emily\"",
+    "direccion": "Ramon Teanga, Y, Ibarra 100157, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.33303489999999997,
+    "lng": -78.17250969999999,
     "rating": 5,
     "website": null,
-    "keyword_found": "papelería"
+    "keyword_found": "papeleria"
   },
   {
-    "place_id": "ChIJ1aDu_JA9Ko4RzIx9QbrK0_k",
-    "nombre": "Papelería Dome",
-    "direccion": "Rafael Troya 385, Ibarra, Ecuador",
+    "place_id": "ChIJVTSSIwAVKo4RO85D5O59uUw",
+    "nombre": "Papelería El Cisne",
+    "direccion": "C. Antonio José de Sucre &, Otavalo 100450, Ecuador",
     "provincia": "Imbabura",
-    "lat": 0.35558989999999996,
-    "lng": -78.1191803,
-    "rating": null,
+    "lat": 0.2313681,
+    "lng": -78.2604992,
+    "rating": 5,
     "website": null,
-    "keyword_found": "papelería"
-  },
-  {
-    "place_id": "ChIJmZQwBAA9Ko4RJf7xF580Ebc",
-    "nombre": "Papelería Económica",
-    "direccion": "Miguel Oviedo 539, Ibarra, Ecuador",
-    "provincia": "Imbabura",
-    "lat": 0.3495858,
-    "lng": -78.11704069999999,
-    "rating": null,
-    "website": null,
-    "keyword_found": "papelería"
+    "keyword_found": "librería"
   },
   {
     "place_id": "ChIJYxS4_Lc8Ko4RuI87Isep3bE",
@@ -448,29 +547,40 @@
     "lng": -78.1215702,
     "rating": 4.3,
     "website": null,
+    "keyword_found": "papelería"
+  },
+  {
+    "place_id": "ChIJeeGwDvMUKo4RyzoGUs1giIk",
+    "nombre": "Papelería Imbanorte",
+    "direccion": "Calle, De los Corazas, Otavalo, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.24020860000000002,
+    "lng": -78.2551481,
+    "rating": 3.6,
+    "website": "https://www.facebook.com/imbanorte/?fref=ts",
+    "keyword_found": "papeleria"
+  },
+  {
+    "place_id": "ChIJc8KkXYUVKo4R3Mde1bixJM0",
+    "nombre": "Papelería Imbaya",
+    "direccion": "crismike-1993@outlook.com, Otavalo 100450, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.228814,
+    "lng": -78.2623869,
+    "rating": null,
+    "website": null,
+    "keyword_found": "papelería"
+  },
+  {
+    "place_id": "ChIJv8XiDIc9Ko4RQJGQhCqA91k",
+    "nombre": "Papelería Jade",
+    "direccion": "9R43+QV, San José de Chaltura, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.35695669999999996,
+    "lng": -78.1953628,
+    "rating": 4,
+    "website": null,
     "keyword_found": "librería"
-  },
-  {
-    "place_id": "ChIJ2U--AgA9Ko4RvsZSWdTOUy0",
-    "nombre": "Papelería Galilea 3#",
-    "direccion": "8VXH+5FM, Eugenio Espejo, Ibarra, Ecuador",
-    "provincia": "Imbabura",
-    "lat": 0.34795109999999996,
-    "lng": -78.1213339,
-    "rating": 5,
-    "website": null,
-    "keyword_found": "papelería"
-  },
-  {
-    "place_id": "ChIJ4etZ4449Ko4ROT8jW3nSlWQ",
-    "nombre": "Papelería Je-Ma",
-    "direccion": "Dr. Cristobal Tobar Subia, Ibarra, Ecuador",
-    "provincia": "Imbabura",
-    "lat": 0.3636986,
-    "lng": -78.11275309999999,
-    "rating": 5,
-    "website": null,
-    "keyword_found": "papelería"
   },
   {
     "place_id": "ChIJKds23DQjKo4Rn42tkbqNVMQ",
@@ -481,7 +591,7 @@
     "lng": -78.10965019999999,
     "rating": 4.5,
     "website": "http://www.papelerialavictoria.com/",
-    "keyword_found": "papelería"
+    "keyword_found": "papeleria"
   },
   {
     "place_id": "ChIJVxrfBDs9Ko4R8zvdkSjASec",
@@ -491,17 +601,6 @@
     "lat": 0.333318,
     "lng": -78.11653369999999,
     "rating": 4.4,
-    "website": null,
-    "keyword_found": "librería"
-  },
-  {
-    "place_id": "ChIJqedkKQA9Ko4RcHnf0WqTgM0",
-    "nombre": "Papelería Lápices",
-    "direccion": "Rafael Larrea Andrade &, Ibarra, Ecuador",
-    "provincia": "Imbabura",
-    "lat": 0.34406149999999996,
-    "lng": -78.12084039999999,
-    "rating": null,
     "website": null,
     "keyword_found": "papelería"
   },
@@ -528,6 +627,39 @@
     "keyword_found": "papelería"
   },
   {
+    "place_id": "ChIJs6PCF8Y9Ko4RjPzkH6dG5zw",
+    "nombre": "Papelería Meli",
+    "direccion": "Río Tiputini &, Ibarra, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.3258801,
+    "lng": -78.1218808,
+    "rating": 5,
+    "website": null,
+    "keyword_found": "papelería"
+  },
+  {
+    "place_id": "ChIJC2ekkyMVKo4RYkalyKLnBP8",
+    "nombre": "Papelería Mil Cositas",
+    "direccion": "100101 Calle Bolívar, y, 100209, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.2713907,
+    "lng": -78.2345386,
+    "rating": 5,
+    "website": "https://www.facebook.com/profile.php?id=100090572782082",
+    "keyword_found": "papelería"
+  },
+  {
+    "place_id": "ChIJ78fTZCc9Ko4RM5HniZSscQY",
+    "nombre": "Papelería San Agustín",
+    "direccion": "1, San Antonio de Ibarra, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.3253119,
+    "lng": -78.175572,
+    "rating": 5,
+    "website": null,
+    "keyword_found": "papelería"
+  },
+  {
     "place_id": "ChIJFyxv6u49Ko4R0hnSwpW8Nzs",
     "nombre": "Papelería Sarahi",
     "direccion": "Jaime Roldos Aguilera entre, Ramon Alarcon, Ibarra 100104, Ecuador",
@@ -539,25 +671,36 @@
     "keyword_found": "papelería"
   },
   {
-    "place_id": "ChIJNehxN0g9Ko4R8-WyCVXujzU",
-    "nombre": "Papelería Vivi",
-    "direccion": "8V8C+6G2, Duchicela, Ibarra 100108, Ecuador",
+    "place_id": "ChIJ11ZdRBo9Ko4R84Pv1ST74EQ",
+    "nombre": "Papelería Sánchez",
+    "direccion": "Ramon Teanga 4-54, San Antonio de Ibarra, Ecuador",
     "provincia": "Imbabura",
-    "lat": 0.3155093,
-    "lng": -78.1287248,
+    "lat": 0.33281279999999996,
+    "lng": -78.1726286,
+    "rating": 5,
+    "website": null,
+    "keyword_found": "papelería"
+  },
+  {
+    "place_id": "ChIJGzvOWCYVKo4R7DucVwOs2Ng",
+    "nombre": "Papelería Yamberla",
+    "direccion": "C. Juan de Dios Morales, Otavalo, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.2323125,
+    "lng": -78.2670625,
     "rating": 4.6,
     "website": null,
     "keyword_found": "papelería"
   },
   {
-    "place_id": "ChIJAWReBfo9Ko4RGKgq8eJMtJY",
-    "nombre": "Papelería 🌟 Miscellaneus Store 🌟☺️✏️",
-    "direccion": "Tobías Mena 246, Ibarra, Ecuador",
+    "place_id": "ChIJUbsPm6E9Ko4RMS31TSLM1vg",
+    "nombre": "Papelería y Variedades Alexa",
+    "direccion": "Quito 9-48, Ibarra, Ecuador",
     "provincia": "Imbabura",
-    "lat": 0.33468509999999996,
-    "lng": -78.11982789999999,
+    "lat": 0.3665983,
+    "lng": -78.1266843,
     "rating": 5,
-    "website": "https://m.facebook.com/PapeleriaMiscellaneusStore",
+    "website": null,
     "keyword_found": "papelería"
   },
   {
@@ -569,7 +712,7 @@
     "lng": -78.12397229999999,
     "rating": 4.4,
     "website": "https://www.saripopular.ec/",
-    "keyword_found": "librería"
+    "keyword_found": "papelería"
   },
   {
     "place_id": "ChIJVTidX7Q9Ko4RyltRnIiG9f8",
@@ -591,7 +734,7 @@
     "lng": -78.1193353,
     "rating": 5,
     "website": null,
-    "keyword_found": "papelería"
+    "keyword_found": "papeleria"
   },
   {
     "place_id": "ChIJU8vkqbk8Ko4R0NmyloAfJ34",
@@ -613,18 +756,7 @@
     "lng": -78.1480184,
     "rating": 5,
     "website": null,
-    "keyword_found": "papelería"
-  },
-  {
-    "place_id": "ChIJ451nfto8Ko4Rzm-ftkAREFc",
-    "nombre": "Su Bazar Y Papeleria",
-    "direccion": "8VPH+J32, Sánchez y Cifuentes, Ibarra, Ecuador",
-    "provincia": "Imbabura",
-    "lat": 0.3365224,
-    "lng": -78.1223574,
-    "rating": 4.3,
-    "website": null,
-    "keyword_found": "papelería"
+    "keyword_found": "papeleria"
   },
   {
     "place_id": "ChIJRQRgjJsUKo4RCkZhHfIu6do",
@@ -635,7 +767,7 @@
     "lng": -78.2652719,
     "rating": 5,
     "website": "https://www.facebook.com/THEBOOKMARKETOTAVALO/",
-    "keyword_found": "librería infantil"
+    "keyword_found": "librería"
   },
   {
     "place_id": "ChIJ4crnacc9Ko4Rndqd8Wpjnsk",
@@ -646,7 +778,18 @@
     "lng": -78.1290585,
     "rating": 4.5,
     "website": null,
-    "keyword_found": "libreria"
+    "keyword_found": "book store"
+  },
+  {
+    "place_id": "ChIJ-b8XfgATKo4RI7VFYYXdXqg",
+    "nombre": "Yadasa Market",
+    "direccion": "100206 0.2165191, -78.2416510 Otavalo, Eugenio Espejo, Ecuador",
+    "provincia": "Imbabura",
+    "lat": 0.21651679999999998,
+    "lng": -78.2416278,
+    "rating": null,
+    "website": null,
+    "keyword_found": "librería"
   },
   {
     "place_id": "ChIJuxhIzdY8Ko4R_bMls2zyl-4",
