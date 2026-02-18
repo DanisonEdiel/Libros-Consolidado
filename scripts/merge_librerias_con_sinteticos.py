@@ -1,7 +1,8 @@
 import json
 from pathlib import Path
 
-BASE_DIR = Path(__file__).parent
+BASE_DIR = Path(__file__).parent.parent
+DATA_DIR = BASE_DIR / "data"
 
 CATEGORY_MAP = {
     "Agricultura": [
@@ -57,13 +58,13 @@ CATEGORY_MAP = {
 
 
 def cargar(nombre):
-    ruta = BASE_DIR / nombre
+    ruta = DATA_DIR / nombre
     with ruta.open(encoding="utf-8") as f:
         return json.load(f)
 
 
 def guardar(nombre, datos):
-    ruta = BASE_DIR / nombre
+    ruta = DATA_DIR / nombre
     with ruta.open("w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=2)
 
