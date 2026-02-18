@@ -78,42 +78,54 @@
         <div class="section metodologia-section" style="margin-top:2rem">
           <h2>Modelo heurístico aplicado en el dashboard</h2>
           <p>
-            El modelo se usa para sintetizar, por provincia, señales observables del mercado del libro en ausencia de un censo exhaustivo. Se integra la <strong>frecuencia digital</strong>, la <strong>presencia territorial</strong>, la <strong>categoría del título</strong> y el <strong>precio normalizado</strong>, sobre los <strong>24 territorios</strong> del país.
+            El modelo se usa para sintetizar, por provincia y para el país completo, señales observables del mercado del libro en ausencia de un censo exhaustivo. Se integran la <strong>frecuencia digital de ofertas</strong>, la <strong>presencia territorial de librerías</strong> y el <strong>precio promedio normalizado</strong> en las <strong>24 provincias</strong> del Ecuador.
           </p>
-          <h3>Entradas</h3>
+          <h3>Entradas por provincia p</h3>
           <ul>
-            <li>Precio observado por título y librería (después de filtrar valores fuera de [2, 120]).</li>
-            <li>Frecuencia digital: número de ofertas únicas por título en la provincia.</li>
-            <li>Presencia territorial: existencia de ubicación validada en la provincia.</li>
-            <li>Categoría editorial declarada (Agricultura, Folklore, Educación Comunitaria, etc.).</li>
+            <li><strong>P̄_p</strong>: precio promedio de todas las ofertas de libros en la provincia p.</li>
+            <li><strong>O_p</strong>: número total de ofertas (precios capturados) en la provincia p.</li>
+            <li><strong>L_p</strong>: número de librerías distintas con al menos un libro en la provincia p.</li>
           </ul>
           <h3>Normalizaciones</h3>
           <ul>
-            <li>Provincias: se normaliza removiendo diacríticos y mayúsculas para evitar duplicados.</li>
-            <li>Precios: se usa un zeta lineal acotado para comparabilidad intra-provincia.</li>
-            <li>Frecuencia: se escala por logaritmo para evitar sesgos por alta concentración.</li>
+            <li>Provincias: se normaliza el nombre removiendo diacríticos y usando mayúsculas para evitar duplicados.</li>
+            <li>Precios: se linealiza el rango [min P̄, max P̄] para que precios más bajos incrementen el puntaje.</li>
+            <li>Frecuencia y librerías: se escalan a [0,1] respecto al máximo observado entre provincias.</li>
           </ul>
-          <h3>Formulación</h3>
+          <h3>Formulación provincial</h3>
           <div style="background:#0f172a;color:#e5e7eb;padding:1rem;border-radius:12px;line-height:1.6">
-            Sea un título <em>t</em> en provincia <em>p</em>. Definimos:<br>
-            - Precio normalizado: <strong>Zp(t) = 1 - (precio(t) - min_p) / (max_p - min_p)</strong>, con clipping en [0,1].<br>
-            - Frecuencia digital: <strong>Fp(t) = log(1 + n_p(t)) / log(1 + n_p^{max})</strong>, donde n_p(t) es el número de ofertas únicas del título en la provincia.<br>
-            - Presencia territorial: <strong>Dp(t) ∈ {0,1}</strong>, 1 si existe ubicación validada en la provincia, 0 en caso contrario.<br>
-            - Peso de categoría: <strong>C(t)</strong> en [0,1], asignado por categoría editorial (p.ej. Educación Comunitaria con mayor peso en análisis territorial).<br><br>
-            Puntaje heurístico:<br>
-            <strong>Hp(t) = w1·Zp(t) + w2·Fp(t) + w3·Dp(t) + w4·C(t)</strong><br>
-            con <strong>w1 + w2 + w3 + w4 = 1</strong>, típicamente <strong>w2 ≥ w1</strong> para dar mayor relevancia a presencia efectiva en mercado.<br>
+            Sea el conjunto de provincias <em>P</em> y para cada provincia p ∈ P:<br>
+            - Precio normalizado:<br>
+            <strong>S_precio(p) = (max_P P̄_p − P̄_p) / (max_P P̄_p − min_P P̄_p)</strong>, si max ≠ min; en otro caso S_precio(p) = 1.<br>
+            - Frecuencia normalizada:<br>
+            <strong>S_ofertas(p) = O_p / max_P O_p</strong> (si max_P O_p &gt; 0, en otro caso 0).<br>
+            - Presencia de librerías:<br>
+            <strong>S_librerias(p) = L_p / max_P L_p</strong> (si max_P L_p &gt; 0, en otro caso 0).<br><br>
+            Índice heurístico provincial:<br>
+            <strong>H_p = 100 · (0.4·S_precio(p) + 0.4·S_ofertas(p) + 0.2·S_librerias(p))</strong><br>
+            donde H_p ∈ [0, 100]; valores altos indican mejor desempeño relativo (precios competitivos, alta oferta y diversidad de librerías).
           </div>
-          <h3>Aplicación en la UI</h3>
+          <h3>Índice heurístico nacional</h3>
+          <div style="background:#0f172a;color:#e5e7eb;padding:1rem;border-radius:12px;line-height:1.6;margin-top:1rem">
+            Para el país completo se define un promedio ponderado por volumen de ofertas:<br>
+            - Peso de la provincia p:<br>
+            <strong>w_p = O_p / Σ_{q ∈ P} O_q</strong> (si Σ O_q &gt; 0).<br>
+            - Índice heurístico nacional:<br>
+            <strong>H_ECU = Σ_{p ∈ P} w_p · H_p</strong>, con H_ECU ∈ [0, 100].<br>
+            Este valor resume el desempeño agregado del mercado formal del libro en Ecuador.
+          </div>
+          <h3>Relación con los KPIs del dashboard</h3>
           <ul>
-            <li>El dashboard agrupa por título y librería, elimina duplicados y aplica filtros de precio.</li>
-            <li>Los KPIs por provincia (títulos únicos, ofertas, librerías activas, precios) son proxies de Fp(t), Zp(t) y Dp(t).</li>
-            <li>La selección de provincia calcula estadísticos con la base depurada, mostrando el desempeño relativo del territorio.</li>
+            <li><strong>Libros únicos</strong>: número de títulos distintos después de agrupar por título y librería.</li>
+            <li><strong>Precio promedio</strong>: promedio simple de los precios de las ofertas filtradas (base para P̄_p).</li>
+            <li><strong>Más barato / Más caro</strong>: mínimo y máximo de la distribución de precios en la vista actual.</li>
+            <li><strong>Provincias con datos</strong>: cardinalidad de {p ∈ P : O_p &gt; 0}.</li>
+            <li><strong>Índice heurístico</strong>: valor H_ECU mostrado en el KPI nacional e interpretado en las conclusiones rápidas.</li>
           </ul>
           <h3>Interpretación</h3>
           <ul>
-            <li>Valores altos de Hp(t) indican títulos con mejor posicionamiento relativo: precio competitivo, amplia presencia digital y ubicación validada.</li>
-            <li>Comparar provincias permite observar concentración urbana y brechas territoriales de acceso al libro.</li>
+            <li>H_p permite comparar provincias en un espacio común de 0 a 100, combinando precio, intensidad de mercado y presencia de librerías.</li>
+            <li>H_ECU sintetiza el estado del país ponderando por volumen de actividad, y sirve como indicador global de acceso relativo al libro.</li>
           </ul>
         </div>
       </div>
@@ -340,11 +352,13 @@
 
       const heuristicaPorProvincia = {};
       let mejorHeurProv = null;
+      let heuristicaNacional = null;
       if (resumenProvincias.length > 0) {
         const minProm = Math.min(...resumenProvincias.map(r => r.promedio));
         const maxProm = Math.max(...resumenProvincias.map(r => r.promedio));
         const maxOfertas = Math.max(...resumenProvincias.map(r => r.ofertas));
         const maxLibreriasProv = Math.max(...resumenProvincias.map(r => r.librerias));
+        const totalOfertasAll = resumenProvincias.reduce((a, r) => a + r.ofertas, 0);
         resumenProvincias.forEach(r => {
           const precioScore = maxProm > minProm ? (maxProm - r.promedio) / (maxProm - minProm) : 1;
           const ofertasScore = maxOfertas ? r.ofertas / maxOfertas : 0;
@@ -353,17 +367,25 @@
           heuristicaPorProvincia[r.provincia] = h;
           if (!mejorHeurProv || h > mejorHeurProv.h) mejorHeurProv = { provincia: r.provincia, h };
         });
+        if (totalOfertasAll > 0) {
+          let acum = 0;
+          resumenProvincias.forEach(r => {
+            const w = r.ofertas / totalOfertasAll;
+            const h = heuristicaPorProvincia[r.provincia] || 0;
+            acum += w * h;
+          });
+          heuristicaNacional = acum;
+        }
       }
 
       const filtroProvActual = provinciaKpi && provinciaKpi !== "TODAS" ? provinciaKpi : null;
-      let etiquetaHeuristicaActual = "Ecuador completo";
       let indiceHeuristicoActual = null;
+      let etiquetaHeuristicaActual = "Ecuador completo";
       if (filtroProvActual && heuristicaPorProvincia[filtroProvActual] != null) {
         indiceHeuristicoActual = heuristicaPorProvincia[filtroProvActual];
         etiquetaHeuristicaActual = etiquetaProvincia(filtroProvActual);
-      } else if (mejorHeurProv) {
-        indiceHeuristicoActual = mejorHeurProv.h;
-        etiquetaHeuristicaActual = etiquetaProvincia(mejorHeurProv.provincia);
+      } else if (heuristicaNacional != null) {
+        indiceHeuristicoActual = heuristicaNacional;
       }
       const indiceHeuristicoTexto = indiceHeuristicoActual != null ? indiceHeuristicoActual.toFixed(1) : "–";
 
@@ -375,7 +397,7 @@
         const masCaraProv = ordenPorPrecio[ordenPorPrecio.length - 1];
         const masOfertasProv = ordenPorOfertas[0];
         const heuristicaHtml = mejorHeurProv
-          ? `<li><span class="insights-badge">05</span><span>Según el índice heurístico (precio, ofertas y librerías), <strong>${etiquetaProvincia(mejorHeurProv.provincia)}</strong> presenta el mejor desempeño relativo (Hp ≈ ${mejorHeurProv.h.toFixed(1)} / 100).</span></li>`
+          ? `<li><span class="insights-badge">05</span><span>El índice heurístico nacional del mercado formal del libro es <strong>H_ECU ≈ ${heuristicaNacional != null ? heuristicaNacional.toFixed(1) : "–"}/100</strong>. La provincia con mejor desempeño relativo es <strong>${etiquetaProvincia(mejorHeurProv.provincia)}</strong> (Hp ≈ ${mejorHeurProv.h.toFixed(1)}/100).</span></li>`
           : "";
         conclusionesHtml = `
           <ul class="insights-list">
