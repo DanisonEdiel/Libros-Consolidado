@@ -114,6 +114,48 @@
             <strong>H_ECU = Σ_{p ∈ P} w_p · H_p</strong>, con H_ECU ∈ [0, 100].<br>
             Este valor resume el desempeño agregado del mercado formal del libro en Ecuador.
           </div>
+          <h3>Ejemplo numérico (Pichincha, valores ilustrativos)</h3>
+          <p>
+            Para fijar la idea, supongamos que tras procesar la base nacional se obtiene el siguiente resumen (números aproximados, solo para ilustrar el cálculo):
+          </p>
+          <ul>
+            <li><strong>P̄_Pichincha = 21,03 USD</strong>, con promedio mínimo y máximo entre provincias <strong>min P̄ = 18,50</strong>, <strong>max P̄ = 35,20</strong>.</li>
+            <li><strong>O_Pichincha = 800</strong> ofertas registradas y <strong>max_P O = 2100</strong> ofertas en la provincia con mayor actividad.</li>
+            <li><strong>L_Pichincha = 35</strong> librerías distintas y <strong>max_P L = 70</strong> librerías en la provincia con más establecimientos.</li>
+          </ul>
+          <p>Con estos datos, los puntajes normalizados son:</p>
+          <ul>
+            <li><strong>S_precio(Pichincha) = (max P̄ − P̄_Pichincha) / (max P̄ − min P̄)</strong> ≈ (35,20 − 21,03) / (35,20 − 18,50) ≈ 14,17 / 16,70 ≈ <strong>0,848</strong>.</li>
+            <li><strong>S_ofertas(Pichincha) = O_Pichincha / max_P O</strong> = 800 / 2100 ≈ <strong>0,381</strong>.</li>
+            <li><strong>S_librerías(Pichincha) = L_Pichincha / max_P L</strong> = 35 / 70 = <strong>0,50</strong>.</li>
+          </ul>
+          <p>Finalmente, el índice heurístico provincial para Pichincha se calcula como:</p>
+          <div style="background:#0f172a;color:#e5e7eb;padding:1rem;border-radius:12px;line-height:1.6">
+            H_Pichincha = 100 · (0,4·0,848 + 0,4·0,381 + 0,2·0,50)<br>
+            ≈ 100 · (0,339 + 0,152 + 0,100)<br>
+            ≈ 100 · 0,591 ≈ <strong>59,1 puntos</strong> (escala 0–100).<br>
+            Este valor es comparable con el H_p del resto de provincias y con el H_ECU nacional mostrado en el dashboard.
+          </div>
+          <div class="section metodologia-section" id="met-ej-dinamico" style="margin-top:1rem">
+            <h3>Ejemplo dinámico con valores actuales (provincia seleccionada)</h3>
+            <div class="kpi-filter-bar">
+              <div class="kpi-filter-label">Analizar datos de</div>
+              <select id="provinciaKpiSelectMet" class="provincia-select"></select>
+            </div>
+            <div id="met-ej-dinamico-body">
+              <p style="color:#9ca3af">Se actualizará automáticamente cuando cambies la provincia en el selector del dashboard.</p>
+            </div>
+          </div>
+          <div class="section metodologia-section" id="met-conclusion" style="margin-top:1rem">
+            <h3>Conclusión</h3>
+            <div id="met-conclusion-body">
+              <p style="color:#9ca3af">Se mostrará la interpretación del índice heurístico con el valor actual.</p>
+              <ul>
+                <li>Cerca de 0 → mercado formal muy débil: caro, poco denso y poco diverso.</li>
+                <li>Cerca de 100 → mercado formal muy fuerte: precios competitivos, muchas ofertas y muchas librerías.</li>
+              </ul>
+            </div>
+          </div>
           <h3>Relación con los KPIs del dashboard</h3>
           <ul>
             <li><strong>Libros únicos</strong>: número de títulos distintos después de agrupar por título y librería.</li>
@@ -438,6 +480,8 @@
         ${conclusionesHtml || `<p style="color:#64748b">Cuando se carguen datos de varias provincias, aquí aparecerá un resumen automático de hallazgos.</p>`}
       </div>
 
+      
+
       <div class="section"><h2>Top 15 Libros Más Populares</h2><div class="books-grid" id="topGrid"></div></div>
       <div class="section">
         <div class="section-header-row">
@@ -489,6 +533,87 @@
       `;
 
       // (Código de tops y tablas normales igual que antes...)
+
+      // Inyección en Metodología: ejemplo dinámico sincronizado
+      try {
+        const cont = document.getElementById("met-ej-dinamico-body");
+        const concl = document.getElementById("met-conclusion-body");
+        if (cont && resumenProvincias.length > 0) {
+          const filtroProvActual = provinciaKpi && provinciaKpi !== "TODAS" ? provinciaKpi : null;
+          if (filtroProvActual) {
+            const sp = resumenProvincias.find(r => r.provincia === filtroProvActual);
+            if (sp) {
+              const minProm = Math.min(...resumenProvincias.map(r => r.promedio));
+              const maxProm = Math.max(...resumenProvincias.map(r => r.promedio));
+              const maxOfertas = Math.max(...resumenProvincias.map(r => r.ofertas));
+              const maxLibreriasProv = Math.max(...resumenProvincias.map(r => r.librerias));
+              const sPrecio = maxProm > minProm ? (maxProm - sp.promedio) / (maxProm - minProm) : 1;
+              const sOfertas = maxOfertas ? sp.ofertas / maxOfertas : 0;
+              const sLibrerias = maxLibreriasProv ? sp.librerias / maxLibreriasProv : 0;
+              const hProv = heuristicaPorProvincia[filtroProvActual] != null ? heuristicaPorProvincia[filtroProvActual] : null;
+              cont.innerHTML = `
+                <div class="kpi-grid">
+                  <div class="kpi-card"><h3>Provincia</h3><p>${etiquetaProvincia(filtroProvActual)}</p></div>
+                  <div class="kpi-card"><h3>P̄</h3><p>$${sp.promedio.toFixed(2)}</p></div>
+                  <div class="kpi-card"><h3>min P̄ / max P̄</h3><p>$${minProm.toFixed(2)} / $${maxProm.toFixed(2)}</p></div>
+                  <div class="kpi-card"><h3>O / max O</h3><p>${sp.ofertas} / ${maxOfertas}</p></div>
+                  <div class="kpi-card"><h3>L / max L</h3><p>${sp.librerias} / ${maxLibreriasProv}</p></div>
+                  <div class="kpi-card"><h3>S_precio</h3><p>${sPrecio.toFixed(3)}</p></div>
+                  <div class="kpi-card"><h3>S_ofertas</h3><p>${sOfertas.toFixed(3)}</p></div>
+                  <div class="kpi-card"><h3>S_librerías</h3><p>${sLibrerias.toFixed(3)}</p></div>
+                  <div class="kpi-card"><h3>H</h3><p>${hProv != null ? hProv.toFixed(1) : "–"}</p></div>
+                </div>
+                <div style="background:#0f172a;color:#e5e7eb;padding:1rem;border-radius:12px;font-family:ui-monospace,Menlo,Consolas,monospace;margin-top:1rem;line-height:1.6">
+                  <div><strong>Fórmulas con sustitución (provincia actual)</strong></div>
+                  <div>S_precio = (max P̄ − P̄) / (max P̄ − min P̄) = (${maxProm.toFixed(2)} − ${sp.promedio.toFixed(2)}) / (${maxProm.toFixed(2)} − ${minProm.toFixed(2)}) = ${sPrecio.toFixed(3)}</div>
+                  <div>S_ofertas = O / max O = ${sp.ofertas} / ${maxOfertas} = ${sOfertas.toFixed(3)}</div>
+                  <div>S_librerías = L / max L = ${sp.librerias} / ${maxLibreriasProv} = ${sLibrerias.toFixed(3)}</div>
+                  <div style="margin-top:.5rem">H = 100 · (0.4·S_precio + 0.4·S_ofertas + 0.2·S_librerías)</div>
+                  <div>= 100 · (0.4·${sPrecio.toFixed(3)} + 0.4·${sOfertas.toFixed(3)} + 0.2·${sLibrerias.toFixed(3)})</div>
+                  <div>= <strong>${hProv != null ? hProv.toFixed(1) : "–"} puntos</strong> (escala 0–100)</div>
+                </div>
+                <small style="color:#9ca3af;display:block;margin-top:.5rem">Estos valores se derivan automáticamente de los JSON cargados y cambian al seleccionar otra provincia.</small>
+              `;
+              if (concl) {
+                const htxt = hProv != null ? hProv.toFixed(1) : "–";
+                concl.innerHTML = `
+                  <p><strong>Lectura del índice:</strong> H_${etiquetaProvincia(filtroProvActual)} = ${htxt}/100, en una escala donde 0 indica el peor escenario (precios altos, pocas ofertas y pocas librerías activas) y 100 el mejor (precios competitivos, alta frecuencia de ofertas y amplia presencia de librerías).</p>
+                  <ul>
+                    <li>No tiene unidades físicas: es un puntaje compuesto, adimensional (precio normalizado, frecuencia de ofertas, número de librerías).</li>
+                    <li>Cerca de 0 → mercado formal muy débil: caro, poco denso y poco diverso.</li>
+                    <li>Cerca de 100 → mercado formal muy fuerte: precios competitivos, muchas ofertas y muchas librerías.</li>
+                  </ul>
+                `;
+              }
+            }
+          } else {
+            cont.innerHTML = `
+              <div class="kpi-grid">
+                <div class="kpi-card"><h3>Vista</h3><p>Ecuador completo</p></div>
+                <div class="kpi-card"><h3>H_ECU</h3><p>${heuristicaNacional != null ? heuristicaNacional.toFixed(1) : "–"}</p></div>
+              </div>
+              <div style="background:#0f172a;color:#e5e7eb;padding:1rem;border-radius:12px;font-family:ui-monospace,Menlo,Consolas,monospace;margin-top:1rem;line-height:1.6">
+                <div><strong>Fórmula nacional</strong></div>
+                <div>H_ECU = Σ (w_p · H_p),&nbsp;&nbsp;w_p = O_p / Σ O_q</div>
+                <div>Interpretación: pondera los H_p por el volumen de ofertas de cada provincia.</div>
+                <div style="margin-top:.5rem">Valor actual: <strong>${heuristicaNacional != null ? heuristicaNacional.toFixed(1) : "–"} puntos</strong> (escala 0–100)</div>
+              </div>
+              <small style="color:#9ca3af;display:block;margin-top:.5rem">H_ECU se calcula ponderando H_p por el volumen de ofertas en cada provincia.</small>
+            `;
+            if (concl) {
+              const htxt = heuristicaNacional != null ? heuristicaNacional.toFixed(1) : "–";
+              concl.innerHTML = `
+                <p><strong>Conclusión nacional:</strong> En el corte analizado, el índice heurístico nacional del mercado formal del libro en Ecuador es de <strong>H_ECU = ${htxt} puntos (escala 0–100)</strong>, lo que sugiere un desempeño intermedio si el valor está alrededor de 50: existen núcleos con alta oferta y presencia de librerías, pero también provincias con baja actividad y posible rezago en acceso al libro.</p>
+                <ul>
+                  <li>No tiene unidades físicas: es un puntaje compuesto, adimensional (precio normalizado, frecuencia de ofertas, número de librerías).</li>
+                  <li>Cerca de 0 → mercado formal muy débil: caro, poco denso y poco diverso.</li>
+                  <li>Cerca de 100 → mercado formal muy fuerte: precios competitivos, muchas ofertas y muchas librerías.</li>
+                </ul>
+              `;
+            }
+          }
+        }
+      } catch (e) { }
 
       Object.entries(grupo).sort((a, b) => b[1].length - a[1].length).slice(0, 15).forEach(([k, v]) => {
         const libro = v[0], min = Math.min(...v.map(x => x.precio));
@@ -585,6 +710,20 @@
           provinciaKpi = selectKpi.value;
           aplicarFiltroKpi();
         };
+      }
+      const selectKpiMet = document.getElementById("provinciaKpiSelectMet");
+      if (selectKpiMet) {
+        selectKpiMet.innerHTML = opcionesProvinciaKpi;
+        const valores = Array.from(selectKpiMet.options).map(o => o.value);
+        const destino = valores.includes(provinciaKpi) ? provinciaKpi : "TODAS";
+        selectKpiMet.value = destino;
+        selectKpiMet.onchange = () => {
+          provinciaKpi = selectKpiMet.value;
+          aplicarFiltroKpi();
+        };
+        if (!selectKpiMet.value) {
+          selectKpiMet.selectedIndex = 0;
+        }
       }
     }
 
