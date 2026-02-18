@@ -337,6 +337,36 @@
         ofertas: d.c,
         librerias: d.librerias.size
       }));
+
+      const heuristicaPorProvincia = {};
+      let mejorHeurProv = null;
+      if (resumenProvincias.length > 0) {
+        const minProm = Math.min(...resumenProvincias.map(r => r.promedio));
+        const maxProm = Math.max(...resumenProvincias.map(r => r.promedio));
+        const maxOfertas = Math.max(...resumenProvincias.map(r => r.ofertas));
+        const maxLibreriasProv = Math.max(...resumenProvincias.map(r => r.librerias));
+        resumenProvincias.forEach(r => {
+          const precioScore = maxProm > minProm ? (maxProm - r.promedio) / (maxProm - minProm) : 1;
+          const ofertasScore = maxOfertas ? r.ofertas / maxOfertas : 0;
+          const libreriasScore = maxLibreriasProv ? r.librerias / maxLibreriasProv : 0;
+          const h = 100 * (0.4 * precioScore + 0.4 * ofertasScore + 0.2 * libreriasScore);
+          heuristicaPorProvincia[r.provincia] = h;
+          if (!mejorHeurProv || h > mejorHeurProv.h) mejorHeurProv = { provincia: r.provincia, h };
+        });
+      }
+
+      const filtroProvActual = provinciaKpi && provinciaKpi !== "TODAS" ? provinciaKpi : null;
+      let etiquetaHeuristicaActual = "Ecuador completo";
+      let indiceHeuristicoActual = null;
+      if (filtroProvActual && heuristicaPorProvincia[filtroProvActual] != null) {
+        indiceHeuristicoActual = heuristicaPorProvincia[filtroProvActual];
+        etiquetaHeuristicaActual = etiquetaProvincia(filtroProvActual);
+      } else if (mejorHeurProv) {
+        indiceHeuristicoActual = mejorHeurProv.h;
+        etiquetaHeuristicaActual = etiquetaProvincia(mejorHeurProv.provincia);
+      }
+      const indiceHeuristicoTexto = indiceHeuristicoActual != null ? indiceHeuristicoActual.toFixed(1) : "–";
+
       let conclusionesHtml = "";
       if (resumenProvincias.length > 0) {
         const ordenPorPrecio = [...resumenProvincias].sort((a, b) => a.promedio - b.promedio);
@@ -344,12 +374,16 @@
         const masBarataProv = ordenPorPrecio[0];
         const masCaraProv = ordenPorPrecio[ordenPorPrecio.length - 1];
         const masOfertasProv = ordenPorOfertas[0];
+        const heuristicaHtml = mejorHeurProv
+          ? `<li><span class="insights-badge">05</span><span>Según el índice heurístico (precio, ofertas y librerías), <strong>${etiquetaProvincia(mejorHeurProv.provincia)}</strong> presenta el mejor desempeño relativo (Hp ≈ ${mejorHeurProv.h.toFixed(1)} / 100).</span></li>`
+          : "";
         conclusionesHtml = `
           <ul class="insights-list">
             <li><span class="insights-badge">01</span><span>El análisis incluye datos de <strong>${provinciasDetectadas}</strong> provincias con ofertas de libros registradas.</span></li>
             <li><span class="insights-badge">02</span><span><strong>${etiquetaProvincia(masBarataProv.provincia)}</strong> presenta el precio promedio más bajo (~$${masBarataProv.promedio.toFixed(2)}).</span></li>
             <li><span class="insights-badge">03</span><span><strong>${etiquetaProvincia(masCaraProv.provincia)}</strong> concentra los precios promedio más altos (~$${masCaraProv.promedio.toFixed(2)}).</span></li>
             <li><span class="insights-badge">04</span><span>La provincia con más ofertas registradas es <strong>${etiquetaProvincia(masOfertasProv.provincia)}</strong> con ${masOfertasProv.ofertas.toLocaleString()} precios capturados.</span></li>
+            ${heuristicaHtml}
           </ul>
         `;
       }
@@ -374,6 +408,7 @@
         <div class="kpi-card"><h3>Más barato</h3><p>$${precioMin}</p></div>
         <div class="kpi-card danger"><h3>Más caro</h3><p>$${precioMax}</p></div>
         <div class="kpi-card warning"><h3>Provincias con datos</h3><p>${provinciasDetectadas}</p></div>
+        <div class="kpi-card"><h3>Índice heurístico</h3><p>${indiceHeuristicoTexto}</p><small style="display:block;font-size:.75rem;color:#9ca3af;">${etiquetaHeuristicaActual}</small></div>
       </div>
 
       <div class="section">
