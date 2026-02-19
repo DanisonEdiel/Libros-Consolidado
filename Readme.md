@@ -71,7 +71,19 @@ flowchart LR
 
 ---
 
-## **Archivos de datos incluidos**
+## **Estructura del proyecto**
+
+```
+Libros-Consolidado/
+├── index.html          # Aplicación web
+├── index.css           # Estilos
+├── Readme.md
+├── data/               # Todos los JSON (precios, ubicaciones, SRI, catálogo)
+├── docs/               # Documentación adicional (README_heuristico.md)
+└── scripts/            # Scripts de procesamiento (merge_librerias_con_sinteticos.py)
+```
+
+## **Archivos de datos incluidos** (en `data/`)
 
 | Archivo                                               | Contenido                                    | Fuente                            |
 | ----------------------------------------------------- | -------------------------------------------- | --------------------------------- |
@@ -119,8 +131,16 @@ flowchart LR
 ## **Cómo usar la plataforma**
 
 1. Descarga o clona el repositorio
-2. Abre `index.html` en cualquier navegador moderno
-3. La primera carga descarga todos los datos (1–5 min)
-4. Desde la segunda visita, funciona **instantáneamente y sin internet**
+2. Sirve la carpeta con un servidor web (por ejemplo `python -m http.server 8080` en la raíz del proyecto)
+3. Abre `http://localhost:8080` en el navegador
+4. La primera carga descarga todos los datos desde `data/`; desde la segunda visita funciona **instantáneamente** (caché local)
+
+Para ejecutar el script de enriquecimiento de títulos desde la raíz del proyecto:
+
+```bash
+python scripts/merge_librerias_con_sinteticos.py
+```
+
+(Lee y escribe los JSON en la carpeta `data/`.)
 
 ---
