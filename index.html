@@ -82,38 +82,38 @@
           <p>
             El modelo se usa para sintetizar, por provincia y para el país completo, señales observables del mercado del libro en ausencia de un censo exhaustivo. Se integran la <strong>frecuencia digital de ofertas</strong>, la <strong>presencia territorial de librerías</strong> y el <strong>precio promedio normalizado</strong> en las <strong>24 provincias</strong> del Ecuador.
           </p>
-          <h3>Entradas por provincia p</h3>
+          <h3>Entradas por provincia <em>p</em></h3>
           <ul>
-            <li><strong>P̄_p</strong>: precio promedio de todas las ofertas de libros en la provincia p.</li>
-            <li><strong>O_p</strong>: número total de ofertas (precios capturados) en la provincia p.</li>
-            <li><strong>L_p</strong>: número de librerías distintas con al menos un libro en la provincia p.</li>
+            <li><strong><span class="f-overline">P</span><sub>p</sub></strong>: precio promedio de todas las ofertas de libros en la provincia <em>p</em>.</li>
+            <li><strong>O<sub>p</sub></strong>: número total de ofertas (precios capturados) en la provincia <em>p</em>.</li>
+            <li><strong>L<sub>p</sub></strong>: número de librerías distintas con al menos un libro en la provincia <em>p</em>.</li>
           </ul>
           <h3>Normalizaciones</h3>
           <ul>
             <li>Provincias: se normaliza el nombre removiendo diacríticos y usando mayúsculas para evitar duplicados.</li>
-            <li>Precios: se linealiza el rango [min P̄, max P̄] para que precios más bajos incrementen el puntaje.</li>
-            <li>Frecuencia y librerías: se escalan a [0,1] respecto al máximo observado entre provincias.</li>
+            <li>Precios: se linealiza el rango [min<sub>P</sub> <span class="f-overline">P</span>, max<sub>P</sub> <span class="f-overline">P</span>] para que precios más bajos incrementen el puntaje.</li>
+            <li>Frecuencia y librerías: se escalan a [0, 1] respecto al máximo observado entre provincias.</li>
           </ul>
           <h3>Formulación provincial</h3>
-          <div style="background:#0f172a;color:#e5e7eb;padding:1rem;border-radius:12px;line-height:1.6">
-            Sea el conjunto de provincias <em>P</em> y para cada provincia p ∈ P:<br>
-            - Precio normalizado:<br>
-            <strong>S_precio(p) = (max_P P̄_p − P̄_p) / (max_P P̄_p − min_P P̄_p)</strong>, si max ≠ min; en otro caso S_precio(p) = 1.<br>
-            - Frecuencia normalizada:<br>
-            <strong>S_ofertas(p) = O_p / max_P O_p</strong> (si max_P O_p &gt; 0, en otro caso 0).<br>
-            - Presencia de librerías:<br>
-            <strong>S_librerias(p) = L_p / max_P L_p</strong> (si max_P L_p &gt; 0, en otro caso 0).<br><br>
+          <div class="formula-block" style="background:#0f172a;color:#e5e7eb;padding:1rem;border-radius:12px;line-height:1.7">
+            Sea el conjunto de provincias <em>P</em> y para cada provincia <em>p</em> ∈ <em>P</em>:<br>
+            · Precio normalizado:<br>
+            <strong>S<sub>precio</sub>(<em>p</em>) = (max<sub>P</sub> <span class="f-overline">P</span><sub>p</sub> − <span class="f-overline">P</span><sub>p</sub>) / (max<sub>P</sub> <span class="f-overline">P</span><sub>p</sub> − min<sub>P</sub> <span class="f-overline">P</span><sub>p</sub>)</strong>, si max ≠ min; en otro caso S<sub>precio</sub>(<em>p</em>) = 1.<br>
+            · Frecuencia normalizada:<br>
+            <strong>S<sub>ofertas</sub>(<em>p</em>) = O<sub>p</sub> / max<sub>P</sub> O<sub>p</sub></strong> (si max<sub>P</sub> O<sub>p</sub> &gt; 0, en otro caso 0).<br>
+            · Presencia de librerías:<br>
+            <strong>S<sub>librerías</sub>(<em>p</em>) = L<sub>p</sub> / max<sub>P</sub> L<sub>p</sub></strong> (si max<sub>P</sub> L<sub>p</sub> &gt; 0, en otro caso 0).<br><br>
             Índice heurístico provincial:<br>
-            <strong>H_p = 100 · (0.4·S_precio(p) + 0.4·S_ofertas(p) + 0.2·S_librerias(p))</strong><br>
-            donde H_p ∈ [0, 100]; valores altos indican mejor desempeño relativo (precios competitivos, alta oferta y diversidad de librerías).
+            <strong>H<sub>p</sub> = 100 · (0,4·S<sub>precio</sub>(<em>p</em>) + 0,4·S<sub>ofertas</sub>(<em>p</em>) + 0,2·S<sub>librerías</sub>(<em>p</em>))</strong><br>
+            donde H<sub>p</sub> ∈ [0, 100]; valores altos indican mejor desempeño relativo (precios competitivos, alta oferta y diversidad de librerías).
           </div>
           <h3>Índice heurístico nacional</h3>
-          <div style="background:#0f172a;color:#e5e7eb;padding:1rem;border-radius:12px;line-height:1.6;margin-top:1rem">
+          <div class="formula-block" style="background:#0f172a;color:#e5e7eb;padding:1rem;border-radius:12px;line-height:1.7;margin-top:1rem">
             Para el país completo se define un promedio ponderado por volumen de ofertas:<br>
-            - Peso de la provincia p:<br>
-            <strong>w_p = O_p / Σ_{q ∈ P} O_q</strong> (si Σ O_q &gt; 0).<br>
-            - Índice heurístico nacional:<br>
-            <strong>H_ECU = Σ_{p ∈ P} w_p · H_p</strong>, con H_ECU ∈ [0, 100].<br>
+            · Peso de la provincia <em>p</em>:<br>
+            <strong>w<sub>p</sub> = O<sub>p</sub> / Σ<sub>q ∈ P</sub> O<sub>q</sub></strong> (si Σ<sub>q ∈ P</sub> O<sub>q</sub> &gt; 0).<br>
+            · Índice heurístico nacional:<br>
+            <strong>H<sub>ECU</sub> = Σ<sub>p ∈ P</sub> w<sub>p</sub> · H<sub>p</sub></strong>, con H<sub>ECU</sub> ∈ [0, 100].<br>
             Este valor resume el desempeño agregado del mercado formal del libro en Ecuador.
           </div>
           <h3>Ejemplo numérico (Pichincha, valores ilustrativos)</h3>
@@ -121,22 +121,22 @@
             Para fijar la idea, supongamos que tras procesar la base nacional se obtiene el siguiente resumen (números aproximados, solo para ilustrar el cálculo):
           </p>
           <ul>
-            <li><strong>P̄_Pichincha = 21,03 USD</strong>, con promedio mínimo y máximo entre provincias <strong>min P̄ = 18,50</strong>, <strong>max P̄ = 35,20</strong>.</li>
-            <li><strong>O_Pichincha = 800</strong> ofertas registradas y <strong>max_P O = 2100</strong> ofertas en la provincia con mayor actividad.</li>
-            <li><strong>L_Pichincha = 35</strong> librerías distintas y <strong>max_P L = 70</strong> librerías en la provincia con más establecimientos.</li>
+            <li><strong><span class="f-overline">P</span><sub>Pichincha</sub> = 21,03 USD</strong>, con promedio mínimo y máximo entre provincias <strong>min<sub>P</sub> <span class="f-overline">P</span> = 18,50</strong>, <strong>max<sub>P</sub> <span class="f-overline">P</span> = 35,20</strong>.</li>
+            <li><strong>O<sub>Pichincha</sub> = 800</strong> ofertas registradas y <strong>max<sub>P</sub> O = 2100</strong> ofertas en la provincia con mayor actividad.</li>
+            <li><strong>L<sub>Pichincha</sub> = 35</strong> librerías distintas y <strong>max<sub>P</sub> L = 70</strong> librerías en la provincia con más establecimientos.</li>
           </ul>
           <p>Con estos datos, los puntajes normalizados son:</p>
           <ul>
-            <li><strong>S_precio(Pichincha) = (max P̄ − P̄_Pichincha) / (max P̄ − min P̄)</strong> ≈ (35,20 − 21,03) / (35,20 − 18,50) ≈ 14,17 / 16,70 ≈ <strong>0,848</strong>.</li>
-            <li><strong>S_ofertas(Pichincha) = O_Pichincha / max_P O</strong> = 800 / 2100 ≈ <strong>0,381</strong>.</li>
-            <li><strong>S_librerías(Pichincha) = L_Pichincha / max_P L</strong> = 35 / 70 = <strong>0,50</strong>.</li>
+            <li><strong>S<sub>precio</sub>(Pichincha) = (max<sub>P</sub> <span class="f-overline">P</span> − <span class="f-overline">P</span><sub>Pichincha</sub>) / (max<sub>P</sub> <span class="f-overline">P</span> − min<sub>P</sub> <span class="f-overline">P</span>)</strong> ≈ (35,20 − 21,03) / (35,20 − 18,50) ≈ 14,17 / 16,70 ≈ <strong>0,848</strong>.</li>
+            <li><strong>S<sub>ofertas</sub>(Pichincha) = O<sub>Pichincha</sub> / max<sub>P</sub> O</strong> = 800 / 2100 ≈ <strong>0,381</strong>.</li>
+            <li><strong>S<sub>librerías</sub>(Pichincha) = L<sub>Pichincha</sub> / max<sub>P</sub> L</strong> = 35 / 70 = <strong>0,50</strong>.</li>
           </ul>
           <p>Finalmente, el índice heurístico provincial para Pichincha se calcula como:</p>
-          <div style="background:#0f172a;color:#e5e7eb;padding:1rem;border-radius:12px;line-height:1.6">
-            H_Pichincha = 100 · (0,4·0,848 + 0,4·0,381 + 0,2·0,50)<br>
+          <div class="formula-block" style="background:#0f172a;color:#e5e7eb;padding:1rem;border-radius:12px;line-height:1.7">
+            H<sub>Pichincha</sub> = 100 · (0,4·0,848 + 0,4·0,381 + 0,2·0,50)<br>
             ≈ 100 · (0,339 + 0,152 + 0,100)<br>
             ≈ 100 · 0,591 ≈ <strong>59,1 puntos</strong> (escala 0–100).<br>
-            Este valor es comparable con el H_p del resto de provincias y con el H_ECU nacional mostrado en el dashboard.
+            Este valor es comparable con el H<sub>p</sub> del resto de provincias y con el H<sub>ECU</sub> nacional mostrado en el dashboard.
           </div>
           <div class="section metodologia-section" id="met-ej-dinamico" style="margin-top:1rem">
             <h3>Ejemplo dinámico con valores actuales (provincia seleccionada)</h3>
@@ -161,15 +161,15 @@
           <h3>Relación con los KPIs del dashboard</h3>
           <ul>
             <li><strong>Libros únicos</strong>: número de títulos distintos después de agrupar por título y librería.</li>
-            <li><strong>Precio promedio</strong>: promedio simple de los precios de las ofertas filtradas (base para P̄_p).</li>
+            <li><strong>Precio promedio</strong>: promedio simple de los precios de las ofertas filtradas (base para <span class="f-overline">P</span><sub>p</sub>).</li>
             <li><strong>Más barato / Más caro</strong>: mínimo y máximo de la distribución de precios en la vista actual.</li>
-            <li><strong>Provincias con datos</strong>: cardinalidad de {p ∈ P : O_p &gt; 0}.</li>
-            <li><strong>Índice heurístico</strong>: valor H_ECU mostrado en el KPI nacional e interpretado en las conclusiones rápidas.</li>
+            <li><strong>Provincias con datos</strong>: cardinalidad de {<em>p</em> ∈ <em>P</em> : O<sub>p</sub> &gt; 0}.</li>
+            <li><strong>Índice heurístico</strong>: valor H<sub>ECU</sub> mostrado en el KPI nacional e interpretado en las conclusiones rápidas.</li>
           </ul>
           <h3>Interpretación</h3>
           <ul>
-            <li>H_p permite comparar provincias en un espacio común de 0 a 100, combinando precio, intensidad de mercado y presencia de librerías.</li>
-            <li>H_ECU sintetiza el estado del país ponderando por volumen de actividad, y sirve como indicador global de acceso relativo al libro.</li>
+            <li>H<sub>p</sub> permite comparar provincias en un espacio común de 0 a 100, combinando precio, intensidad de mercado y presencia de librerías.</li>
+            <li>H<sub>ECU</sub> sintetiza el estado del país ponderando por volumen de actividad, y sirve como indicador global de acceso relativo al libro.</li>
           </ul>
         </div>
       </div>
@@ -476,7 +476,7 @@
         const masCaraProv = ordenPorPrecio[ordenPorPrecio.length - 1];
         const masOfertasProv = ordenPorOfertas[0];
         const heuristicaHtml = mejorHeurProv
-          ? `<li><span class="insights-badge">05</span><span>El índice heurístico nacional del mercado formal del libro es <strong>H_ECU ≈ ${heuristicaNacional != null ? heuristicaNacional.toFixed(1) : "–"}/100</strong>. La provincia con mejor desempeño relativo es <strong>${etiquetaProvincia(mejorHeurProv.provincia)}</strong> (Hp ≈ ${mejorHeurProv.h.toFixed(1)}/100).</span></li>`
+          ? `<li><span class="insights-badge">05</span><span>El índice heurístico nacional del mercado formal del libro es <strong>H<sub>ECU</sub> ≈ ${heuristicaNacional != null ? heuristicaNacional.toFixed(1) : "–"}/100</strong>. La provincia con mejor desempeño relativo es <strong>${etiquetaProvincia(mejorHeurProv.provincia)}</strong> (H<sub>p</sub> ≈ ${mejorHeurProv.h.toFixed(1)}/100).</span></li>`
           : "";
         conclusionesHtml = `
           <ul class="insights-list">
@@ -589,24 +589,24 @@
               const sLibrerias = maxLibreriasProv ? sp.librerias / maxLibreriasProv : 0;
               const hProv = heuristicaPorProvincia[filtroProvActual] != null ? heuristicaPorProvincia[filtroProvActual] : null;
               cont.innerHTML = `
-                <div class="kpi-grid">
+                <div class="kpi-grid formula-block">
                   <div class="kpi-card"><h3>Provincia</h3><p>${etiquetaProvincia(filtroProvActual)}</p></div>
-                  <div class="kpi-card"><h3>P̄</h3><p>$${sp.promedio.toFixed(2)}</p></div>
-                  <div class="kpi-card"><h3>min P̄ / max P̄</h3><p>$${minProm.toFixed(2)} / $${maxProm.toFixed(2)}</p></div>
+                  <div class="kpi-card"><h3><span class="f-overline">P</span></h3><p>$${sp.promedio.toFixed(2)}</p></div>
+                  <div class="kpi-card"><h3>min<sub>P</sub> <span class="f-overline">P</span> / max<sub>P</sub> <span class="f-overline">P</span></h3><p>$${minProm.toFixed(2)} / $${maxProm.toFixed(2)}</p></div>
                   <div class="kpi-card"><h3>O / max O</h3><p>${sp.ofertas} / ${maxOfertas}</p></div>
                   <div class="kpi-card"><h3>L / max L</h3><p>${sp.librerias} / ${maxLibreriasProv}</p></div>
-                  <div class="kpi-card"><h3>S_precio</h3><p>${sPrecio.toFixed(3)}</p></div>
-                  <div class="kpi-card"><h3>S_ofertas</h3><p>${sOfertas.toFixed(3)}</p></div>
-                  <div class="kpi-card"><h3>S_librerías</h3><p>${sLibrerias.toFixed(3)}</p></div>
+                  <div class="kpi-card"><h3>S<sub>precio</sub></h3><p>${sPrecio.toFixed(3)}</p></div>
+                  <div class="kpi-card"><h3>S<sub>ofertas</sub></h3><p>${sOfertas.toFixed(3)}</p></div>
+                  <div class="kpi-card"><h3>S<sub>librerías</sub></h3><p>${sLibrerias.toFixed(3)}</p></div>
                   <div class="kpi-card"><h3>H</h3><p>${hProv != null ? hProv.toFixed(1) : "–"}</p></div>
                 </div>
-                <div style="background:#0f172a;color:#e5e7eb;padding:1rem;border-radius:12px;font-family:ui-monospace,Menlo,Consolas,monospace;margin-top:1rem;line-height:1.6">
+                <div class="formula-block" style="background:#0f172a;color:#e5e7eb;padding:1rem;border-radius:12px;font-family:ui-monospace,Menlo,Consolas,monospace;margin-top:1rem;line-height:1.7">
                   <div><strong>Fórmulas con sustitución (provincia actual)</strong></div>
-                  <div>S_precio = (max P̄ − P̄) / (max P̄ − min P̄) = (${maxProm.toFixed(2)} − ${sp.promedio.toFixed(2)}) / (${maxProm.toFixed(2)} − ${minProm.toFixed(2)}) = ${sPrecio.toFixed(3)}</div>
-                  <div>S_ofertas = O / max O = ${sp.ofertas} / ${maxOfertas} = ${sOfertas.toFixed(3)}</div>
-                  <div>S_librerías = L / max L = ${sp.librerias} / ${maxLibreriasProv} = ${sLibrerias.toFixed(3)}</div>
-                  <div style="margin-top:.5rem">H = 100 · (0.4·S_precio + 0.4·S_ofertas + 0.2·S_librerías)</div>
-                  <div>= 100 · (0.4·${sPrecio.toFixed(3)} + 0.4·${sOfertas.toFixed(3)} + 0.2·${sLibrerias.toFixed(3)})</div>
+                  <div>S<sub>precio</sub> = (max<sub>P</sub> <span class="f-overline">P</span> − <span class="f-overline">P</span>) / (max<sub>P</sub> <span class="f-overline">P</span> − min<sub>P</sub> <span class="f-overline">P</span>) = (${maxProm.toFixed(2)} − ${sp.promedio.toFixed(2)}) / (${maxProm.toFixed(2)} − ${minProm.toFixed(2)}) = ${sPrecio.toFixed(3)}</div>
+                  <div>S<sub>ofertas</sub> = O / max O = ${sp.ofertas} / ${maxOfertas} = ${sOfertas.toFixed(3)}</div>
+                  <div>S<sub>librerías</sub> = L / max L = ${sp.librerias} / ${maxLibreriasProv} = ${sLibrerias.toFixed(3)}</div>
+                  <div style="margin-top:.5rem">H = 100 · (0,4·S<sub>precio</sub> + 0,4·S<sub>ofertas</sub> + 0,2·S<sub>librerías</sub>)</div>
+                  <div>= 100 · (0,4·${sPrecio.toFixed(3)} + 0,4·${sOfertas.toFixed(3)} + 0,2·${sLibrerias.toFixed(3)})</div>
                   <div>= <strong>${hProv != null ? hProv.toFixed(1) : "–"} puntos</strong> (escala 0–100)</div>
                 </div>
                 <small style="color:#9ca3af;display:block;margin-top:.5rem">Estos valores se derivan automáticamente de los JSON cargados y cambian al seleccionar otra provincia.</small>
@@ -614,7 +614,7 @@
               if (concl) {
                 const htxt = hProv != null ? hProv.toFixed(1) : "–";
                 concl.innerHTML = `
-                  <p><strong>Lectura del índice:</strong> H_${etiquetaProvincia(filtroProvActual)} = ${htxt}/100, en una escala donde 0 indica el peor escenario (precios altos, pocas ofertas y pocas librerías activas) y 100 el mejor (precios competitivos, alta frecuencia de ofertas y amplia presencia de librerías).</p>
+                  <p><strong>Lectura del índice:</strong> H<sub>${etiquetaProvincia(filtroProvActual)}</sub> = ${htxt}/100, en una escala donde 0 indica el peor escenario (precios altos, pocas ofertas y pocas librerías activas) y 100 el mejor (precios competitivos, alta frecuencia de ofertas y amplia presencia de librerías).</p>
                   <ul>
                     <li>No tiene unidades físicas: es un puntaje compuesto, adimensional (precio normalizado, frecuencia de ofertas, número de librerías).</li>
                     <li>Cerca de 0 → mercado formal muy débil: caro, poco denso y poco diverso.</li>
@@ -625,22 +625,22 @@
             }
           } else {
             cont.innerHTML = `
-              <div class="kpi-grid">
+              <div class="kpi-grid formula-block">
                 <div class="kpi-card"><h3>Vista</h3><p>Ecuador completo</p></div>
-                <div class="kpi-card"><h3>H_ECU</h3><p>${heuristicaNacional != null ? heuristicaNacional.toFixed(1) : "–"}</p></div>
+                <div class="kpi-card"><h3>H<sub>ECU</sub></h3><p>${heuristicaNacional != null ? heuristicaNacional.toFixed(1) : "–"}</p></div>
               </div>
-              <div style="background:#0f172a;color:#e5e7eb;padding:1rem;border-radius:12px;font-family:ui-monospace,Menlo,Consolas,monospace;margin-top:1rem;line-height:1.6">
+              <div class="formula-block" style="background:#0f172a;color:#e5e7eb;padding:1rem;border-radius:12px;font-family:ui-monospace,Menlo,Consolas,monospace;margin-top:1rem;line-height:1.7">
                 <div><strong>Fórmula nacional</strong></div>
-                <div>H_ECU = Σ (w_p · H_p),&nbsp;&nbsp;w_p = O_p / Σ O_q</div>
-                <div>Interpretación: pondera los H_p por el volumen de ofertas de cada provincia.</div>
+                <div>H<sub>ECU</sub> = Σ (w<sub>p</sub> · H<sub>p</sub>),&nbsp;&nbsp;w<sub>p</sub> = O<sub>p</sub> / Σ<sub>q ∈ P</sub> O<sub>q</sub></div>
+                <div>Interpretación: pondera los H<sub>p</sub> por el volumen de ofertas de cada provincia.</div>
                 <div style="margin-top:.5rem">Valor actual: <strong>${heuristicaNacional != null ? heuristicaNacional.toFixed(1) : "–"} puntos</strong> (escala 0–100)</div>
               </div>
-              <small style="color:#9ca3af;display:block;margin-top:.5rem">H_ECU se calcula ponderando H_p por el volumen de ofertas en cada provincia.</small>
+              <small style="color:#9ca3af;display:block;margin-top:.5rem">H<sub>ECU</sub> se calcula ponderando H<sub>p</sub> por el volumen de ofertas en cada provincia.</small>
             `;
             if (concl) {
               const htxt = heuristicaNacional != null ? heuristicaNacional.toFixed(1) : "–";
               concl.innerHTML = `
-                <p><strong>Conclusión nacional:</strong> En el corte analizado, el índice heurístico nacional del mercado formal del libro en Ecuador es de <strong>H_ECU = ${htxt} puntos (escala 0–100)</strong>, lo que sugiere un desempeño intermedio si el valor está alrededor de 50: existen núcleos con alta oferta y presencia de librerías, pero también provincias con baja actividad y posible rezago en acceso al libro.</p>
+                <p><strong>Conclusión nacional:</strong> En el corte analizado, el índice heurístico nacional del mercado formal del libro en Ecuador es de <strong>H<sub>ECU</sub> = ${htxt} puntos (escala 0–100)</strong>, lo que sugiere un desempeño intermedio si el valor está alrededor de 50: existen núcleos con alta oferta y presencia de librerías, pero también provincias con baja actividad y posible rezago en acceso al libro.</p>
                 <ul>
                   <li>No tiene unidades físicas: es un puntaje compuesto, adimensional (precio normalizado, frecuencia de ofertas, número de librerías).</li>
                   <li>Cerca de 0 → mercado formal muy débil: caro, poco denso y poco diverso.</li>

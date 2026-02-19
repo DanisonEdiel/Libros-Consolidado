@@ -666,6 +666,35 @@ tr:hover {
   gap: 1rem;
 }
 
+/* Fórmulas del modelo heurístico */
+.formula-block {
+  font-family: "Cambria Math", "Latin Modern Math", "STIX Two Math", serif;
+}
+.formula-block sub,
+.formula-block .f-sub {
+  font-size: 0.8em;
+  vertical-align: sub;
+  line-height: 0;
+}
+.formula-block .f-overline {
+  text-decoration: overline;
+  text-decoration-style: solid;
+}
+.formula-block .f-frac {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+.formula-block .f-frac-num,
+.formula-block .f-frac-den {
+  display: block;
+  padding: 0 0.2em;
+}
+.formula-block .f-frac-den {
+  border-top: 1px solid currentColor;
+  margin-top: 2px;
+}
+
 body.presentation header,
 body.presentation .tabs {
   display: none;
