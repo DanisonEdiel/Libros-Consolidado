@@ -709,3 +709,34 @@ body.presentation .back-top {
 }
 
 /* bloque antiguo de provincia-* eliminado para evitar estilos duplicados */
+.map-filters{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin: 10px 0 14px;
+}
+
+.map-filters .chip{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 14px;
+  border-radius:999px;
+  background:#1e293b;            /* fondo oscuro */
+  border:1px solid #334155;      /* borde suave */
+  color:#e2e8f0;                 /* texto claro */
+  cursor:pointer;
+  user-select:none;
+  font-size:13px;
+  transition: all 0.2s ease;
+}
+
+.map-filters .chip:hover{
+  background:#334155;
+}
+
+.map-filters .chip input{
+  accent-color:#7c3aed;          /* color del check */
+  cursor:pointer;
+}
