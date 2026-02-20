@@ -605,6 +605,7 @@
             <div class="kpi-card danger"><h3>Zonas SRI registradas</h3><p id="sriCount">0</p></div>
             <div class="kpi-card danger"><h3>Total establecimientos SRI</h3><p id="totalSRI">0</p></div>
             <div class="kpi-card" id="coberturaCard"><h3>Cobertura real (Google vs SRI)</h3><p id="coberturaPorcentaje">0%</p></div>
+            <div class="kpi-card warning" id="provinciaSriCard" style="display:none;"></div>
           </div>
 
           <div class="top-sri-inner">
@@ -904,15 +905,17 @@ const googleCount = ubicacionesFiltradas.length;
       });
       const totalEstablecimientosSRI = sriFiltrado.reduce((a, z) => a + z.TOTAL_SUM_ESTABLECIMIENTOS, 0);
       const coberturaReal = totalEstablecimientosSRI > 0 ? Math.round((googleCount / totalEstablecimientosSRI) * 100) : 0;
+      const totalNacionalSRI = (datosSRI || []).reduce((a, z) => a + (Number(z.TOTAL_SUM_ESTABLECIMIENTOS) || 0), 0);
 
       // Actualizar KPIs y tabla de inmediato (sin esperar a los marcadores)
       const googleCountEl = document.getElementById("googleCount");
       const sriCountEl = document.getElementById("sriCount");
       const totalSRIEl = document.getElementById("totalSRI");
       const coberturaCardEl = document.getElementById("coberturaCard");
+      const provinciaSriCardEl = document.getElementById("provinciaSriCard");
       if (googleCountEl) googleCountEl.textContent = googleCount.toLocaleString();
       if (sriCountEl) sriCountEl.textContent = sriFiltrado.length + " zonas";
-      if (totalSRIEl) totalSRIEl.textContent = totalEstablecimientosSRI.toLocaleString();
+      if (totalSRIEl) totalSRIEl.textContent = totalNacionalSRI.toLocaleString();
       if (coberturaCardEl) coberturaCardEl.innerHTML = `
         <h3>Cobertura real (Google vs SRI)</h3>
         <p style="font-size:2.4rem;color:${coberturaReal < 40 ? '#ef4444' : '#f59e0b'}">${coberturaReal}%</p>
@@ -921,6 +924,33 @@ const googleCount = ubicacionesFiltradas.length;
           de <strong>${totalEstablecimientosSRI.toLocaleString()}</strong> establecimientos oficiales
         </small>
       `;
+      if (provinciaSriCardEl) {
+        if (filtroProvincia) {
+          const etiquetaProv = etiquetaProvincia(filtroProvincia);
+          const participacionNacional = totalNacionalSRI > 0 ? (totalEstablecimientosSRI / totalNacionalSRI) * 100 : 0;
+          const promedioZona = sriFiltrado.length > 0 ? Math.round(totalEstablecimientosSRI / sriFiltrado.length) : 0;
+          const zonaMayor = sriFiltrado.reduce((best, z) => {
+            const total = Number(z.TOTAL_SUM_ESTABLECIMIENTOS) || 0;
+            const nombre = (z.DIRECCION || "").split(',')[0].replace('Quito', '').trim() || "Zona";
+            if (!best || total > best.total) return { nombre, total };
+            return best;
+          }, null);
+          provinciaSriCardEl.style.display = "block";
+          provinciaSriCardEl.innerHTML = `
+            <h3>SRI en ${etiquetaProv}</h3>
+            <p>${totalEstablecimientosSRI.toLocaleString()}</p>
+            <small style="display:block;color:#64748b;font-size:0.95rem;line-height:1.45">
+              ${sriFiltrado.length.toLocaleString()} zonas registradas<br>
+              Promedio por zona: <strong>${promedioZona.toLocaleString()}</strong><br>
+              Participación nacional: <strong>${participacionNacional.toFixed(1)}%</strong>
+              ${zonaMayor ? `<br>Zona líder: <strong>${zonaMayor.nombre}</strong> (${zonaMayor.total.toLocaleString()})` : ""}
+            </small>
+          `;
+        } else {
+          provinciaSriCardEl.style.display = "none";
+          provinciaSriCardEl.innerHTML = "";
+        }
+      }
 
       const topOrdenado = [...(datosSRI || [])].filter(z => {
         if (!filtroProvincia) return true;
