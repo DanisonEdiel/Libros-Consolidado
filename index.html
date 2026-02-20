@@ -241,7 +241,7 @@
       "AZUAY_GUAYAS.json"
     ];
     const EXTRA_SRI_FILES = [];
-    let preciosBase = [], grupoBase = {}, precios = [], grupo = [], ubicaciones = [], provincias = [], provinciaActiva = "TODAS", provinciaKpi = "TODAS", datosSRI = [], mapa, capaGoogle, capaSRI;
+    let preciosBase = [], grupoBase = {}, precios = [], grupo = [], ubicaciones = [], provincias = [], provinciaActiva = "TODAS", provinciaKpi = "TODAS", datosSRI = [], mapa, capaGoogle, capaSRI, renderMapaVersion = 0;
 
     function normalizarProvincia(nombre) {
       return (nombre || "")
@@ -281,6 +281,12 @@
     function filtrosMapaActivos() {
       const cont = document.getElementById("mapFilters");
       if (!cont) return ["libreria", "papeleria", "bookstore", "otros"]; // fallback
+      return Array.from(cont.querySelectorAll("input[type=checkbox]:checked"))
+        .map(i => normalizarTexto(i.value));
+    }
+    function capasMapaActivas() {
+      const cont = document.getElementById("mapLayerToggles");
+      if (!cont) return ["google", "sri"]; // fallback
       return Array.from(cont.querySelectorAll("input[type=checkbox]:checked"))
         .map(i => normalizarTexto(i.value));
     }
@@ -606,6 +612,20 @@
   </label>
 </div>
 
+<div class="map-filters" id="mapLayerToggles">
+  <span class="provincia-label">Mostrar capas:</span>
+
+  <label class="chip">
+    <input type="checkbox" value="google" checked>
+    Google Maps
+  </label>
+
+  <label class="chip">
+    <input type="checkbox" value="sri" checked>
+    SRI
+  </label>
+</div>
+
 
 
         <div class="leyenda">
@@ -871,6 +891,12 @@
           cb.onchange = () => renderMapa();
         });
       }
+      const mapLayerToggles = document.getElementById("mapLayerToggles");
+      if (mapLayerToggles) {
+        mapLayerToggles.querySelectorAll("input[type=checkbox]").forEach(cb => {
+          cb.onchange = () => renderMapa();
+        });
+      }
       if (datosSRI && datosSRI.length > 0) {
         renderMapa();
       } else {
@@ -890,6 +916,7 @@
 
     function renderMapa() {
       if (!mapa || !capaGoogle || !capaSRI) return;
+      const versionActual = ++renderMapaVersion;
       capaGoogle.clearLayers();
       capaSRI.clearLayers();
 
@@ -899,6 +926,11 @@
       const filtroProvincia = provinciaActiva && provinciaActiva !== "TODAS" ? provinciaActiva : null;
 
       const tiposActivos = filtrosMapaActivos();
+      const capasActivas = capasMapaActivas();
+      const hayTiposActivos = tiposActivos.length > 0;
+      // Si no hay tipos activos, no se muestran marcadores de ninguna capa.
+      const mostrarGoogle = hayTiposActivos && capasActivas.includes("google");
+      const mostrarSRI = hayTiposActivos && capasActivas.includes("sri");
 
 const ubicacionesProvincia = ubicaciones.filter(lib => {
   if (!lib.lat || !lib.lng) return false;
@@ -928,7 +960,9 @@ const googleCountVisible = ubicacionesFiltradas.length;
         return codigo === filtroProvincia;
       });
       const totalEstablecimientosSRI = sriFiltrado.reduce((a, z) => a + z.TOTAL_SUM_ESTABLECIMIENTOS, 0);
-      const coberturaReal = totalEstablecimientosSRI > 0 ? Math.round((googleCountTotal / totalEstablecimientosSRI) * 100) : 0;
+      const googleCountVisibleEfectivo = mostrarGoogle ? googleCountVisible : 0;
+      const totalEstablecimientosSRIVisibles = mostrarSRI ? totalEstablecimientosSRI : 0;
+      const coberturaReal = totalEstablecimientosSRIVisibles > 0 ? Math.round((googleCountVisibleEfectivo / totalEstablecimientosSRIVisibles) * 100) : 0;
       const totalNacionalSRI = (datosSRI || []).reduce((a, z) => a + (Number(z.TOTAL_SUM_ESTABLECIMIENTOS) || 0), 0);
 
       // Actualizar KPIs y tabla de inmediato (sin esperar a los marcadores)
@@ -938,20 +972,23 @@ const googleCountVisible = ubicacionesFiltradas.length;
       const coberturaCardEl = document.getElementById("coberturaCard");
       const provinciaSriCardEl = document.getElementById("provinciaSriCard");
       if (googleCountEl) {
-        googleCountEl.innerHTML = `${googleCountTotal.toLocaleString()}<small style="display:block;font-size:.82rem;color:#9ca3af;font-weight:500;">visibles: ${googleCountVisible.toLocaleString()}</small>`;
+        googleCountEl.innerHTML = `${googleCountTotal.toLocaleString()}<small style="display:block;font-size:.82rem;color:#9ca3af;font-weight:500;">visibles: ${googleCountVisibleEfectivo.toLocaleString()}</small>`;
       }
-      if (sriCountEl) sriCountEl.textContent = sriFiltrado.length + " zonas";
+      if (sriCountEl) {
+        const visiblesSri = mostrarSRI ? sriFiltrado.length : 0;
+        sriCountEl.innerHTML = `${sriFiltrado.length} zonas<small style="display:block;font-size:.82rem;color:#9ca3af;font-weight:500;">visibles: ${visiblesSri.toLocaleString()}</small>`;
+      }
       if (totalSRIEl) totalSRIEl.textContent = totalNacionalSRI.toLocaleString();
       if (coberturaCardEl) coberturaCardEl.innerHTML = `
         <h3>Cobertura real (Google vs SRI)</h3>
         <p style="font-size:2.4rem;color:${coberturaReal < 40 ? '#ef4444' : '#f59e0b'}">${coberturaReal}%</p>
         <small style="color:#64748b;font-size:0.95rem">
-          ${googleCountTotal} ubicaciones exactas<br>
-          de <strong>${totalEstablecimientosSRI.toLocaleString()}</strong> establecimientos oficiales
+          ${googleCountVisibleEfectivo} ubicaciones exactas visibles<br>
+          de <strong>${totalEstablecimientosSRIVisibles.toLocaleString()}</strong> establecimientos oficiales visibles
         </small>
       `;
       if (provinciaSriCardEl) {
-        if (filtroProvincia) {
+        if (filtroProvincia && mostrarSRI) {
           const etiquetaProv = etiquetaProvincia(filtroProvincia);
           const participacionNacional = totalNacionalSRI > 0 ? (totalEstablecimientosSRI / totalNacionalSRI) * 100 : 0;
           const promedioZona = sriFiltrado.length > 0 ? Math.round(totalEstablecimientosSRI / sriFiltrado.length) : 0;
@@ -1011,20 +1048,24 @@ const googleCountVisible = ubicacionesFiltradas.length;
       const puntos = [];
 
       // Marcadores SRI (pocos, se añaden de una vez)
-      sriFiltrado.forEach(z => {
-        const esGrande = z.TOTAL_SUM_ESTABLECIMIENTOS > 150;
-        const zonaNombre = z.DIRECCION.split(',')[0].replace('Quito', '').trim() || 'Zona';
-        const marcador = L.marker([z.lat, z.lng], { icon: esGrande ? iconSRIGrande : iconSRI }).addTo(capaSRI);
-        marcador.bindPopup(`<div style="font-size:14px"><b style="color:#dc2626">Zona oficial SRI</b><br><b>${zonaNombre}</b><br><hr style="margin:8px 0;border-top:1px solid #eee"><small><b>Establecimientos:</b> ${z.TOTAL_SUM_ESTABLECIMIENTOS}<br><b>Provincia:</b> ${z.DESCRIPCION_PROVINCIA_EST}</small></div>`);
-        puntos.push([z.lat, z.lng]);
-      });
+      if (mostrarSRI) {
+        sriFiltrado.forEach(z => {
+          const esGrande = z.TOTAL_SUM_ESTABLECIMIENTOS > 150;
+          const zonaNombre = z.DIRECCION.split(',')[0].replace('Quito', '').trim() || 'Zona';
+          const marcador = L.marker([z.lat, z.lng], { icon: esGrande ? iconSRIGrande : iconSRI }).addTo(capaSRI);
+          marcador.bindPopup(`<div style="font-size:14px"><b style="color:#dc2626">Zona oficial SRI</b><br><b>${zonaNombre}</b><br><hr style="margin:8px 0;border-top:1px solid #eee"><small><b>Establecimientos:</b> ${z.TOTAL_SUM_ESTABLECIMIENTOS}<br><b>Provincia:</b> ${z.DESCRIPCION_PROVINCIA_EST}</small></div>`);
+          puntos.push([z.lat, z.lng]);
+        });
+      }
 
       // Marcadores de librerías por lotes (evita bloquear la interfaz)
       const BATCH_SIZE = 80;
       let index = 0;
       function addMarkerBatch() {
+        if (versionActual !== renderMapaVersion) return;
         const end = Math.min(index + BATCH_SIZE, ubicacionesFiltradas.length);
         for (let i = index; i < end; i++) {
+          if (versionActual !== renderMapaVersion) return;
           const lib = ubicacionesFiltradas[i];
           const marcador = L.marker([lib.lat, lib.lng], { icon: iconGoogle });
           const cat = categoriaDesdeKeyword(lib.keyword_found, lib.nombre, lib.direccion);
@@ -1042,11 +1083,11 @@ marcador.bindPopup(`
         index = end;
         if (index < ubicacionesFiltradas.length) {
           requestAnimationFrame(addMarkerBatch);
-        } else if (puntos.length > 0) {
+        } else if (puntos.length > 0 && versionActual === renderMapaVersion) {
           mapa.fitBounds(puntos, { padding: [50, 50] });
         }
       }
-      if (ubicacionesFiltradas.length > 0) {
+      if (mostrarGoogle && ubicacionesFiltradas.length > 0) {
         requestAnimationFrame(addMarkerBatch);
       } else if (puntos.length > 0) {
         mapa.fitBounds(puntos, { padding: [50, 50] });
