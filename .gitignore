@@ -1,0 +1,11 @@
+# Fuentes locales SRI (insumos de trabajo, no para versionar en este repo)
+data/* SRI.xlsx
+
+# Archivos auxiliares o de pruebas que no forman parte del flujo final
+data/sri_santa_elena_coordenadas.json
+data/_tmp*.json
+scripts/generar_sri_coordenadas.py
+
+# Cachés de Python
+__pycache__/
+*.pyc
