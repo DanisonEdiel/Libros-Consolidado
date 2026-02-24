@@ -223,8 +223,35 @@
     </div>
   </div>
 
+  <div id="sriCoincidenciasModal" class="modal" onclick="if(event.target===this)this.style.display='none'">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="sriCoincidenciasModalTitulo">Coincidencias SRI (Excel)</h2>
+        <span class="close" onclick="document.getElementById('sriCoincidenciasModal').style.display='none'">Ã—</span>
+      </div>
+      <div class="modal-body">
+        <div class="modal-controls" style="display:flex;gap:.75rem;flex-wrap:wrap;align-items:center">
+          <input type="text" id="sriCoincidenciasSearch" placeholder="Filtrar nombre local..." onkeyup="filtrarCoincidenciasSriExcelModal()" style="flex:1;min-width:220px">
+          <button onclick="exportarCoincidenciasSriExcelCSV()" style="padding:.7rem 1rem;border-radius:10px;border:1px solid #334155;background:#0f172a;color:#e2e8f0;cursor:pointer">Exportar CSV</button>
+        </div>
+        <small id="sriCoincidenciasCount" style="display:block;color:#64748b;margin:.25rem 0 .75rem 0">0 coincidencias</small>
+        <table>
+          <thead>
+            <tr>
+              <th>Provincia</th>
+              <th>Local</th>
+              <th>Fuente Excel</th>
+            </tr>
+          </thead>
+          <tbody id="sriCoincidenciasBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script>
     const defaultImg = "https://placehold.co/400x600/cccccc/666666?text=Sin+Portada";
     const CACHE_KEY = "librosEcuador_v43";
@@ -256,7 +283,39 @@
       "AZUAY_GUAYAS.json"
     ];
     const EXTRA_SRI_FILES = [];
+    // Se usan archivos provinciales (y un fallback de Santa Elena). Se excluye libreriasG8.xlsx
+    // porque su formato es heterogéneo y dispara mucho el costo de parseo en cliente.
+    const SRI_EXCEL_FILES = [
+      "AZUAY SRI.xlsx",
+      "BOLIVAR SRI.xlsx",
+      "CARCHI SRI.xlsx",
+      "CA\u00d1AR SRI.xlsx",
+      "CHIMBORAZO SRI.xlsx",
+      "COTOPAXI SRI.xlsx",
+      "EL ORO SRI.xlsx",
+      "ESMERALDAS SRI.xlsx",
+      "GALAPAGOS SRI.xlsx",
+      "GUAYAS SRI.xlsx",
+      "IMBABURA SRI.xlsx",
+      "LOJA SRI.xlsx",
+      "LOS RIOS SRI.xlsx",
+      "MORONA SANTIAGO SRI.xlsx",
+      "NAPO SRI.xlsx",
+      "ORELLANA SRI.xlsx",
+      "SANTA ELENA SRI.xlsx",
+      "SANTO DOMINGO SRI.xlsx",
+      "SUCUMBIOS SRI.xlsx",
+      "TUNGURAHUA SRI.xlsx",
+      "ZAMORA CHINCHIPE SRI.xlsx",
+      "santa elena.xlsx"
+    ];
+    const SRI_EXCEL_INDEX_PRECALCULADO_FILE = "sri_excel_nombres_index.json";
+    const SRI_EXCEL_MATCH_CACHE_KEY = `${CACHE_KEY}_sri_excel_names_v1`;
     let preciosBase = [], grupoBase = {}, precios = [], grupo = [], ubicaciones = [], provincias = [], provinciaActiva = "TODAS", provinciaKpi = "TODAS", datosSRI = [], mapa, capaGoogle, capaSRI, renderMapaVersion = 0;
+    let sriExcelNombresIndex = null, sriExcelNombresIndexPromise = null, sriExcelNombresEstado = "idle", sriExcelNombresError = "";
+    let catalogoDirty = true;
+    let ultimoContextoCoincidenciaSriExcel = { registros: [], filtroProvincia: null };
+    let sriCoincidenciasDetalleActual = [];
 
     function normalizarProvincia(nombre) {
       return (nombre || "")
@@ -276,6 +335,436 @@
         .replace(/\s+/g, " ");
     }
     
+    // decide la categoría del punto usando keyword_found y fallback por nombre/dirección
+    // normalizacion adicional de nombres para comparar locales JSON vs Excel SRI
+    function normalizarNombreComparacion(s) {
+      return normalizarTexto(s)
+        .replace(/[\"'`´‘’“”]/g, "")
+        .replace(/[.,;:(){}\[\]\/\\|_-]+/g, " ")
+        .replace(/&/g, " y ")
+        .replace(/\b(s\.?\s*a\.?\s*s?\.?|cia\.?|compania|companias?|ltda\.?|ep|e\.?p\.?|sucursal|matriz|agencia|establecimiento)\b/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+    function cargarSriExcelIndexDesdeCache() {
+      try {
+        const raw = localStorage.getItem(SRI_EXCEL_MATCH_CACHE_KEY);
+        if (!raw) return null;
+        const parsed = JSON.parse(raw);
+        const mismasFuentes = Array.isArray(parsed?.files)
+          && parsed.files.length === SRI_EXCEL_FILES.length
+          && parsed.files.every((f, i) => f === SRI_EXCEL_FILES[i]);
+        if (!mismasFuentes || !parsed?.provincias) return null;
+        return parsed;
+      } catch (e) {
+        return null;
+      }
+    }
+    function guardarSriExcelIndexEnCache(index) {
+      try {
+        const serializable = index && index.provincias
+          ? {
+              ...index,
+              provincias: Object.fromEntries(
+                Object.entries(index.provincias).map(([prov, p]) => [
+                  prov,
+                  p ? (({ nombresSet, ...rest }) => rest)(p) : p
+                ])
+              )
+            }
+          : index;
+        localStorage.setItem(SRI_EXCEL_MATCH_CACHE_KEY, JSON.stringify(serializable));
+      } catch (e) {
+        console.warn("No se pudo guardar caché de Excel SRI", e);
+      }
+    }
+    function asegurarSetsSriExcel(index) {
+      if (!index || !index.provincias) return index;
+      Object.values(index.provincias).forEach(p => {
+        if (!p) return;
+        if (!p.nombresSet || typeof p.nombresSet.has !== "function") {
+          p.nombresSet = new Set(Array.isArray(p.nombres) ? p.nombres : []);
+        }
+      });
+      return index;
+    }
+    function buscarIndiceEncabezado(headers, posibles) {
+      for (const h of posibles) {
+        const idx = headers.indexOf(h);
+        if (idx >= 0) return idx;
+      }
+      return -1;
+    }
+    function construirIndiceSriExcelDesdeWorkbooks(workbooks) {
+      const temporal = {};
+      workbooks.forEach(({ archivo, workbook }) => {
+        if (!workbook || !workbook.SheetNames) return;
+        workbook.SheetNames.forEach(sheetName => {
+          const ws = workbook.Sheets[sheetName];
+          if (!ws) return;
+          const filas = XLSX.utils.sheet_to_json(ws, { header: 1, raw: false, defval: "", blankrows: false });
+          if (!Array.isArray(filas) || filas.length < 2) return;
+          const headers = (filas[0] || []).map(v => String(v || "").trim().toUpperCase());
+          const idxProv = buscarIndiceEncabezado(headers, ["DESCRIPCION_PROVINCIA_EST", "DESCRIPCION_PROVINCIA"]);
+          const idxNombreFantasia = buscarIndiceEncabezado(headers, ["NOMBRE_FANTASIA_COMERCIAL", "MOMBRE_FANTASIA_COMERCIAL", "NOMBRE_FANTASIA"]);
+          const idxNombreComercial = buscarIndiceEncabezado(headers, ["NOMBRE_COMERCIAL"]);
+          const idxRazonSocial = buscarIndiceEncabezado(headers, ["RAZON_SOCIAL"]);
+          if (idxProv < 0) return;
+
+          for (let i = 1; i < filas.length; i++) {
+            const row = Array.isArray(filas[i]) ? filas[i] : [];
+            const prov = normalizarProvincia(row[idxProv] || "");
+            if (!prov || prov === "DESCRIPCION_PROVINCIA_EST" || prov === "DESCRIPCION_PROVINCIA") continue;
+
+            const nombreRaw =
+              (idxNombreFantasia >= 0 && row[idxNombreFantasia]) ||
+              (idxNombreComercial >= 0 && row[idxNombreComercial]) ||
+              (idxRazonSocial >= 0 && row[idxRazonSocial]) ||
+              "";
+            const nombre = normalizarNombreComparacion(nombreRaw);
+
+            if (!temporal[prov]) temporal[prov] = {};
+            if (!temporal[prov][archivo]) temporal[prov][archivo] = { filas: 0, nombres: new Set() };
+            temporal[prov][archivo].filas++;
+            if (nombre) temporal[prov][archivo].nombres.add(nombre);
+          }
+        });
+      });
+
+      const provincias = {};
+      Object.entries(temporal).forEach(([prov, porArchivo]) => {
+        const candidatos = Object.entries(porArchivo)
+          .map(([archivo, d]) => ({ archivo, filas: d.filas || 0, nombresSet: d.nombres || new Set() }))
+          .sort((a, b) => b.filas - a.filas);
+        if (!candidatos.length) return;
+        const mejor = candidatos[0];
+        const filasTotales = candidatos.reduce((acc, c) => acc + (c.filas || 0), 0);
+        provincias[prov] = {
+          archivo: mejor.archivo,
+          filasFuente: mejor.filas || 0,
+          filasTotalesDetectadas: filasTotales,
+          fuentesDetectadas: candidatos.length,
+          parcial: (mejor.filas || 0) < 50,
+          nombres: Array.from(mejor.nombresSet).sort()
+        };
+      });
+
+      return {
+        version: 1,
+        generatedAt: new Date().toISOString(),
+        files: [...SRI_EXCEL_FILES],
+        provincias
+      };
+    }
+    async function cargarIndiceSriExcelNombres() {
+      if (sriExcelNombresIndex) return sriExcelNombresIndex;
+      if (sriExcelNombresIndexPromise) return sriExcelNombresIndexPromise;
+
+      const cached = cargarSriExcelIndexDesdeCache();
+      if (cached) {
+        sriExcelNombresIndex = asegurarSetsSriExcel(cached);
+        sriExcelNombresEstado = "ready";
+        return sriExcelNombresIndex;
+      }
+
+      sriExcelNombresEstado = "loading";
+      sriExcelNombresError = "";
+      sriExcelNombresIndexPromise = (async () => {
+        try {
+          // Ruta rápida: índice precalculado en JSON (evita parsear Excel en cliente)
+          const precomputado = await fetchJson(SRI_EXCEL_INDEX_PRECALCULADO_FILE);
+          if (precomputado && precomputado.provincias) {
+            sriExcelNombresIndex = asegurarSetsSriExcel(precomputado);
+            sriExcelNombresEstado = "ready";
+            guardarSriExcelIndexEnCache(precomputado);
+            return sriExcelNombresIndex;
+          }
+
+          if (typeof XLSX === "undefined") {
+            throw new Error("No se pudo cargar el lector de Excel (XLSX) y no existe índice precalculado.");
+          }
+
+          const workbooks = (await Promise.all(SRI_EXCEL_FILES.map(async archivo => {
+            try {
+              const r = await fetch(DATA_PATH + archivo + BUST);
+              if (!r.ok) throw new Error(`HTTP ${r.status}`);
+              const ab = await r.arrayBuffer();
+              const workbook = XLSX.read(ab, { type: "array" });
+              return { archivo, workbook };
+            } catch (err) {
+              console.warn(`No se pudo cargar Excel SRI: ${archivo}`, err);
+              return null;
+            }
+          }))).filter(Boolean);
+          if (!workbooks.length) throw new Error("No se pudo cargar ningún Excel SRI");
+          const index = construirIndiceSriExcelDesdeWorkbooks(workbooks);
+          sriExcelNombresIndex = asegurarSetsSriExcel(index);
+          sriExcelNombresEstado = "ready";
+          guardarSriExcelIndexEnCache(index);
+          return sriExcelNombresIndex;
+        } catch (e) {
+          console.warn("No se pudo construir índice de nombres SRI desde Excel", e);
+          sriExcelNombresEstado = "error";
+          sriExcelNombresError = e?.message || "Error desconocido al leer Excel SRI";
+          return null;
+        } finally {
+          sriExcelNombresIndexPromise = null;
+        }
+      })();
+      return sriExcelNombresIndexPromise;
+    }
+    function calcularCoincidenciaLocalesVsSriExcel(registrosLocales, filtroProvincia) {
+      if (sriExcelNombresEstado === "idle" || sriExcelNombresEstado === "loading") {
+        return { estado: "loading" };
+      }
+      if (sriExcelNombresEstado === "error") {
+        return { estado: "error", mensaje: sriExcelNombresError || "No disponible" };
+      }
+      const index = sriExcelNombresIndex;
+      if (!index || !index.provincias) return { estado: "no_data" };
+
+      const localesPorProvincia = {};
+      (registrosLocales || []).forEach(reg => {
+        const prov = normalizarProvincia(reg?.provincia || "");
+        if (!prov) return;
+        const nombre = normalizarNombreComparacion(reg?.nombre || "");
+        if (!nombre) return;
+        if (!localesPorProvincia[prov]) localesPorProvincia[prov] = { registros: 0, nombresSet: new Set() };
+        localesPorProvincia[prov].registros++;
+        localesPorProvincia[prov].nombresSet.add(nombre);
+      });
+
+      const compararProvincia = (prov) => {
+        const local = localesPorProvincia[prov] || { registros: 0, nombresSet: new Set() };
+        const sri = index.provincias[prov];
+        if (!sri) {
+          return {
+            estado: "no_excel",
+            provincia: prov,
+            registrosLocales: local.registros,
+            localesUnicos: local.nombresSet.size
+          };
+        }
+        const sriSet = (sri.nombresSet && typeof sri.nombresSet.has === "function")
+          ? sri.nombresSet
+          : new Set(Array.isArray(sri.nombres) ? sri.nombres : []);
+        let coincidencias = 0;
+        local.nombresSet.forEach(n => { if (sriSet.has(n)) coincidencias++; });
+        const localesUnicos = local.nombresSet.size;
+        return {
+          estado: "ok",
+          provincia: prov,
+          registrosLocales: local.registros,
+          localesUnicos,
+          sriUnicos: sriSet.size,
+          coincidencias,
+          porcentaje: localesUnicos > 0 ? Math.round((coincidencias / localesUnicos) * 100) : 0,
+          archivo: sri.archivo,
+          filasFuente: sri.filasFuente || 0,
+          fuentesDetectadas: sri.fuentesDetectadas || 1,
+          parcial: !!sri.parcial
+        };
+      };
+
+      if (filtroProvincia) return compararProvincia(filtroProvincia);
+
+      let totalRegistrosLocales = 0, localesUnicos = 0, sriUnicos = 0, coincidencias = 0;
+      let provinciasComparadas = 0, provinciasSinExcel = 0, provinciasParciales = 0;
+      Object.keys(localesPorProvincia).forEach(prov => {
+        const r = compararProvincia(prov);
+        if (r.estado === "ok") {
+          totalRegistrosLocales += r.registrosLocales || 0;
+          localesUnicos += r.localesUnicos || 0;
+          sriUnicos += r.sriUnicos || 0;
+          coincidencias += r.coincidencias || 0;
+          provinciasComparadas++;
+          if (r.parcial) provinciasParciales++;
+        } else {
+          provinciasSinExcel++;
+        }
+      });
+      if (provinciasComparadas === 0) return { estado: "no_excel_total" };
+      return {
+        estado: "ok_total",
+        registrosLocales: totalRegistrosLocales,
+        localesUnicos,
+        sriUnicos,
+        coincidencias,
+        porcentaje: localesUnicos > 0 ? Math.round((coincidencias / localesUnicos) * 100) : 0,
+        provinciasComparadas,
+        provinciasSinExcel,
+        provinciasParciales
+      };
+    }
+    function obtenerDetalleCoincidenciasSriExcel(registrosLocales, filtroProvincia) {
+      if (sriExcelNombresEstado === "idle" || sriExcelNombresEstado === "loading") {
+        return { estado: "loading" };
+      }
+      if (sriExcelNombresEstado === "error") {
+        return { estado: "error", mensaje: sriExcelNombresError || "No disponible" };
+      }
+      const index = sriExcelNombresIndex;
+      if (!index || !index.provincias) return { estado: "no_data" };
+
+      const localesPorProvincia = {};
+      (registrosLocales || []).forEach(reg => {
+        const prov = normalizarProvincia(reg?.provincia || "");
+        if (!prov) return;
+        if (filtroProvincia && prov !== filtroProvincia) return;
+        const nombreOriginal = String(reg?.nombre || "").trim();
+        const nombreNormalizado = normalizarNombreComparacion(nombreOriginal);
+        if (!nombreNormalizado) return;
+        if (!localesPorProvincia[prov]) localesPorProvincia[prov] = new Map();
+        if (!localesPorProvincia[prov].has(nombreNormalizado)) {
+          localesPorProvincia[prov].set(nombreNormalizado, nombreOriginal || nombreNormalizado);
+        }
+      });
+
+      const filas = [];
+      Object.entries(localesPorProvincia).forEach(([prov, mapaLocales]) => {
+        const sri = index.provincias?.[prov];
+        if (!sri) return;
+        const sriSet = (sri.nombresSet && typeof sri.nombresSet.has === "function")
+          ? sri.nombresSet
+          : new Set(Array.isArray(sri.nombres) ? sri.nombres : []);
+        mapaLocales.forEach((nombreOriginal, nombreNormalizado) => {
+          if (!sriSet.has(nombreNormalizado)) return;
+          filas.push({
+            provincia: prov,
+            provinciaEtiqueta: etiquetaProvincia(prov),
+            local: nombreOriginal,
+            normalizado: nombreNormalizado,
+            archivo: sri.archivo || ""
+          });
+        });
+      });
+      filas.sort((a, b) => {
+        const p = (a.provinciaEtiqueta || "").localeCompare(b.provinciaEtiqueta || "", "es");
+        if (p !== 0) return p;
+        return (a.local || "").localeCompare(b.local || "", "es");
+      });
+      return { estado: "ok", filas };
+    }
+    function renderCoincidenciasSriExcelModal() {
+      const body = document.getElementById("sriCoincidenciasBody");
+      const countEl = document.getElementById("sriCoincidenciasCount");
+      const searchEl = document.getElementById("sriCoincidenciasSearch");
+      if (!body) return;
+      const q = normalizarTexto(searchEl?.value || "");
+      const esc = (s) => String(s ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/\"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+      const filas = (sriCoincidenciasDetalleActual || []).filter(f => {
+        if (!q) return true;
+        return normalizarTexto(`${f.local} ${f.provinciaEtiqueta} ${f.archivo}`).includes(q);
+      });
+      if (countEl) countEl.textContent = `${filas.length.toLocaleString()} coincidencias`;
+      body.innerHTML = filas.length
+        ? filas.map(f => `<tr><td>${esc(f.provinciaEtiqueta)}</td><td>${esc(f.local)}</td><td>${esc(f.archivo)}</td></tr>`).join("")
+        : `<tr><td colspan="3" style="color:#64748b">Sin coincidencias para el filtro actual</td></tr>`;
+    }
+    function filtrarCoincidenciasSriExcelModal() { renderCoincidenciasSriExcelModal(); }
+    function exportarCoincidenciasSriExcelCSV() {
+      if (!sriCoincidenciasDetalleActual || !sriCoincidenciasDetalleActual.length) return;
+      descargarCSVGenerico(
+        sriCoincidenciasDetalleActual.map(f => ({
+          provincia: f.provinciaEtiqueta,
+          local: f.local,
+          normalizado: f.normalizado,
+          archivo_excel_sri: f.archivo
+        })),
+        "coincidencias_sri_excel.csv"
+      );
+    }
+    function abrirCoincidenciasSriExcelModal() {
+      const detalle = obtenerDetalleCoincidenciasSriExcel(
+        ultimoContextoCoincidenciaSriExcel?.registros || [],
+        ultimoContextoCoincidenciaSriExcel?.filtroProvincia || null
+      );
+      if (detalle.estado !== "ok") {
+        alert(detalle.mensaje || "No se pudieron obtener coincidencias SRI (Excel) en este momento.");
+        return;
+      }
+      sriCoincidenciasDetalleActual = detalle.filas || [];
+      const tituloEl = document.getElementById("sriCoincidenciasModalTitulo");
+      const filtroProv = ultimoContextoCoincidenciaSriExcel?.filtroProvincia || null;
+      if (tituloEl) {
+        tituloEl.textContent = filtroProv
+          ? `Coincidencias SRI (Excel) - ${etiquetaProvincia(filtroProv)}`
+          : "Coincidencias SRI (Excel) - Todas las provincias";
+      }
+      const searchEl = document.getElementById("sriCoincidenciasSearch");
+      if (searchEl) searchEl.value = "";
+      renderCoincidenciasSriExcelModal();
+      const modal = document.getElementById("sriCoincidenciasModal");
+      if (modal) modal.style.display = "block";
+    }
+    function renderKpiCoincidenciaSriExcel(cardEl, resumen, filtroProvincia) {
+      if (!cardEl) return;
+      if (!resumen || resumen.estado === "loading") {
+        cardEl.innerHTML = `
+          <h3>Locales presentes en SRI (Excel)</h3>
+          <p style="font-size:1.6rem;">Cargando...</p>
+          <small style="display:block;color:#64748b">Leyendo archivos Excel SRI por provincia</small>
+        `;
+        return;
+      }
+      if (resumen.estado === "error") {
+        cardEl.innerHTML = `
+          <h3>Locales presentes en SRI (Excel)</h3>
+          <p style="font-size:1.4rem;color:#ef4444;">No disponible</p>
+          <small style="display:block;color:#64748b">${resumen.mensaje || "Error al leer Excel SRI"}</small>
+        `;
+        return;
+      }
+      if (resumen.estado === "no_excel" && filtroProvincia) {
+        cardEl.innerHTML = `
+          <h3>Locales presentes en SRI (Excel)</h3>
+          <p style="font-size:1.4rem;">Sin Excel</p>
+          <small style="display:block;color:#64748b">${etiquetaProvincia(filtroProvincia)}: ${Number(resumen.localesUnicos || 0).toLocaleString()} nombres locales únicos sin fuente Excel SRI disponible</small>
+        `;
+        return;
+      }
+      if (resumen.estado === "no_excel_total" || resumen.estado === "no_data") {
+        cardEl.innerHTML = `
+          <h3>Locales presentes en SRI (Excel)</h3>
+          <p style="font-size:1.4rem;">Sin datos</p>
+          <small style="display:block;color:#64748b">No se encontraron provincias comparables con Excel SRI</small>
+        `;
+        return;
+      }
+
+      const color = resumen.porcentaje >= 60 ? "#10b981" : resumen.porcentaje >= 30 ? "#f59e0b" : "#ef4444";
+      if (filtroProvincia && resumen.estado === "ok") {
+        const fuenteTexto = resumen.parcial
+          ? `Cobertura Excel parcial (${(resumen.filasFuente || 0).toLocaleString()} filas en ${resumen.archivo})`
+          : `Fuente Excel: ${resumen.archivo}`;
+        cardEl.innerHTML = `
+          <h3>Locales presentes en SRI (Excel)</h3>
+          <p style="font-size:2.2rem;color:${color}">${resumen.porcentaje}%</p>
+          <small style="display:block;color:#64748b;line-height:1.35">
+            ${resumen.coincidencias.toLocaleString()} de ${resumen.localesUnicos.toLocaleString()} nombres locales únicos coinciden<br>
+            SRI (Excel) únicos: <strong>${resumen.sriUnicos.toLocaleString()}</strong> · ${fuenteTexto}
+          </small>
+          ${resumen.coincidencias > 0 ? `<button onclick="abrirCoincidenciasSriExcelModal()" style="margin-top:.75rem;padding:.6rem .85rem;border-radius:10px;border:1px solid #334155;background:#0f172a;color:#e2e8f0;cursor:pointer">Ver coincidencias</button>` : ""}
+        `;
+        return;
+      }
+
+      const detalleProv = `Provincias comparadas: ${resumen.provinciasComparadas}${resumen.provinciasSinExcel ? ` · sin Excel: ${resumen.provinciasSinExcel}` : ""}${resumen.provinciasParciales ? ` · parciales: ${resumen.provinciasParciales}` : ""}`;
+      cardEl.innerHTML = `
+        <h3>Locales presentes en SRI (Excel)</h3>
+        <p style="font-size:2.2rem;color:${color}">${resumen.porcentaje}%</p>
+        <small style="display:block;color:#64748b;line-height:1.35">
+          ${resumen.coincidencias.toLocaleString()} de ${resumen.localesUnicos.toLocaleString()} nombres locales únicos coinciden<br>
+          ${detalleProv}
+        </small>
+        ${resumen.coincidencias > 0 ? `<button onclick="abrirCoincidenciasSriExcelModal()" style="margin-top:.75rem;padding:.6rem .85rem;border-radius:10px;border:1px solid #334155;background:#0f172a;color:#e2e8f0;cursor:pointer">Ver coincidencias</button>` : ""}
+      `;
+    }
     // decide la categoría del punto usando keyword_found y fallback por nombre/dirección
     function categoriaDesdeKeyword(keyword_found, nombre = "", direccion = "") {
       const texto = normalizarTexto([keyword_found, nombre, direccion].filter(Boolean).join(" "));
@@ -339,9 +828,17 @@
       if (cached) {
         try {
           const data = JSON.parse(cached);
-          datosSRI = data.datosSRI || [];
-          procesarDatos(data.destacados || [], data.preciosRaw || [], data.ubicaciones || []);
-          return;
+          const cachePrecios = Array.isArray(data?.preciosRaw) ? data.preciosRaw : [];
+          const cacheUbicaciones = Array.isArray(data?.ubicaciones) ? data.ubicaciones : [];
+          const cacheSRI = Array.isArray(data?.datosSRI) ? data.datosSRI : [];
+          const cacheValido = cachePrecios.length > 0 && cacheUbicaciones.length > 0;
+          if (cacheValido) {
+            datosSRI = cacheSRI;
+            procesarDatos(Array.isArray(data?.destacados) ? data.destacados : [], cachePrecios, cacheUbicaciones);
+            return;
+          }
+          console.warn("Caché local inválido o vacío; se recargarán datos desde JSON.");
+          localStorage.removeItem(CACHE_KEY);
         } catch (e) { localStorage.removeItem(CACHE_KEY); }
       }
 
@@ -461,7 +958,11 @@
       });
 
       renderDashboard();
-      renderCatalogo();
+      catalogoDirty = true;
+      const catalogoTab = document.getElementById("catalogo");
+      if (catalogoTab && catalogoTab.classList.contains("active")) {
+        renderCatalogo();
+      }
     }
 
     function renderDashboard() {
@@ -658,6 +1159,7 @@
             <div class="kpi-card success"><h3>Librerías en Google Maps</h3><p id="googleCount">0</p></div>
             <div class="kpi-card danger"><h3>Zonas SRI registradas</h3><p id="sriCount">0</p></div>
             <div class="kpi-card danger"><h3>Total establecimientos SRI</h3><p id="totalSRI">0</p></div>
+            <div class="kpi-card" id="sriCoincidenciaNombresCard"><h3>Locales presentes en SRI (Excel)</h3><p style="font-size:1.6rem;">Cargando...</p></div>
             <div class="kpi-card warning" id="provinciaSriCard" style="display:none;"></div>
             <div class="kpi-card" id="coberturaCard"><h3>Cobertura real (Google vs SRI)</h3><p id="coberturaPorcentaje">0%</p></div>
           </div>
@@ -984,8 +1486,20 @@ const googleCountVisible = ubicacionesFiltradas.length;
       const googleCountEl = document.getElementById("googleCount");
       const sriCountEl = document.getElementById("sriCount");
       const totalSRIEl = document.getElementById("totalSRI");
+      const sriCoincidenciaNombresCardEl = document.getElementById("sriCoincidenciaNombresCard");
       const coberturaCardEl = document.getElementById("coberturaCard");
       const provinciaSriCardEl = document.getElementById("provinciaSriCard");
+      if (sriExcelNombresEstado === "idle") {
+        cargarIndiceSriExcelNombres()
+          .then(() => { if (mapa) renderMapa(); })
+          .catch(() => { if (mapa) renderMapa(); });
+      }
+      ultimoContextoCoincidenciaSriExcel = {
+        registros: ubicacionesProvincia,
+        filtroProvincia: filtroProvincia || null
+      };
+      const resumenCoincidenciaSriExcel = calcularCoincidenciaLocalesVsSriExcel(ubicacionesProvincia, filtroProvincia);
+      renderKpiCoincidenciaSriExcel(sriCoincidenciaNombresCardEl, resumenCoincidenciaSriExcel, filtroProvincia);
       if (googleCountEl) {
         googleCountEl.innerHTML = `${googleCountTotal.toLocaleString()}<small style="display:block;font-size:.82rem;color:#9ca3af;font-weight:500;">visibles: ${googleCountVisibleEfectivo.toLocaleString()}</small>`;
       }
@@ -1116,6 +1630,7 @@ marcador.bindPopup(`
         : "";
       document.getElementById("catalogo").innerHTML = `<div class="section"><h2>Catálogo Completo (${Object.keys(grupo).length} libros únicos)</h2><div class="catalogo-filtros"><input type="text" class="table-search" id="searchCat" placeholder="Buscar libro, autor, editorial..." onkeyup="filtrarCat()"><select id="provinciaCat" class="provincia-select" onchange="filtrarCat()"><option value="TODAS">Todas las provincias</option>${opcionesProvincia}</select></div><div class="books-grid" id="catGrid"></div></div>`;
       mostrarTodos();
+      catalogoDirty = false;
     }
     function mostrarTodos() {
       const g = document.getElementById("catGrid"); g.innerHTML = "";
@@ -1172,6 +1687,13 @@ marcador.bindPopup(`
       document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
       document.getElementById(id).classList.add("active");
       document.querySelector(`[onclick="openTab('${id}')"]`).classList.add("active");
+      if (id === "catalogo" && catalogoDirty) {
+        requestAnimationFrame(() => {
+          if (document.getElementById("catalogo")?.classList.contains("active") && catalogoDirty) {
+            renderCatalogo();
+          }
+        });
+      }
     }
 
     function descargarCSVGenerico(filas, nombre) {
