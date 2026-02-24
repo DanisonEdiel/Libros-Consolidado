@@ -1,5 +1,6 @@
 # Fuentes locales SRI (insumos de trabajo, no para versionar en este repo)
 data/* SRI.xlsx
+libreriasG8.xlsx
 
 # Archivos auxiliares o de pruebas que no forman parte del flujo final
 data/sri_santa_elena_coordenadas.json

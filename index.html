@@ -24,8 +24,6 @@
         </div>
       </div>
       <div class="header-badges">
-        <span class="pill pill-accent">Trabajo de titulación UCE</span>
-        <span class="pill">Cobertura nacional en construcción</span>
         <button class="presentation-toggle" onclick="togglePresentacion()">Modo presentación</button>
       </div>
     </div>
@@ -227,7 +225,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h2 id="sriCoincidenciasModalTitulo">Coincidencias SRI (Excel)</h2>
-        <span class="close" onclick="document.getElementById('sriCoincidenciasModal').style.display='none'">Ã—</span>
+        <span class="close" onclick="document.getElementById('sriCoincidenciasModal').style.display='none'">Cerrar</span>
       </div>
       <div class="modal-body">
         <div class="modal-controls" style="display:flex;gap:.75rem;flex-wrap:wrap;align-items:center">
@@ -694,7 +692,7 @@
       if (tituloEl) {
         tituloEl.textContent = filtroProv
           ? `Coincidencias SRI (Excel) - ${etiquetaProvincia(filtroProv)}`
-          : "Coincidencias SRI (Excel) - Todas las provincias";
+          : "Coincidencias SRI (Excel) - Todas las provincias"
       }
       const searchEl = document.getElementById("sriCoincidenciasSearch");
       if (searchEl) searchEl.value = "";
